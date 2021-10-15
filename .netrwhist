@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/digitaldive/SSF-Labs/apps/auth0-demo/src/app/nav-bar'
+let g:netrw_dirhist_0='/home/digitaldive/SSF-Labs/apps/auth0-demo/src/app'
+let g:netrw_dirhist_9='/home/digitaldive/SSF-Labs/apps/auth0-demo/src'
+let g:netrw_dirhist_8='/home/digitaldive/SSF-Labs/apps/auth0-demo'
+let g:netrw_dirhist_7='/home/digitaldive/SSF-Labs/apps'
+let g:netrw_dirhist_6='/home/digitaldive/SSF-Labs/dist'
+let g:netrw_dirhist_5='/home/digitaldive/SSF-Labs'
+let g:netrw_dirhist_4='/home'
+let g:netrw_dirhist_3='/home/digitaldive'
+let g:netrw_dirhist_2='/home/digitaldive/SSF-Labs/apps/nest-todos'
