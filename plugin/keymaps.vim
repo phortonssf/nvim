@@ -5,6 +5,13 @@ noremap <A-k> <Esc>:m .-2<CR>==gi
 noremap <A-j> :m '>+1<CR>gv=gv
 noremap <A-k> :m '<-2<CR>gv=gv
 
+"Leader + o to add space normal mode
+nnoremap <leader>o o<esc>
+
+" Alias for find all occurences *****
+"nnoremap <leader>s :%s//gI<Left><Left><Left>
+noremap <Leader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
+
 "ctrl Q to quit"
 map <C-Q> :qa!<CR>
 
@@ -22,9 +29,6 @@ imap kk <Esc>
 " move among buffers with CTRL
 map <C-J> :bnext<CR>
 map <C-K> :bprev<CR>
- 
-" noremap <A-l> 4l
-" noremap <M-h> 4h
 
 "Map Leader to space bar
 "let mapleader = " "
@@ -48,11 +52,6 @@ xnoremap <leader>p "_dP
 "maps Ctrl-c to system register
 vnoremap <C-c> "+y
 
-" copy and past from vim/nvim to windows  text to .vimbuffer
-" vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
- " paste from buffer
-" map <C-v> :r ~/.vimbuffer<CR>
- 
 "Maps Ctrl v to ctrl m - to copy paste
  nnoremap <c-m> <c-v>
  nnoremap <c-m> <c-q>
