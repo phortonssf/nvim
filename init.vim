@@ -143,7 +143,7 @@ function! OnUIEnter(event) abort
 endfunction
 
 autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-
+autocmd VimEnter * execute "normal \g;" 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
 
