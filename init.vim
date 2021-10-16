@@ -7,8 +7,6 @@ if !exists('g:vscode')
 
 call plug#begin('~/.vim/plugged')
   
-"Restart without leaving nvim"
-" Plug 'famiu/nvim-reload'
 
 Plug 'terrortylor/nvim-comment'
  
@@ -17,7 +15,6 @@ Plug 'matze/vim-move'
 Plug 'unblevable/quick-scope'
   
 "Scrolling"
-" Plug 'https://github.com/terryma/vim-smooth-scroll'
 Plug 'yuttie/comfortable-motion.vim'
 
 "Plug 'prabirshrestha/async.vim'
@@ -33,6 +30,7 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 
+" telescope requirements"
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -44,7 +42,7 @@ Plug 'sbdchd/neoformat'
 Plug 'morhetz/gruvbox'          
 Plug 'sainnhe/gruvbox-material'
 
-"Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
