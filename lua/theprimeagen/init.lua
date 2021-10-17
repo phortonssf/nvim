@@ -1,7 +1,0 @@
-require("theprimeagen.telescope")
-require("theprimeagen.lsp")
-require("theprimeagen.compe")
-require("theprimeagen.saga")
-require("theprimeagen.auto-session")
-require("theprimeagen.treesitter")
-require("theprimeagen.nvim-tree")
