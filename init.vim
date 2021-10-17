@@ -7,6 +7,7 @@ if !exists('g:vscode')
 
 call plug#begin('~/.vim/plugged')
   
+
 Plug 'terrortylor/nvim-comment'
  
 "Visual Mode Moves Code ALT-J/K
@@ -87,9 +88,6 @@ source ~/.config/nvim/plugin/keymaps.vim
  inoremap ' ''<Esc>i
  inoremap " ""<Esc>i
 
-autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-" autocmd VimEnter * execute "normal \g;" 
-autocmd BufReadPost * execute "normal \g;" 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
 
@@ -100,9 +98,6 @@ set t_Co=256
 
 set termguicolors
 
-"Sets Color for vim, not airline
-autocmd vimenter * colorscheme gruvbox-material
-
 if has('nvim')
    tnoremap <Esc> <C-\><C-n>
 endif
@@ -110,15 +105,3 @@ endif
 if !has('nvim')
     set ttymouse=xterm2
 endif
-
-let g:neoformat_enabled_typescript = ['prettier']
-let g:neoformat_typescript_prettier= {
-     \ 'exe': 'prettier',
-      \ 'args': ['--write --single-quote --trailing-comma es5 --no-bracket-spacing --no-semi --print-width 70'],
-      \ 'replace': 1
-      \ }
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
-
