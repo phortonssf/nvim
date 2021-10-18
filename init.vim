@@ -1,4 +1,4 @@
-set path+=**
+
 
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
@@ -26,6 +26,26 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+
+" Neovim Tree shitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground' 
+
+"Cursor
+Plug 'edluffy/specs.nvim'
+
+"Git
+Plug 'tpope/vim-fugitive'
+"Comment
+Plug 'terrortylor/nvim-comment'
+
 call plug#end()
 
 lua require("digitaldive")
+lua require('nvim_comment').setup()
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
