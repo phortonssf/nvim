@@ -1,18 +1,20 @@
 noremap <A-j> :m .+2<CR>==
+
+
 noremap <A-k> :m .-2<CR>==
 noremap <A-j> <Esc>:m .+1<CR>==gi
 noremap <A-k> <Esc>:m .-2<CR>==gi
 noremap <A-j> :m '>+1<CR>gv=gv
 noremap <A-k> :m '<-2<CR>gv=gv
 
-"Leader + o to add space normal mode
-nnoremap <leader>o o<esc>
+"Map Leader to space bar
+noremap <SPACE> <Nop>
+let mapleader=" "
 
 " Alias for find all occurences *****
 "nnoremap <leader>s :%s//gI<Left><Left><Left>
-noremap <Leader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
-
-"ctrl Q to quit"
+noremap <leader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
+"Q to quit"
 map <C-Q> :qa!<CR>
 
 "Shift U to undo to last write"
@@ -30,10 +32,6 @@ imap kk <Esc>
 map <C-J> :bnext<CR>
 map <C-K> :bprev<CR>
 
-"Map Leader to space bar
-"let mapleader = " "
-noremap <SPACE> <Nop>
-let mapleader="\<Space>"
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -44,7 +42,7 @@ nnoremap <leader>o <S-i><CR><esc>k
 "ss space in normal mode
 noremap <leader><space> i<space><esc>
 
-" delete without yanking
+" delete without yaing
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 xnoremap <leader>p "_dP
@@ -64,7 +62,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
-" greatest remap ever
+" GREATest remap ever
 xnoremap <leader>p "_dP
 
 " next greatest remap ever : asbjornHaland
@@ -75,5 +73,8 @@ nnoremap <leader>Y gg"+yG
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
  " Alias for commenting a block of code
-" nnoremap <leader>c <c-v>}I
+" nnoREMAP <leader>c <c-v>}I
 " nnoremap <leader>" <c-v>}kI"<space><esc>
+
+"Tmux Ctrl-A unbind
+map <C-a> <Nop>
