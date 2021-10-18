@@ -1,5 +1,3 @@
-
-
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
 set wildmenu
@@ -11,7 +9,7 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
-
+set scrolloff
 call plug#begin('~/.vim/plugged')
 
 Plug 'neovim/nvim-lspconfig'
@@ -60,9 +58,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'terrortylor/nvim-comment'
 
 Plug 'sudormrfbin/cheatsheet.nvim'
-
+"Scrolling
+Plug 'karb94/neoscroll.nvim'
 call plug#end()
 
+
+lua require('neoscroll').setup()
 
 lua require("digitaldive")
 lua require('nvim_comment').setup()
