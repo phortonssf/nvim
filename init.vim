@@ -10,14 +10,19 @@ set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 set scrolloff
+"Cursor line
+set cul
 call plug#begin('~/.vim/plugged')
-
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'mattn/emmet-vim'
+Plug 'windwp/nvim-ts-autotag'
+
+Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/highlight.lua'
+
 Plug 'glepnir/lspsaga.nvim'
 "Plug 'simrat39/symbols-outline.nvim'
 Plug 'L3MON4D3/LuaSnip'
@@ -60,25 +65,81 @@ Plug 'terrortylor/nvim-comment'
 Plug 'sudormrfbin/cheatsheet.nvim'
 "Scrolling
 Plug 'karb94/neoscroll.nvim'
+
+"Floating context
+Plug 'romgrk/nvim-treesitter-context'
+
+"TABS OUT OF {} ETC
+Plug 'abecodes/tabout.nvim'
+Plug 'ahmedkhalf/lsp-rooter.nvim'
+
 call plug#end()
 
 
 lua require('neoscroll').setup()
-
 lua require("digitaldive")
 lua require('nvim_comment').setup()
+lua require('tabout').setup()
+lua require('lsp-rooter').setup()
+lua require('nvim-ts-autotag').setup()
+lua require('nvim-autopairs').setup{}
+
+
 augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
-set cul
-" Sets Cursor Number Color and background, hi to get colors
-"autocmd ColorScheme * highlight CursorLineNr cterm=bold ctermfg=236 ctermbg=109 gui=bold guifg=#32302f guibg=#7daea3 
-"Brownish Number Line 
-autocmd ColorScheme * highlight CursorLineNr ctermfg=236 ctermbg=246 guifg=#32302f guibg=#a89984 
-"Bluis Number line 
-autocmd InsertEnter *  highlight CursorLineNr cterm=bold ctermfg=236 ctermbg=109 gui=bold guifg=#32302f guibg=#7daea3   
-autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=246 guifg=#32302f guibg=#a89984 
+
+
+" inverted cursor workaround for windows terminal
+if !empty($WT_SESSION)
+    " guicursor will leave reverse to the terminal, which won't work in WT.
+    " therefore we will set bg and fg colors explicitly in an autocmd.
+    " however guicursor also ignores fg colors, so fg color will be set
+    " with a second group that has gui=reverse.
+    hi! WindowsTerminalCursorFg gui=none
+    hi! WindowsTerminalCursorBg gui=none
+    set guicursor+=n-v-c-sm:block-WindowsTerminalCursorBg
+
+    function! WindowsTerminalFixHighlight()
+        " reset match to the character under cursor
+        silent! call matchdelete(99991)
+        call matchadd('WindowsTerminalCursorFg', '\%#.', 100, 99991)
+
+        " find fg color under cursor or fall back to Normal fg then black
+        let bg = synIDattr(synIDtrans(synID(line("."), col("."), 1)), 'fg#') 
+        if bg == "" | let bg = synIDattr(synIDtrans(hlID('Normal')), 'fg#') | endif
+        if bg == "" | let bg = "black" | endif
+        exec 'hi WindowsTerminalCursorBg guibg=' . bg
+        " reset this group so it survives theme changes
+        hi! WindowsTerminalCursorFg gui=reverse
+    endfunction
+
+    function! WindowsTerminalFixClear()
+        " hide cursor highlight
+        silent! call matchdelete(99991)
+
+        " make cursor the default color or black in insert mode
+        let bg = synIDattr(synIDtrans(hlID('Normal')), 'fg#')
+        if bg == "" | let bg = "black" | endif
+        exec 'hi WindowsTerminalCursorBg guibg=' . bg
+    endfunction
+
+    augroup windows_terminal_fix
+        autocmd!
+        autocmd FocusLost * call WindowsTerminalFixClear()
+        autocmd FocusGained * if mode(1) != "i" | call WindowsTerminalFixHighlight() | endif
+
+        autocmd InsertEnter * call WindowsTerminalFixClear()
+        autocmd InsertLeave * call WindowsTerminalFixHighlight()
+        autocmd CursorMoved * call WindowsTerminalFixHighlight()
+    augroup END
+endif
+
+"Works to not override terminal cursor
+" set guicursor=
+
+
 "Toggle Number Line
 " autocmd InsertLeave * set nocul
 " autocmd InsertEnter * set cul
@@ -89,3 +150,35 @@ autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=246 guifg=#32302f guib
 " autocmd VimLeave set guicursor=
 " augroup END
 
+
+
+" I dont know
+
+" let &t_SI = "\e[6 q"
+" let &t_EI = "\e[2 q"
+
+" reset the cursor on start (for older versions of vim, usually not required)
+
+" augroup myCmds
+" au!
+" autocmd VimEnter * silent !echo -ne "\e[2 q"
+" augroup END
+
+"Garbage
+
+" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+" let &t_SR = "\<Esc>]50;CursorShape=2\x7k"
+" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" autocmd VimLeave * silent 
+
+"  if &term =~ "xterm\\|rxvt"
+"    " use an orange cursor in insert mode
+"    let &t_SI = "\<Esc>]12;orange\x7"
+"    " use a red cursor otherwise
+"    let &t_EI = "\<Esc>]12;red\x7"
+"    silent !echo -ne "\033]12;red\007"
+"    " reset cursor when vim exits
+"    autocmd VimLeave * silent !echo -ne "\033]112\007"
+"    " use \003]12;gray\007 for gnome-terminal
+" endif

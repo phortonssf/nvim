@@ -4,6 +4,9 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 cmp.setup({
+    completion = {
+    completeopt = 'menu,menuone,noinsert',
+  },
     snippet = {
         expand = function(args)
             -- For `vsnip` user.
@@ -17,6 +20,7 @@ cmp.setup({
         end,
     },
     mapping = {
+        ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),

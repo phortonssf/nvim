@@ -5,4 +5,4 @@ require("digitaldive.bufferline")
 require("digitaldive.specs")
 -- require("digitaldive.auto-session")
 require("digitaldive.lsp")
-
+require("digitaldive.tabout")
