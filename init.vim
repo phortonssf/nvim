@@ -14,8 +14,6 @@ set scrolloff
 set cul
 "Saves marks
 set viminfo='100,f1
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
 call plug#begin('~/.vim/plugged')
 
 Plug 'neovim/nvim-lspconfig'
@@ -78,6 +76,9 @@ Plug 'romgrk/nvim-treesitter-context'
 "TABS OUT OF {} ETC
 Plug 'abecodes/tabout.nvim'
 Plug 'ahmedkhalf/lsp-rooter.nvim'
+
+"ALT-HJKL move line"
+Plug 'matze/vim-move'
 
 call plug#end()
 
