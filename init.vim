@@ -37,7 +37,6 @@ Plug 'sainnhe/gruvbox-material'
 " Plug 'rmagatti/session-lens'
 Plug 'shatur/neovim-session-manager'
 
-
 " prettier
 Plug 'sbdchd/neoformat'
 
@@ -58,6 +57,8 @@ Plug 'edluffy/specs.nvim'
 
 "Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
 
 "Comment
 Plug 'terrortylor/nvim-comment'
