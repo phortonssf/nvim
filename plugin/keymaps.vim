@@ -11,7 +11,7 @@ noremap <A-j> :m '>+1<CR>gv=gv
 noremap <A-k> :m '<-2<CR>gv=gv
 
 
-
+"Bufferline go to buffer"
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
@@ -26,7 +26,6 @@ nmap <F1> :echo<CR>
 imap <F1> <C-o>:echo<CR>
 
 "Yank to end of line"
-noremap Y y$
 noremap Q @q
 
 
@@ -74,17 +73,32 @@ vnoremap <C-c> "+y
  nnoremap <c-m> <c-v>
  nnoremap <c-m> <c-q>
  
- vnoremap J :m '>+1<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+"Prime binds"
 nnoremap Y yg$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
+"Breaks undo sequence"
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+inoremap } }<c-g>u
+inoremap : :<c-g>u
+inoremap ; ;<c-g>u
+inoremap ) )<c-g>u
+inoremap = =<c-g>u
+inoremap <Bslash> <Bslash><c-g>u
+inoremap <Space> <Space><c-g>u
+
+
 " GREATest remap ever
 xnoremap <leader>p "_dP
-
+ 
 " next greatest remap ever : asbjornHaland
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y

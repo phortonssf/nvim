@@ -14,6 +14,10 @@ set scrolloff
 set cul
 "Saves marks
 set viminfo='100,f1
+
+
+
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'neovim/nvim-lspconfig'
