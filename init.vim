@@ -43,7 +43,7 @@ Plug 'yashguptaz/calvera-dark.nvim'
 " Plug 'rmagatti/auto-session'
 " Plug 'rmagatti/session-lens'
 " Plug 'shatur/neovim-session-manager'
-
+Plug 'tpope/vim-obsession'
 " prettier
 Plug 'sbdchd/neoformat'
 
@@ -85,13 +85,15 @@ Plug 'matze/vim-move'
 
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'max397574/better-escape.nvim'
-
+"Move to last edit on start'
 Plug 'farmergreg/vim-lastplace'
 
 
 "meh'
 Plug 'folke/todo-comments.nvim'
 " Plug 'ellisonleao/glow.nvim'
+"Open file and be in root dir
+"Plug 'ahmedkhalf/lsp-rooter.nvim'
 call plug#end()
 
 lua require("digitaldive")
@@ -103,6 +105,9 @@ lua require('lsp-rooter').setup()
 lua require('nvim-ts-autotag').setup()
 lua require('nvim-autopairs').setup()
 lua require('todo-comments').setup()
+
+"not sure"
+" lua require("lsp-rooter").setup() 
 augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
