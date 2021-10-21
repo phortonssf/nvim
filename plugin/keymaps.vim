@@ -5,6 +5,10 @@ noremap <A-k> <Esc>:m .-2<CR>==gi
 noremap <A-j> :m '>+1<CR>gv=gv
 noremap <A-k> :m '<-2<CR>gv=gv
 
+"unbinds F1 key for help"
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
+
 "Yank to end of line"
 noremap Y y$
 noremap Q @q
