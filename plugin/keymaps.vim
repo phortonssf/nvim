@@ -90,10 +90,11 @@ inoremap ? ?<c-g>u
 inoremap } }<c-g>u
 inoremap : :<c-g>u
 inoremap ; ;<c-g>u
-inoremap ) )<c-g>u
 inoremap = =<c-g>u
 inoremap <Bslash> <Bslash><c-g>u
 inoremap <Space> <Space><c-g>u
+
+
 
 "Jump List"
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
