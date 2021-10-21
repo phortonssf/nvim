@@ -1,11 +1,17 @@
 noremap <A-j> :m .+2<CR>==
-
-
 noremap <A-k> :m .-2<CR>==
 noremap <A-j> <Esc>:m .+1<CR>==gi
 noremap <A-k> <Esc>:m .-2<CR>==gi
 noremap <A-j> :m '>+1<CR>gv=gv
 noremap <A-k> :m '<-2<CR>gv=gv
+
+"Yank to end of line"
+noremap Y y$
+noremap Q @q
+"telescope"
+map <leader>rf :G 
+map <leader>gc :G commit
+
 
 "Map Leader to space bar
 noremap <SPACE> <Nop>
