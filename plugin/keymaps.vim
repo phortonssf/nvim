@@ -95,6 +95,9 @@ inoremap = =<c-g>u
 inoremap <Bslash> <Bslash><c-g>u
 inoremap <Space> <Space><c-g>u
 
+"Jump List"
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 " GREATest remap ever
 xnoremap <leader>p "_dP
