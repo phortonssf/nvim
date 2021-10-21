@@ -108,3 +108,5 @@ augroup END
 "Works to not override terminal cursor
 " set guicursor=
 
+" Adds remove command
+command! -complete=file -nargs=1 Remove :echo 'Remove: '.'<f-args>'.' '.(delete(<f-args>) == 0 ? 'SUCCEEDED' : 'FAILED') | bdelete!
