@@ -86,6 +86,7 @@ Plug 'matze/vim-move'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'max397574/better-escape.nvim'
 
+Plug 'farmergreg/vim-lastplace'
 
 
 "meh'
