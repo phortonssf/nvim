@@ -1,3 +1,8 @@
+"Map Leader to space bar
+noremap <SPACE> <Nop>
+let mapleader = "\<Space>"
+
+"Alt move line "
 noremap <A-j> :m .+2<CR>==
 noremap <A-k> :m .-2<CR>==
 noremap <A-j> <Esc>:m .+1<CR>==gi
@@ -5,6 +10,17 @@ noremap <A-k> <Esc>:m .-2<CR>==gi
 noremap <A-j> :m '>+1<CR>gv=gv
 noremap <A-k> :m '<-2<CR>gv=gv
 
+
+
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 "unbinds F1 key for help"
 nmap <F1> :echo<CR>
 imap <F1> <C-o>:echo<CR>
@@ -12,18 +28,12 @@ imap <F1> <C-o>:echo<CR>
 "Yank to end of line"
 noremap Y y$
 noremap Q @q
-"telescope"
-map <leader>rf :G 
-map <leader>gc :G commit
 
 
-"Map Leader to space bar
-noremap <SPACE> <Nop>
-let mapleader=" "
 
 " Alias for find all occurences *****
 "nnoremap <leader>s :%s//gI<Left><Left><Left>
-noremap <leader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
+" noremap <eader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
 "Q to quit"
 map <C-Q> :qa!<CR>
 
@@ -39,8 +49,8 @@ imap jj <Esc><Right>
 imap kk <Esc>
 
 " move among buffers with CTRL
-map <C-J> :bnext<CR>
-map <C-K> :bprev<CR>
+map <C-K> :bnext<CR>
+map <C-J> :bprev<CR>
 
 
 " Use <Tab> and <S-Tab> to navigate through popup menu

@@ -2,7 +2,7 @@
 
 set shell=/bin/zsh
 set clipboard=unnamedplus
-
+set sessionoptions+=globals
 "Search Settings
 set incsearch
 set nohlsearch
