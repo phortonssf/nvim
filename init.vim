@@ -83,12 +83,14 @@ Plug 'ahmedkhalf/lsp-rooter.nvim'
 "ALT-HJKL move line"
 Plug 'matze/vim-move'
 
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'max397574/better-escape.nvim'
+
+
 
 "meh'
 Plug 'folke/todo-comments.nvim'
-
-Plug 'ellisonleao/glow.nvim'
+" Plug 'ellisonleao/glow.nvim'
 call plug#end()
 
 lua require("digitaldive")
