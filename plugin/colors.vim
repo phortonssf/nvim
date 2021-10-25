@@ -13,3 +13,5 @@ autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=246 guifg=#32302f guib
 "Sets Visual mode hightlight"
 " hi Visual cterm=bold ctermfg=236 ctermbg=109 gui=bold guifg=#32302f guibg=#7daea3
 autocmd ColorScheme * hi Visual  guifg=#a074c4 gui=none
+"Highlight on yank
+autocmd ColorScheme * hi IncSearch cterm=bold ctermfg=208 guibg=#3c3836 guifg=#e78a4e 
