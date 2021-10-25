@@ -1,6 +1,8 @@
 " Nice menu when typing `:find *.py`
-set wildmode=longest,list,full
 set wildmenu
+set wildoptions+=pum
+
+set wildmode=longest,list,full
 " Ignore files
 set wildignore+=*.pyc
 set wildignore+=*_build/*
@@ -17,7 +19,6 @@ set viminfo='100,f1
 
 
 
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'neovim/nvim-lspconfig'
@@ -26,19 +27,22 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'mattn/emmet-vim'
 Plug 'windwp/nvim-ts-autotag'
+Plug 'folke/lsp-colors.nvim'
+"Plug 'onsails/diaglist.nvim'
 
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/highlight.lua'
 
 Plug 'glepnir/lspsaga.nvim'
 "Plug 'simrat39/symbols-outline.nvim'
-Plug 'L3MON4D3/LuaSnip'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
 Plug 'sainnhe/gruvbox-material'
 
+"Wildmenu"
+Plug 'gelguy/wilder.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "Color Schemes"
 Plug 'yashguptaz/calvera-dark.nvim'
@@ -92,14 +96,19 @@ Plug 'max397574/better-escape.nvim'
 "Move to last edit on start'
 Plug 'farmergreg/vim-lastplace'
 
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'romgrk/fzy-lua-native'
 
+"RipGrep"
+" Plug 'duane9/nvim-rg'
+  
 "meh'
 Plug 'folke/todo-comments.nvim'
 " Plug 'ellisonleao/glow.nvim'
 "Open file and be in root dir
 "Plug 'ahmedkhalf/lsp-rooter.nvim'
 call plug#end()
-
 lua require("digitaldive")
 lua require('better_escape').setup({ mapping = {"jj", "kk"}})
 lua require('neoscroll').setup()
@@ -109,7 +118,6 @@ lua require('lsp-rooter').setup()
 lua require('nvim-ts-autotag').setup()
 lua require('nvim-autopairs').setup()
 lua require('todo-comments').setup()
-
 "not sure"
 " lua require("lsp-rooter").setup() 
 augroup fmt

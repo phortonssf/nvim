@@ -1,4 +1,3 @@
-lua require("digitaldive")
 
 nnoremap <leader>rr :lua require('digitaldive.telescope').refactors()<CR>
 vnoremap <leader>rr :lua require('digitaldive.telescope').refactors()<CR>
