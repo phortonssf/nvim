@@ -224,6 +224,12 @@ M.dev = function(opts)
             return true
         end,
     }):find()
+    M.file_browser = function()
+      telescope_builtin.file_browser {
+        find_command = {'!.git', '--hidden'}
+      }
+
+    end
 end
 
 return M
