@@ -23,10 +23,8 @@ require('packer').startup(function()
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   use 'eddyekofo94/gruvbox-flat.nvim'
-  use 'sainnhe/gruvbox-material'
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use 'joshdick/onedark.vim' -- Theme inspired by Atom
   use 'itchyny/lightline.vim' -- Fancier statusline
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
@@ -48,6 +46,11 @@ use {'matze/vim-move'}
 
 -- smooth scroll
 use 'karb94/neoscroll.nvim'
+
+-- themes
+use 'glepnir/zephyr-nvim'
+use 'sainnhe/gruvbox-material'
+use 'joshdick/onedark.vim' -- Theme inspired by Atom
 end)
 
 --Incremental live completion (note: this is now a default on master)
