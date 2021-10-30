@@ -45,6 +45,9 @@ require('packer').startup(function()
 use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 -- move line"
 use {'matze/vim-move'}
+
+-- smooth scroll
+use 'karb94/neoscroll.nvim'
 end)
 
 --Incremental live completion (note: this is now a default on master)
@@ -79,7 +82,7 @@ vim.wo.signcolumn = 'yes'
 --Set colorscheme (order is important here)
 vim.o.termguicolors = true
 vim.g.onedark_terminal_italics = 2
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme gruvbox-material]]
 
 --Set statusbar
 vim.g.lightline = {
@@ -344,4 +347,5 @@ local backward = function()
 end
 
 vim.api.nvim_set_keymap("n","<C-n>", "lua backward()<cr>", { silent = true, noremap = true })
+require('neoscroll').setup()
 
