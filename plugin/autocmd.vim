@@ -17,7 +17,8 @@ autocmd InsertLeave * execute 'normal! mI'
 " Mark M at the position when any modification happened in the Normal or Insert mode
 autocmd CursorMoved * call DetectRegChangeAndUpdateMark()
 autocmd InsertLeave * execute 'normal! mM'
-
+"Got to last edit"
+" autocmd VimEnter * execute "normal \g;" 
 
 "End of buffer Transparent
 autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
