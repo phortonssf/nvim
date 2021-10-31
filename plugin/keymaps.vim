@@ -29,10 +29,10 @@ imap <F1> <C-o>:echo<CR>
 noremap Q @q
 
 
-
 " Alias for find all occurences *****
 "nnoremap <leader>s :%s//gI<Left><Left><Left>
 " noremap <eader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
+
 "Q to quit"
 map <C-Q> :qa!<CR>
 
@@ -61,13 +61,6 @@ nnoremap <leader>o <S-i><CR><esc>k
 "ss space in normal mode
 noremap <leader><space> i<space><esc>
 
-" delete without yaing
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
-xnoremap <leader>p "_dP
-
-"maps Ctrl-c to system register
-vnoremap <C-c> "+y
 
 "Maps Ctrl v to ctrl m - to copy paste
  nnoremap <c-m> <c-v>
@@ -77,7 +70,6 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "Prime binds"
-nnoremap Y yg$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
@@ -95,24 +87,32 @@ inoremap <Bslash> <Bslash><c-g>u
 inoremap <Space> <Space><c-g>u
 
 
-
 "Jump List"
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-" GREATest remap ever
-xnoremap <leader>p "_dP
+"maps Ctrl-c to system register
+vnoremap <C-c> "+y
  
 " next greatest remap ever : asbjornHaland
+nnoremap Y yg$
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 
-nnoremap <leader>d "_d
+" delete without yankng
 vnoremap <leader>d "_d
- " Alias for commenting a block of code
+nnoremap <leader>d "_d
+
+" GREATest remap ever
+xnoremap <leader>p "_dP
+ 
+" Alias for commenting a block of code
 " nnoREMAP <leader>c <c-v>}I
 " nnoremap <leader>" <c-v>}kI"<space><esc>
 
 "Tmux Ctrl-A unbind
 map <C-a> <Nop>
+
+"Formatter vim key
+nnoremap <silent> <leader>f :Format<CR>
