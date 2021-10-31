@@ -352,11 +352,24 @@ end
 
 local backward = function()
 	local getjumplist = vim.fn.getjumplist()
-    local jumplist = getjumplist[1] 
-    jumpbackward(#jumplist) 
-    
+  local jumplist = getjumplist[1]
+  jumpbackward(#jumplist)
 end
 
 vim.api.nvim_set_keymap("n","<C-n>", "lua backward()<cr>", { silent = true, noremap = true })
 require('neoscroll').setup()
+require('formatter').setup({
+  filetype = {
+    typescript = {
+      -- prettier
+      function()
+        return {
+          exe = "prettier",
+          args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--single-quote'},
+          stdin = true
+        }
+      end
+    },
+  }
+})
 
