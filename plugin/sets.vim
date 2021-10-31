@@ -78,4 +78,4 @@ set shortmess+=c
   "   let &t_EI .= "\<Esc>[0 q"
   "   " insert mode
   "   let &t_SI .= "\<Esc>[6 q"
-  " endif
+set jumpoptions+=stack  " endif
