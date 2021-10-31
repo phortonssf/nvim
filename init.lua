@@ -39,18 +39,26 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
--- using packer.nvim
-use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
--- move line"
-use {'matze/vim-move'}
+  -- using packer.nvim
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  -- move line"
+  use {'matze/vim-move'}
 
--- smooth scroll
-use 'karb94/neoscroll.nvim'
+ -- lsp colors
+  use 'folke/lsp-colors.nvim'
 
--- themes
-use 'glepnir/zephyr-nvim'
-use 'sainnhe/gruvbox-material'
-use 'joshdick/onedark.vim' -- Theme inspired by Atom
+  -- formatting
+  use {'sbdchd/neoformat'}
+
+  -- smooth scroll
+  use 'karb94/neoscroll.nvim'
+
+
+  use 'mhartington/formatter.nvim'
+  -- themes
+  use 'glepnir/zephyr-nvim'
+  use 'sainnhe/gruvbox-material'
+  use 'joshdick/onedark.vim' -- Theme inspired by Atom
 end)
 
 --Incremental live completion (note: this is now a default on master)
