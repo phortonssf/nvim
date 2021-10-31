@@ -74,6 +74,8 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 
+"Split line shift K
+nmap K m'a<CR><Esc>`'
 "Breaks undo sequence"
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
