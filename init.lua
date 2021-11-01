@@ -48,7 +48,7 @@ require('packer').startup(function()
   use 'folke/lsp-colors.nvim'
 
   -- formatting
-  use {'sbdchd/neoformat'}
+  -- use {'sbdchd/neoformat'}
 
   -- smooth scroll
   use 'karb94/neoscroll.nvim'
