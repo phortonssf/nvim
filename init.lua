@@ -62,7 +62,12 @@ require('packer').startup(function()
   -- Creates paired 
   use 'windwp/nvim-autopairs'
 
+  -- Harpoooooon!!
+  use 'nvim-lua/popup.nvim'
+  use 'ThePrimeagen/harpoon'
 
+  -- adds more text targets (, etc
+  use 'wellle/targets.vim'
   -- themes
   use 'glepnir/zephyr-nvim'
   use 'sainnhe/gruvbox-material'
