@@ -52,7 +52,8 @@ require('packer').startup(function()
 
   -- smooth scroll
   use 'karb94/neoscroll.nvim'
-
+  -- sessions
+  use 'tpope/vim-obsession'
 
   use 'mhartington/formatter.nvim'
   -- themes
