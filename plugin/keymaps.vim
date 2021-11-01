@@ -105,7 +105,6 @@ nnoremap <leader>Y gg"+yG
 " delete without yankng
 vnoremap <leader>d "_d
 nnoremap <leader>d "_d
-[c[c[
 
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
