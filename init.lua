@@ -55,7 +55,14 @@ require('packer').startup(function()
   -- sessions
   use 'tpope/vim-obsession'
 
+  -- Unix Shell Commands
+  use 'tpope/vim-eunuch'
   use 'mhartington/formatter.nvim'
+ 
+  -- Creates paired 
+  use 'windwp/nvim-autopairs'
+
+
   -- themes
   use 'glepnir/zephyr-nvim'
   use 'sainnhe/gruvbox-material'
@@ -373,4 +380,6 @@ require('formatter').setup({
     },
   }
 })
+
+require('nvim-autopairs').setup{}
 
