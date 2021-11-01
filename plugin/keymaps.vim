@@ -105,16 +105,7 @@ nnoremap <leader>Y gg"+yG
 " delete without yankng
 vnoremap <leader>d "_d
 nnoremap <leader>d "_d
-
-" GREATest remap ever
-xnoremap <leader>p "_dP
- 
-" Alias for commenting a block of code
-" nnoREMAP <leader>c <c-v>}I
-" nnoremap <leader>" <c-v>}kI"<space><esc>
-
-"Tmux Ctrl-A unbind
-map <C-a> <Nop>
+[c[c[
 
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
