@@ -54,7 +54,9 @@ require('packer').startup(function()
   use 'karb94/neoscroll.nvim'
   -- sessions
   use 'tpope/vim-obsession'
-
+  
+  -- practice
+  use 'ThePrimeagen/vim-be-good'
   -- Unix Shell Commands
   use 'tpope/vim-eunuch'
   use 'mhartington/formatter.nvim'
