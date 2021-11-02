@@ -371,22 +371,33 @@ local backward = function()
   jumpbackward(#jumplist)
 end
 
+
 vim.api.nvim_set_keymap("n","<C-n>", "lua backward()<cr>", { silent = true, noremap = true })
 require('neoscroll').setup()
 require('formatter').setup({
+  logging = true,
   filetype = {
     typescript = {
       -- prettier
       function()
         return {
           exe = "prettier",
-          args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), '--single-quote'},
+          args = { "--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+          -- args = { "--stdn-filepath", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
           stdin = true
         }
       end
+    },    lua = {
+        -- luafmt
+        function()
+          return {
+            exe = "luafmt",
+            args = {"--indent-count", 2, "--stdin"},
+            stdin = true
+          }
+        end
     },
   }
 })
-
 require('nvim-autopairs').setup{}
 
