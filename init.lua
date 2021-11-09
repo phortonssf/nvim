@@ -64,6 +64,7 @@ require('packer').startup(function()
   -- Creates paired 
   use 'windwp/nvim-autopairs'
 
+  use 'tpope/vim-surround'
   -- Harpoooooon!!
   use 'nvim-lua/popup.nvim'
   use 'ThePrimeagen/harpoon'
