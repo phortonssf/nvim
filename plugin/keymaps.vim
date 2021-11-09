@@ -108,4 +108,7 @@ nnoremap <leader>d "_d
 
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
-noremap <C-_> :Commentary <CR>
+nnoremap <C-_> :Commentary <CR>
+
+nnoremap <S-h> <C-i> 
+nnoremap <S-l> <C-o> 
