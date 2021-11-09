@@ -110,5 +110,7 @@ nnoremap <leader>d "_d
 nnoremap <silent> <leader>f :Format<CR>
 nnoremap <C-_> :Commentary <CR>
 
-nnoremap <S-h> <C-i> 
-nnoremap <S-l> <C-o> 
+" map cursor history to match vimium
+nnoremap <S-h> <C-o> 
+nnoremap <S-l> <C-i> 
+
