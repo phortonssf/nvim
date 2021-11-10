@@ -114,3 +114,5 @@ nnoremap <C-_> :Commentary <CR>
 nnoremap <S-h> <C-o> 
 nnoremap <S-l> <C-i> 
 
+" console.log worder under cursor
+nnoremap <Leader>L "ayiwoconsole.log('<C-R>a:', <C-R>a);<Esc>
