@@ -68,7 +68,9 @@ require('packer').startup(function()
   -- Harpoooooon!!
   use 'nvim-lua/popup.nvim'
   use 'ThePrimeagen/harpoon'
-
+  
+  -- terminal
+  use {"akinsho/toggleterm.nvim"}
   -- adds more text targets (, etc
   use 'wellle/targets.vim'
   -- themes
@@ -402,3 +404,11 @@ require('formatter').setup({
 })
 require('nvim-autopairs').setup{}
 
+
+
+require("toggleterm").setup{
+ size = vim.o.columns * 0.44,
+ open_mapping = [[<c-\>]],
+ direction = 'vertical',
+ close_on_exit = true
+}
