@@ -116,3 +116,5 @@ nnoremap <S-l> <C-i>
 
 " console.log worder under cursor
 nnoremap <Leader>L "ayiwoconsole.log('<C-R>a:', <C-R>a);<Esc>
+" terminal esc mode
+tnoremap <Esc> <C-\><C-n>
