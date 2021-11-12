@@ -15,3 +15,4 @@ autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=246 guifg=#32302f guib
 autocmd ColorScheme * hi Visual  guifg=#a074c4 gui=none
 "Highlight on yank
 autocmd ColorScheme * hi IncSearch cterm=bold ctermfg=208 guibg=#3c3836 guifg=#e78a4e 
+autocmd ColorScheme * hi TelescopeSelection  ctermbg=237 guifg=#a074c4 guibg=#45403d
