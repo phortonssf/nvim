@@ -34,7 +34,7 @@ noremap Q @q
 " noremap <eader>s :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
 
 "Q to quit"
-cnoremap <C-Q> <Esc>:qa!<CR>
+cnoremap <C-Q> <C-e><C-u><Esc>
 nnoremap <C-Q> <Esc>:qa!<CR>
 "Shift U to undo to last write"
 nnoremap U :ea 1f<CR>
