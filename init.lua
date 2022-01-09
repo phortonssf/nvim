@@ -46,7 +46,7 @@ require('packer').startup(function()
 
  -- lsp colors
   use 'folke/lsp-colors.nvim'
-
+  use  'dbeniamine/cheat.sh-vim'
   -- formatting
   -- use {'sbdchd/neoformat'}
 
@@ -69,6 +69,7 @@ require('packer').startup(function()
   use 'nvim-lua/popup.nvim'
   use 'ThePrimeagen/harpoon'
   
+  use 'sainnhe/artify.vim'
   -- terminal
   use {"akinsho/toggleterm.nvim"}
   -- adds more text targets (, etc
@@ -115,7 +116,7 @@ vim.cmd [[colorscheme gruvbox-material]]
 
 --Set statusbar
 vim.g.lightline = {
-  colorscheme = 'onedark',
+  colorscheme = 'gruvbox_material',
   active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
   component_function = { gitbranch = 'fugitive#head' },
 }
