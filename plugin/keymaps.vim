@@ -1,7 +1,7 @@
 "Map Leader to space bar
 noremap <SPACE> <Nop>
 let mapleader = "\<Space>"
-
+nnoremap <C-_> :Commentary <CR>
 "Alt move line "
 noremap <A-j> :m .+2<CR>==
 noremap <A-k> :m .-2<CR>==
@@ -63,8 +63,9 @@ noremap <leader><space> i<space><esc>
 
 
 "Maps Ctrl v to ctrl m - to copy paste
- nnoremap <c-m> <c-v>
- nnoremap <c-m> <c-q>
+" nnoremap <c-m> <c-v>
+ 
+ " nnoremap <c-m> <c-q>
  
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -108,13 +109,15 @@ nnoremap <leader>d "_d
 
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
-nnoremap <C-_> :Commentary <CR>
 
 " map cursor history to match vimium
 nnoremap <S-h> <C-o> 
 nnoremap <S-l> <C-i> 
 
 " console.log worder under cursor
-nnoremap <Leader>L "ayiwoconsole.log('<C-R>a:', <C-R>a);<Esc>
+" console.log('',cursor:', cursor);
+" console.log('cursor:', cursor);
+" console.log('cursor:', cursor);
+nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
 " terminal esc mode
 tnoremap <Esc> <C-\><C-n>
