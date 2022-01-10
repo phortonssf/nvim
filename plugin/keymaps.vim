@@ -120,4 +120,8 @@ nnoremap <S-l> <C-i>
 " console.log('cursor:', cursor);
 nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
 " terminal esc mode
-tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n
+
+" close all buffers but current
+nmap <Leader>\c :call CloseAllBuffersButCurrent()<CR>
+
