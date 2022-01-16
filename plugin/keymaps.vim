@@ -103,10 +103,26 @@ nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 
-" delete without yankng
-vnoremap <leader>d "_d
-nnoremap <leader>d "_d
+" x doesnt overide register
+vnoremap x "_x
+nnoremap x "_x
 
+"c doesnt overide register
+vnoremap c "_c
+nnoremap c "_c
+vnoremap C "_C
+nnoremap C "_C
+
+"delete to blackhole register
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+vnoremap D "_D
+
+" cut to system clipboard
+nnoremap <leader>d "+d
+nnoremap <leader>D ""D
+vnoremap <leader>d ""d
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
 
