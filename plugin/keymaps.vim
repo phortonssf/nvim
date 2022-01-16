@@ -123,6 +123,10 @@ vnoremap D "_D
 nnoremap <leader>d "+d
 nnoremap <leader>D ""D
 vnoremap <leader>d ""d
+
+" paste below shift-p
+nnoremap P  o<Esc>p
+
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
 
