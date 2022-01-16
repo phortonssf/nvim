@@ -79,3 +79,6 @@ set shortmess+=c
   "   " insert mode
   "   let &t_SI .= "\<Esc>[6 q"
 set jumpoptions+=stack  " endif
+
+" adds _ to word delmiter
+set iskeyword-=_
