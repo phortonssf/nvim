@@ -129,6 +129,9 @@ nnoremap P  o<Esc>p
 
 " copy paragraph
 nnoremap <leader>vcp yap<S-}>p
+" past last insert
+nnoremap <leader>vpi ".p
+
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
 
