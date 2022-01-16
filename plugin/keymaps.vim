@@ -151,4 +151,7 @@ tnoremap <Esc> <C-\><C-n
 
 " close all buffers but current
 nmap <Leader>\c :call CloseAllBuffersButCurrent()<CR>
+" search and replace
+nnoremap gs :%sm/
+xnoremap gs :sm/
 
