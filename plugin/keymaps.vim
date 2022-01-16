@@ -132,6 +132,8 @@ nnoremap <leader>vcp yap<S-}>p
 " past last insert
 nnoremap <leader>vpi ".p
 
+" paste from clipboard insert mode
+inoremap <C-v> <C-r>+
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
 
