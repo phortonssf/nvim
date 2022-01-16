@@ -154,4 +154,6 @@ nmap <Leader>\c :call CloseAllBuffersButCurrent()<CR>
 " search and replace
 nnoremap gs :%sm/
 xnoremap gs :sm/
+" close buffer
+nnoremap <Leader>x :bd<CR>
 
