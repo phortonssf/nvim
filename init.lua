@@ -75,6 +75,8 @@ require('packer').startup(function()
   -- adds more text targets (, etc
   use 'wellle/targets.vim'
   -- themes
+  use 'yonlu/omni.vim'
+  use 'glepnir/oceanic-material'
   use 'glepnir/zephyr-nvim'
   use 'sainnhe/gruvbox-material'
   use 'joshdick/onedark.vim' -- Theme inspired by Atom
@@ -113,7 +115,6 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 vim.g.onedark_terminal_italics = 2
 vim.cmd [[colorscheme gruvbox-material]]
-
 --Set statusbar
 vim.g.lightline = {
   colorscheme = 'gruvbox_material',
