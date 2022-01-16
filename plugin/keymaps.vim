@@ -127,6 +127,8 @@ vnoremap <leader>d ""d
 " paste below shift-p
 nnoremap P  o<Esc>p
 
+" copy paragraph
+nnoremap <leader>vcp yap<S-}>p
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
 
