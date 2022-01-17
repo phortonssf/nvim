@@ -63,7 +63,7 @@ noremap <leader><space> i<space><esc>
 
 
 "Maps Ctrl v to ctrl m - to copy paste
-" nnoremap <c-m> <c-v>
+nnoremap <A-v> <c-v>
  
  " nnoremap <c-m> <c-q>
  
