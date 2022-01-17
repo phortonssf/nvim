@@ -6,3 +6,15 @@ function! CloseAllBuffersButCurrent()
   if curr > 1    | silent! execute "1,".(curr-1)."bd"     | endif
   if curr < last | silent! execute (curr+1).",".last."bd" | endif
 endfunction
+
+function Log(word)
+  let wordUnderCursor = expand("<cword>")
+  echo wordUnderCursor
+  echom a:word 
+endfunction
+
+function Logger(word)
+  let wordUnderCursor = expand("<cword>")
+  exe "norm!" "oconsole.log(''," . wordUnderCursor ";<Esc>T(li"
+endfunction
+
