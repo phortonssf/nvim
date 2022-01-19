@@ -51,6 +51,10 @@ require('packer').startup(function()
   use 'ekalinin/Dockerfile.vim'
   -- markdown preview
   use {"ellisonleao/glow.nvim"}
+  
+  -- helm syntax
+  use 'towolf/vim-helm'
+
   -- using packer.nvim
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   -- move line"
