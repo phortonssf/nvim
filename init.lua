@@ -72,6 +72,18 @@ require('packer').startup(function()
   use 'neomake/neomake'
   -- tmux line
   use 'edkolev/tmuxline.vim'
+
+  use {
+    "cuducos/yaml.nvim",
+    ft = {"yaml"}, -- optional
+    requires = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim" -- optional
+    },
+    config = function ()
+      require("yaml_nvim").init()
+    end,
+  }
   -- formatting
   -- use {'sbdchd/neoformat'}
 
