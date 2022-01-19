@@ -25,6 +25,7 @@ require('packer').startup(function()
   use 'eddyekofo94/gruvbox-flat.nvim'
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {'nvim-telescope/telescope-fzy-native.nvim'}
   use 'itchyny/lightline.vim' -- Fancier statusline
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
