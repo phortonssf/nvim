@@ -15,6 +15,5 @@ nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>vrc :lua require('digitaldive.telescope').search_dotfiles()<CR>
 nnoremap <leader>va :lua require('digitaldive.telescope').anime_selector()<CR>
 nnoremap <leader>vc :lua require('digitaldive.telescope').chat_selector()<CR>
-nnoremap <leader>gc :lua require('digitaldive.telescope').git_branches()<CR>
 nnoremap <leader>gb :lua require('digitaldive.telescope').git_branches()<CR>
 nnoremap <leader>rf :lua require('telescope.builtin').oldfiles()<CR>
