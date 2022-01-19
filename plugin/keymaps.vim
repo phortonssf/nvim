@@ -172,3 +172,5 @@ nnoremap <C-h> ^
 
 "go to end of line
 nnoremap <C-l> $
+" ammend last commit no message
+nnoremap <leader>gcne :Git commit --amend --no-edit
