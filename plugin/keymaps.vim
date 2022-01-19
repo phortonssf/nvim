@@ -149,12 +149,12 @@ nnoremap <S-l> <C-i>
 " console.log('',cursor:', cursor);
 " console.log('cursor:', cursor);
 " console.log('cursor:', cursor);
-nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
-" terminal esc mode
+ nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
 tnoremap <Esc> <C-\><C-n
 
 " close all buffers but current
-nmap <Leader>\c :call CloseAllBuffersButCurrent()<CR>
+" nnoremap <Leader>xa :call CloseAllBuffersButCurrent()<CR>
+
 " search and replace
 nnoremap R :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
 " project search and replace
