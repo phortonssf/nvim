@@ -210,7 +210,9 @@ require('gitsigns').setup {
 
 require("bufferline").setup{
  options = {
-   numbers = "ordinal"
+       numbers = function(opts)
+      return opts.ordinal
+    end,
   } 
 }
 -- Telescope
