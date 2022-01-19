@@ -45,6 +45,8 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   -- highlight cursor on move 
   use {'edluffy/specs.nvim'}
+  -- git lens style messages
+  use 'f-person/git-blame.nvim' 
   -- using packer.nvim
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   -- move line"
