@@ -156,8 +156,12 @@ tnoremap <Esc> <C-\><C-n
 " close all buffers but current
 nmap <Leader>\c :call CloseAllBuffersButCurrent()<CR>
 " search and replace
-nnoremap gs :%sm/
-xnoremap gs :sm/
+nnoremap R :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
+" project search and replace
+nnoremap <leader>vqsr :cdo %s/<search term>/<replace term>/gc<Left><Left><Left><Left><Left><Left>
+" search and replace
+ nnoremap sr :%sm//gc<Left><Left><Left>
+ xnoremap sr :%sm//gc<Left><Left><Left>
 " close buffer
 nnoremap <Leader>x :bd<CR>
 
