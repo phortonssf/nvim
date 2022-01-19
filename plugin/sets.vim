@@ -44,6 +44,7 @@ set undofile
 set scrolloff=8
 set ttimeoutlen=50
 
+set timeoutlen=500
 " first, enable status line always
 set laststatus=2
 set background=dark
