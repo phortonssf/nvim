@@ -38,8 +38,10 @@ noremap Q @q
 "Q to quit"
 cnoremap <C-Q> <C-e><C-u><Esc>
 nnoremap <C-Q> <Esc>:qa!<CR>
+
 "Shift U to undo to last write"
-nnoremap U :ea 1f<CR>
+nnoremap U :ea 1f<CR> :echo 'Undo until last write'<CR>:
+
 
 " MOVE character alt-h/l
 noremap <M-l> <Nop>
