@@ -161,3 +161,8 @@ xnoremap gs :sm/
 " close buffer
 nnoremap <Leader>x :bd<CR>
 
+" first character on line
+nnoremap <C-h> ^
+
+"go to end of line
+nnoremap <C-l> $
