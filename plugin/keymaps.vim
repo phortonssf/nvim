@@ -27,7 +27,7 @@ nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 nmap <F1> :echo<CR>
 imap <F1> <C-o>:echo<CR>
 
-"Yank to end of line"
+" apply macro
 noremap Q @q
 
 
@@ -42,6 +42,7 @@ nnoremap <C-Q> <Esc>:qa!<CR>
 "Shift U to undo to last write"
 nnoremap U :ea 1f<CR> :echo 'Undo until last write'<CR>:
 
+" nnoremap U :ea 1f<CR> :call Log("<cword>")<CR>
 
 " MOVE character alt-h/l
 noremap <M-l> <Nop>
@@ -99,7 +100,7 @@ nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 "maps Ctrl-c to system register
-vnoremap <C-c> "+y
+" vnoremap <C-c> "+y
  
 " next greatest remap ever : asbjornHaland
 nnoremap Y yg$
@@ -152,6 +153,8 @@ nnoremap <S-l> <C-i>
 " console.log('cursor:', cursor);
 " console.log('cursor:', cursor);
  nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
+
+ " terminal esc mode
 tnoremap <Esc> <C-\><C-n
 
 " close all buffers but current
@@ -164,6 +167,7 @@ nnoremap <leader>vqsr :cdo %s/<search term>/<replace term>/gc<Left><Left><Left><
 " search and replace
  nnoremap sr :%sm//gc<Left><Left><Left>
  xnoremap sr :%sm//gc<Left><Left><Left>
+
 " close buffer
 nnoremap <Leader>x :bd<CR>
 
