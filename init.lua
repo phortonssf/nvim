@@ -16,7 +16,6 @@ vim.api.nvim_exec(
 ]],
   false
 )
-
 -- begin plugin list
 local use = require('packer').use
 require('packer').startup(function()
@@ -70,6 +69,8 @@ require('packer').startup(function()
   use 'hashivim/vim-terraform'
   use 'vim-syntastic/syntastic'
   use 'neomake/neomake'
+  
+
   -- tmux line
   use 'edkolev/tmuxline.vim'
 
