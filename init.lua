@@ -70,6 +70,8 @@ require('packer').startup(function()
   use 'hashivim/vim-terraform'
   use 'vim-syntastic/syntastic'
   use 'neomake/neomake'
+  -- tmux line
+  use 'edkolev/tmuxline.vim'
   -- formatting
   -- use {'sbdchd/neoformat'}
 
