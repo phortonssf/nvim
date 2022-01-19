@@ -49,6 +49,13 @@ require('packer').startup(function()
  -- lsp colors
   use 'folke/lsp-colors.nvim'
   use  'dbeniamine/cheat.sh-vim'
+  
+
+  -- terraform completion
+  use 'juliosueiras/vim-terraform-completion'
+  use 'hashivim/vim-terraform'
+  use 'vim-syntastic/syntastic'
+  use 'neomake/neomake'
   -- formatting
   -- use {'sbdchd/neoformat'}
 
