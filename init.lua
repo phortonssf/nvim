@@ -49,6 +49,8 @@ require('packer').startup(function()
   use 'f-person/git-blame.nvim' 
   -- docker file syntax
   use 'ekalinin/Dockerfile.vim'
+  -- markdown preview
+  use {"ellisonleao/glow.nvim"}
   -- using packer.nvim
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   -- move line"
