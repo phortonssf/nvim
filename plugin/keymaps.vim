@@ -120,12 +120,14 @@ nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
 vnoremap D "_D
+xnoremap d "_d
+xnoremap D "_D
 
 " cut to system clipboard
 nnoremap <leader>d "+d
-nnoremap <leader>D ""D
-vnoremap <leader>d ""d
-
+nnoremap <leader>D "+D
+vnoremap <leader>d "+d
+xnoremap <leader>d "+d
 " paste below shift-p
 nnoremap P  o<Esc>p
 
