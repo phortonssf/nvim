@@ -2,6 +2,8 @@
 noremap <SPACE> <Nop>
 let mapleader = "\<Space>"
 nnoremap <C-_> :Commentary <CR>
+vnoremap <C-_> :Commentary <CR>
+xnoremap <C-_> :Commentary <CR>
 "Alt move line "
 noremap <A-j> :m .+2<CR>==
 noremap <A-k> :m .-2<CR>==
