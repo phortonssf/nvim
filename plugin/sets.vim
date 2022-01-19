@@ -82,4 +82,5 @@ set shortmess+=c
 set jumpoptions+=stack  " endif
 
 " adds _ to word delmiter
-set iskeyword-=_
+ set iskeyword-=_
+
