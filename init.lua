@@ -278,6 +278,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'yamlls', 'terraformls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -420,6 +421,7 @@ require("toggleterm").setup{
  direction = 'vertical',
  close_on_exit = true
 }
+require'lspconfig'.terraformls.setup{}
 require('specs').setup{ 
     show_jumps  = true,
     min_jump = 30,
