@@ -422,6 +422,7 @@ require("toggleterm").setup{
  close_on_exit = true
 }
 require'lspconfig'.terraformls.setup{}
+require('telescope').load_extension('fzy_native')
 
 local yaml_attach = function(_,bufnr )
   -- Short-circuit for Helm template files
