@@ -172,5 +172,19 @@ nnoremap <C-h> ^
 
 "go to end of line
 nnoremap <C-l> $
+
+" WIP for needs work for better vim surrund 
+nnoremap <C-s> :w
+nmap <C-x> :execute "normal \<Plug>Ysurround"
+
+" undo current line only
+nnoremap <leader>ul :call Undoline()<CR>
+
+" how to maka command in vim
+" command! Vb normal! <C-v>
+" nnoremap <C-v> Vb
+" let g:tmuxline_preset = 'lightline'
+" let g:vimIsInTmux = 1
+
 " ammend last commit no message
 nnoremap <leader>gcne :Git commit --amend --no-edit
