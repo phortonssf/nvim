@@ -1,3 +1,5 @@
+if(not vim.g.vscode)
+   then  
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
@@ -468,6 +470,7 @@ settings = {
     --     }
     -- }
 }
+end
 require('specs').setup{ 
     show_jumps  = true,
     min_jump = 30,
