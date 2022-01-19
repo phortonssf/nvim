@@ -47,6 +47,8 @@ require('packer').startup(function()
   use {'edluffy/specs.nvim'}
   -- git lens style messages
   use 'f-person/git-blame.nvim' 
+  -- docker file syntax
+  use 'ekalinin/Dockerfile.vim'
   -- using packer.nvim
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   -- move line"
