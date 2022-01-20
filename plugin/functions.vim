@@ -15,7 +15,7 @@ endfunction
 
 function Logger(word)
   let wordUnderCursor = expand("<cword>")
-  exe "norm!" "oconsole.log(''," . wordUnderCursor ";<Esc>T(li"
+  exe "norm!" "console.log(''," . wordUnderCursor ";<Esc>T(li"
 endfunction
 
 function! Undoline()
