@@ -192,3 +192,22 @@ nnoremap <leader>ul :call Undoline()<CR>
 
 " ammend last commit no message
 nnoremap <leader>gcne :Git commit --amend --no-edit
+" vim surround word commands
+nmap sw( csw(
+nmap sw) csw)
+nmap sw{ csw{
+nmap sw} csw}
+nmap sw[ csw[
+nmap sw] csw]
+nmap sw' csw'
+nmap sw" csw"
+
+" vim surround line commands
+nmap sl( yss(
+nmap sl) yss)
+nmap sl{ yss{
+nmap sl} yss}
+nmap sl[ yss[
+nmap sl] yss]
+nmap sl' yss'
+nmap sl" yss"
