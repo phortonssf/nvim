@@ -211,3 +211,7 @@ nmap sl[ yss[
 nmap sl] yss]
 nmap sl' yss'
 nmap sl" yss"
+
+" WIP better visual movement
+vmap 44 5j 
+vmap 55 5k 
