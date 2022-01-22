@@ -1,0 +1,39 @@
+open files with pattern recursively in vim
+
+You can open them from within vim using
+
+:args myfile*
+or if you want to open all files matching the pattern in subfolders
+
+:args **/myfile*
+This all assumes your current directory is the folder from wich you want to open files from. Prepend a directory to myfile if it's not.
+
+:args /yourfolder/myfile*
+:args /yourfolder/**/myfile
+ 
+ SOURCE https://stackoverflow.com/questions/16580326/how-to-open-files-with-pattern-recursively-in-vim
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+###################################      Check KEY MAPS     ################################################ 
+See where keys are mapped in what files:
+:verbose nmap <Leader>gh
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+###################################  paste to new buffer   ################################################ 
+
+:'<,'> ene|e <file>
+
+enew         " shorthand: ene
+:edit <file>  " shorthand: e
+
+" Shorthand to do both
+:ene|e <file>
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------
