@@ -42,8 +42,8 @@ set undodir=~/.vim/undodir
 set undofile
 "scroll before hitting bottom
 set scrolloff=8
-set ttimeoutlen=50
-set timeoutlen=500
+set ttimeoutlen=200
+set timeoutlen=350
 " first, enable status line always
 set laststatus=2
 set background=dark
