@@ -41,3 +41,16 @@ function! Undoline()
     call setline(pos[1], old)
   endif
 endfunction
+" Lets you use leader in CMD MODE
+" https://vi.stackexchange.com/questions/7779/how-to-use-leader-in-a-normal-command
+function! ExecuteLeader(suffix)
+  let l:leader = get(g:,"mapleader","\\")
+
+  if l:leader == ' '
+    let l:leader = '1' . l:leader
+  endif
+
+  execute "normal ".l:leader.a:suffix
+endfunction
+
+command! -nargs=1 NormLead call ExecuteLeader(<f-args>)
