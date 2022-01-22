@@ -110,3 +110,8 @@ let g:terraform_registry_module_completion = 0
 set nocompatible
 syntax on
 filetype plugin indent on
+" External program to use for grep command
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
