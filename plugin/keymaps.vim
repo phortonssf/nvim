@@ -154,9 +154,7 @@ nnoremap <silent> <leader>f :Format<CR>
 nnoremap <S-h> <C-o> 
 nnoremap <S-l> <C-i> 
 
-" console.log worder under cursor
-" console.log('',cursor:', cursor);
-" console.log('cursor:', cursor);
+"log word under cursor 
 " console.log('cursor:', cursor);
  nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
 
