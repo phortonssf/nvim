@@ -54,3 +54,14 @@ function! ExecuteLeader(suffix)
 endfunction
 
 command! -nargs=1 NormLead call ExecuteLeader(<f-args>)
+
+" toggle line number
+function! NumberToggle()
+  if(&rnu == 1)
+    set nornu
+  else
+    set rnu
+  endif
+endfunc
+
+nnoremap <leader>vln :call NumberToggle()<cr>

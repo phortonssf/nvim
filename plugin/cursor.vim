@@ -1,4 +1,8 @@
 "For workaround for windows terminal
+" Better default curosor Set up cursor color and shape in various mode, ref:
+" https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-color-in-the-terminal
+" set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor20
+
 if !empty($WT_SESSION)
     " guicursor will leave reverse to the terminal, which won't work in WT.
     " therefore we will set bg and fg colors explicitly in an autocmd.
@@ -7,7 +11,7 @@ if !empty($WT_SESSION)
     hi! WindowsTerminalCursorFg gui=none
     hi! WindowsTerminalCursorBg gui=none
     set guicursor+=n-v-c-sm:block-WindowsTerminalCursorBg
-
+    
     function! WindowsTerminalFixHighlight()
         " reset match to the character under cursor
         silent! call matchdelete(99991)
