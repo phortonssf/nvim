@@ -12,11 +12,17 @@ noremap <A-k> <Esc>:m .-2<CR>==gi
 noremap <A-j> :m '>+1<CR>gv=gv
 noremap <A-k> :m '<-2<CR>gv=gv
 
-
-"Bufferline go to buffer"
+" WIP Bufferline go to buffer"
+" map <F25> :echo "it works"<CR>
+" nnoremap <silent> <F25> <Cmd>BufferLineGoToBuffer 1<CR>
+" nnoremap <silent> <F26> <Cmd>BufferLineGoToBuffer 2<CR>
+" nnoremap <silent> <F27> <Cmd>BufferLineGoToBuffer 3<CR>
+" nnoremap <silent> <F28> <Cmd>BufferLineGoToBuffer 4<CR>
+" nnoremap <silent> <F29> <Cmd>BufferLineGoToBuffer 5<CR>
+"
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+lnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
 nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
 nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
 nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
