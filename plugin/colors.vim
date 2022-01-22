@@ -28,3 +28,6 @@ augroup BgHighlight
     autocmd WinEnter * set cul
     autocmd WinLeave * set nocul
 augroup END
+
+"make numberline stand out more
+autocmd ColorScheme * highlight LineNr guifg=#928374
