@@ -146,7 +146,7 @@ nnoremap <leader>vcp yap<S-}>p
 nnoremap <leader>vpi ".p
 
 " paste from clipboard insert mode
-inoremap <C-v> <C-r>+
+ inoremap <C-v> <C-r>+
 "Formatter vim key
 nnoremap <silent> <leader>f :Format<CR>
 
@@ -180,22 +180,17 @@ nnoremap <C-h> ^
 
 "go to end of line
 nnoremap <C-l> $
-
-" WIP for needs work for better vim surrund 
-nnoremap <C-s> :w
-nmap <C-x> :execute "normal \<Plug>Ysurround"
-
 " undo current line only
 nnoremap <leader>ul :call Undoline()<CR>
 
+" nnoremap <leader>tt :call  moreFiles() 
 " how to maka command in vim
 " command! Vb normal! <C-v>
 " nnoremap <C-v> Vb
 " let g:tmuxline_preset = 'lightline'
 " let g:vimIsInTmux = 1
 
-" ammend last commit no message
-nnoremap <leader>gcne :Git commit --amend --no-edit
+"TODO add W for entire word
 " vim surround word commands
 nmap sw( csw(
 nmap sw) csw)
@@ -205,17 +200,55 @@ nmap sw[ csw[
 nmap sw] csw]
 nmap sw' csw'
 nmap sw" csw"
+nmap sw` csw`
 
+" make default targets inner
+" onoremap ` i`
+" onoremap { i{
+" onoremap } i}
+" onoremap ( i(
+" onoremap ) :<c-u>normal! f)vs(<cr>
+" onoremap " i"
+" onoremap o i"
+" onoremap w iw 
+ 
 " vim surround line commands
-nmap sl( yss(
-nmap sl) yss)
-nmap sl{ yss{
-nmap sl} yss}
-nmap sl[ yss[
-nmap sl] yss]
-nmap sl' yss'
-nmap sl" yss"
+map sl( yss(
+map sl) yss)
+map sl{ yss{
+map sl} yss}
+map sl[ yss[
+map sl] yss]
+map sl' yss'
+map sl" yss"
+map sl` yss`
 
 " WIP better visual movement
-vmap 44 5j 
-vmap 55 5k 
+" vmap 44 5j 
+" vmap 55 5k 
+
+" (asdfasdf) {asdfasf} {wscfasf}
+" source https://vim.fandom.com/wiki/Get_the_name_of_the_current_file
+" open all files with same name in same dir or up one
+nnoremap <leader>vos :args **/%:t:r.*<CR>
+" open css file with same name
+nnoremap <leader>voc :args **/%:t:r.css<CR>
+" open spec files with same name
+nnoremap <leader>vot :args **/**/%:t:r.spec.%:e<CR>
+" open all values files that match pattern
+nnoremap <leader>voa :args ./values-*.yaml<CR>
+" 
+"yank to vim buffer
+" WIP sorta works with regular 
+vmap <leader>vyb :d \| ene \| e 
+ 
+" **** FAILED ****:
+ " vmap <leader>vyb :""d \| ene \| e 
+ " vmap <leader>vyb : <C-U>exe 'norm! ""d' \| ene \| e \| exec 'norm! ""p'
+ " vmap <leader>vyb :"_d \| ene \| e sdfasdf
+ "Doesnt work
+" vmap <leader>vy : \|<C-U>NormLead d  \| ene \| e 
+"
+nnoremap <leader>vz :Telescope zoxide list<CR>
+ com! FormatJSON %!python -mjson.tool
+
