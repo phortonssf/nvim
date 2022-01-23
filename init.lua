@@ -587,7 +587,6 @@ require('specs').setup{
 -- lighline conifig/tmuxline config        -- \'c'    : [ '#{?client_prefix,#[bg=colour2],#[bg=colour1]}#[fg=colour0] #S' ],
 local result = vim.api.nvim_exec(
 [[
-   let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be" }
    let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be " }
    let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
    let g:lightline.tabline_separator = { 'left': "\ue0bc", 'right': "\ue0ba" }
@@ -610,4 +609,11 @@ local result = vim.api.nvim_exec(
         \ 'space' : ' '}
 ]], false
 )
-
+-- Remaps for each of the four debug operations currently offered by the plugin
+vim.api.nvim_set_keymap("v", "<Leader>re", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>rf", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>rv", [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("v", "<Leader>ri", [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("n", "<Leader>db", [[ <Esc><Cmd>lua require('refactoring').debug.printf({below = true})<CR> echo hello ]], {noremap = true, silent = true, expr = false})
+-- Print var: this remap should be made in visual mode
+vim.api.nvim_set_keymap("v", "<leader>rv", ":lua require('refactoring').debug.print_var({})<CR>", { noremap = true })
