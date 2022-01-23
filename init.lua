@@ -123,7 +123,11 @@ require("packer").startup({
   -- Harpoooooon!!
   use 'nvim-lua/popup.nvim'
   use 'ThePrimeagen/harpoon'
-  
+  -- INTERESTING PLUGINS
+  -- better % matching 
+  -- use'andymass/vim-matchup'
+  --narrow mode
+  use 'chrisbra/NrrwRgn'
   use 'sainnhe/artify.vim'
   -- terminal
   use {"akinsho/toggleterm.nvim"}
