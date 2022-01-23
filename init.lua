@@ -17,8 +17,13 @@ vim.api.nvim_exec(
   false
 )
 -- begin plugin list
-local use = require('packer').use
-require('packer').startup(function()
+
+
+require("packer").startup({
+     function(use)
+
+-- speed up load times
+    use 'lewis6991/impatient.nvim'
   use 'wbthomason/packer.nvim' -- Package manager
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
@@ -34,7 +39,7 @@ require('packer').startup(function()
   -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter'
+  use {'nvim-treesitter/nvim-treesitter'}
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
@@ -59,7 +64,16 @@ require('packer').startup(function()
   -- move line"
   use {'matze/vim-move'}
 
- -- lsp colors
+-- refactoring
+  use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-treesitter/nvim-treesitter"}
+    }
+}
+ 
+    -- lsp colors
   use 'folke/lsp-colors.nvim'
   use  'dbeniamine/cheat.sh-vim'
   
@@ -118,7 +132,12 @@ require('packer').startup(function()
   use 'glepnir/zephyr-nvim'
   use 'sainnhe/gruvbox-material'
   use 'joshdick/onedark.vim' -- Theme inspired by Atom
-end)
+end,
+  config = {
+        compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+  },
+  
+})
 
 --Incremental live completion (note: this is now a default on master)
 vim.o.inccommand = 'nosplit'
@@ -190,6 +209,8 @@ vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
 vim.g.indent_blankline_char_highlight = 'LineNr'
 vim.g.indent_blankline_show_trailing_blankline_indent = false
 
+
+  require('impatient').enable_profile()
 -- Gitsigns
 require('gitsigns').setup {
   signs = {
@@ -331,8 +352,9 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Example custom server
-local sumneko_root_path = vim.fn.getenv 'HOME' .. '/.local/bin/sumneko_lua' -- Change to your sumneko root installation
-local sumneko_binary = sumneko_root_path .. '/bin/Linux/lua-language-server'
+-- ~/.local/bin/lua-language-server/bin
+local sumneko_root_path = vim.fn.getenv 'HOME' .. '/.local/bin/lua-language-server' -- Change to your sumneko root installation
+local sumneko_binary = sumneko_root_path .. '/bin/lua-language-server'
 
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
