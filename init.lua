@@ -484,6 +484,16 @@ require('formatter').setup({
           }
         end
     },
+   json = {
+     function ()
+       return {
+         exe = "python ",
+         args = {"-mjson.tool"},
+         stdin =true
+
+      } 
+     end 
+}
   }
 })
 require('nvim-autopairs').setup{}
