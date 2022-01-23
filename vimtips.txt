@@ -15,6 +15,12 @@ This all assumes your current directory is the folder from wich you want to open
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+###################################   FUGIVITE   ################################################ 
+Git Stash
+loads all stashes to the quickfix list. 
+:Glog -g stash 
+You can then browse them and apply using cz<Space>apply<Space><C-R><C-G>
+--------------------------------------------------------------------------------------------------------------------------------------------
 ###################################      Check KEY MAPS     ################################################ 
 See where keys are mapped in what files:
 :verbose nmap <Leader>gh
