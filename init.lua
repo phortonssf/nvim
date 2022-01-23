@@ -51,11 +51,14 @@ require("packer").startup({
   use {'edluffy/specs.nvim'}
   -- git lens style messages
   use 'f-person/git-blame.nvim' 
+
   -- docker file syntax
   use 'ekalinin/Dockerfile.vim'
   -- markdown preview
   use {"ellisonleao/glow.nvim"}
-  
+  -- use z to change directory in telescope
+  use 'jvgrootveld/telescope-zoxide' 
+ 
   -- helm syntax
   use 'towolf/vim-helm'
 
@@ -247,6 +250,8 @@ require('telescope').setup {
     },
   },
 }
+    require'telescope'.load_extension('zoxide')
+
 --Add leader shortcuts
  vim.api.nvim_set_keymap('n', '<leader>ss', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], { noremap = true, silent = true })
@@ -527,6 +532,27 @@ settings = {
     -- }
 }
 end
+-- use z directory in telescope
+-- require'telescope'.extensions.zoxide.list{}
+local z_utils = require("telescope._extensions.zoxide.utils")
+require("telescope._extensions.zoxide.config").setup({
+  prompt_title = "[ Walking on the shoulders of TJ ]",
+  list_command = "zoxide query -ls",
+  mappings = {
+    default = {
+      after_action = function(selection)
+        print("Update to (" .. selection.z_score .. ") " .. selection.path)
+      end
+    },
+    ["<C-s>"] = {
+      before_action = function(selection) print("before C-s") end,
+      action = function(selection)
+        vim.cmd("edit " .. selection.path)
+      end
+    },
+    ["<C-q>"] = { action = z_utils.create_basic_command("split") },
+  }
+})
 require('specs').setup{ 
     show_jumps  = true,
     min_jump = 30,
