@@ -1,8 +1,19 @@
-
-
-set shell=/bin/zsh
+:set shell=/bin/zsh
 set clipboard=unnamedplus
 set sessionoptions+=globals
+
+" Nice menu when typing `:find *.py`
+set wildmode=longest,full
+set wildmenu
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+
 "Search Settings
 set incsearch
 set nohlsearch
@@ -83,14 +94,14 @@ set jumpoptions+=stack  " endif
 " adds _ to word delmiter
  set iskeyword-=_
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " (Optional)Remove Info(Preview) window
 set completeopt-=preview
