@@ -46,7 +46,7 @@ set tabstop=2
 set smartindent
 set smarttab
 
-" Caching buffers 
+" Caching buffers
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
