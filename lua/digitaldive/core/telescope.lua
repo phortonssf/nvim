@@ -1,5 +1,6 @@
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
+require("telescope").load_extension("mapper")
 -- Telescope
 require('telescope').setup {
   defaults = {
@@ -7,19 +8,6 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
-        ["<C-r>"] = function(prompt_bufnr)
-          local git_root_path =
-            require("plenary.job"):new({ command = "git", args = { "rev-parse", "--show-toplevel" } }):sync()[1]
-          local current_picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
-          local finder = current_picker.finder
-          if finder.files then
-            finder.path = git_root_path
-          else
-            finder.cwd = git_root_path
-          end
-          require("telescope._extensions.file_browser.utils").redraw_border_title(current_picker)
-          current_picker:refresh(finder, { reset_prompt = true, multi = current_picker._multi })
-        end
 },
     },
   },

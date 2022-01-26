@@ -16,6 +16,12 @@ require("packer").startup({
   -- ####### CORE #######
   use 'lewis6991/impatient.nvim' --faster load times
   use 'wbthomason/packer.nvim' -- Package manager
+   -- Map keys
+  use {
+    "lazytanuki/nvim-mapper",
+    config = function() require("nvim-mapper").setup{} end,
+    before = "telescope.nvim"
+}
   -- language server
   use 'onsails/lspkind-nvim'
 
@@ -30,7 +36,7 @@ require("packer").startup({
   use('jose-elias-alvarez/nvim-lsp-ts-utils')
   use('jose-elias-alvarez/null-ls.nvim')
   use 'folke/lsp-colors.nvim'
- 
+
     -- Language Plugins
    use {
     "cuducos/yaml.nvim",
@@ -66,13 +72,15 @@ require("packer").startup({
  -- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter'
   -- Additional textobjects for treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects' 
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
-  
-      
+
+
         -- TELESCOPE
     -- UI to select things (files, grep results, open buffers...)
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope.nvim',
+      requires = { 'nvim-lua/plenary.nvim' },
+    }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { "nvim-telescope/telescope-file-browser.nvim" } -- file_browser
 
@@ -81,21 +89,21 @@ require("packer").startup({
  use({"gelguy/wilder.nvim" })
   use('tpope/vim-eunuch') -- Unix commands
   use('folke/trouble.nvim') -- quickfix list
-  use 'windwp/nvim-autopairs' -- Creates paired 
+  use 'windwp/nvim-autopairs' -- Creates paired
   use 'karb94/neoscroll.nvim' -- smooth scroll
   use 'tpope/vim-surround' -- add )}] around
   use 'wellle/targets.vim' -- adds more text targets (, etc
   use 'kyazdani42/nvim-web-devicons'
-    -- highlight cursor on move 
-  use {'edluffy/specs.nvim'} 
+    -- highlight cursor on move
+  use {'edluffy/specs.nvim'}
 
 
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
-  
+
    -- Echoes the path to the identifier under the cursor.
   use 'mogelbrod/vim-jsonpath'
-  -- THEMES 
+  -- THEMES
   use {'sainnhe/gruvbox-material'}
   use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
   use 'yashguptaz/calvera-dark.nvim'
@@ -107,7 +115,7 @@ require("packer").startup({
 
 
 -- allows to view start up times for pkgs
--- usage 
+-- usage
 -- :LuaCacheProfile
 -- Clear cache
 -- :LuaCacheClear
@@ -148,4 +156,3 @@ local result = vim.api.nvim_exec(
 --Enable mouse mode
 vim.o.mouse = 'a'
  require("trouble").setup {}
-

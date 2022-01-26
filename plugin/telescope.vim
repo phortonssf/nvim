@@ -5,6 +5,7 @@
 " nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 " nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 
+nnoremap <leader>tfb :Telescope file_browser<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ hidden = true, search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
