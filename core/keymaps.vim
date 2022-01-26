@@ -252,3 +252,5 @@ vmap <leader>vyb :d \| ene \| e
 nnoremap <leader>vz :Telescope zoxide list<CR>
  com! FormatJSON %!python -mjson.tool
 
+
+ nnoremap <leader>tfb :Telescope file_browser<CR>
