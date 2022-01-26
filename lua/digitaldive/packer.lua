@@ -98,6 +98,7 @@ require("packer").startup({
   -- THEMES 
   use {'sainnhe/gruvbox-material'}
   use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
+  use 'yashguptaz/calvera-dark.nvim'
   end,
   config = {
        compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'

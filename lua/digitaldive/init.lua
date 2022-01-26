@@ -1,10 +1,3 @@
--- require("digitaldive.lua-line")
--- require("digitaldive.telescope")
--- require("digitaldive.treesitter")
--- require("digitaldive.bufferline")
--- require("digitaldive.specs")
--- -- require("digitaldive.auto-session")
--- require("digitaldive.lsp")
 -- Install packer
 require("digitaldive.packer")
 -- disable unused plugins
@@ -19,7 +12,4 @@ local function source_files_from_dir(directory)
       vim.fn.execute('source ' .. file)
     end
   end
-end
-for _, dir in pairs(config_dirs) do
-  source_files_from_dir(lua_config_dir .. '/digitaldive/' .. dir)
 end
