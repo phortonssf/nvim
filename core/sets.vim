@@ -83,7 +83,7 @@ set shortmess+=c
   " Recent versions of xterm (282 or above) also support
   " 5 -> blinking vertical bar
   " 6 -> solid vertical bar
-    
+
   " if &term =~ '^xterm'
   "   " normal mode
   "   let &t_EI .= "\<Esc>[0 q"
@@ -126,3 +126,6 @@ if executable('rg')
     set grepprg=rg\ --vimgrep
     set grepformat=%f:%l:%c:%m
 endif
+
+" auto cd to set CWD to current buffer
+" set autochdir

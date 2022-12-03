@@ -4,7 +4,7 @@ let g:detect_mod_reg_state = -1
 function! DetectRegChangeAndUpdateMark()
     let current_small_register = getreg('"-')
     let current_mod_register = getreg('""')
-    if g:detect_mod_reg_state != current_small_register || 
+    if g:detect_mod_reg_state != current_small_register ||
                 \ g:detect_mod_reg_state != current_mod_register
         normal! mM
         let g:detect_mod_reg_state = current_small_register
@@ -18,14 +18,24 @@ autocmd InsertLeave * execute 'normal! mI'
 autocmd CursorMoved * call DetectRegChangeAndUpdateMark()
 autocmd InsertLeave * execute 'normal! mM'
 "Got to last edit"
-" autocmd VimEnter * execute "normal \g;" 
+" autocmd VimEnter * execute "normal \g;"
 
 "End of buffer Transparent
 autocmd VimEnter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 "Transparent Background"
 autocmd VimEnter * highlight NonText guibg=none
-autocmd VimEnter * highlight Normal guibg=none 
+autocmd VimEnter * highlight Normal guibg=none
 
 "Strip Trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
+" highlight on yank
+augroup YankHighlight
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+augroup end
+
+" show relative numbers in current window, and absolute in inactive
+autocmd WinEnter,FocusGained * :setlocal number relativenumber
+autocmd WinLeave,FocusLost   * :setlocal number norelativenumber

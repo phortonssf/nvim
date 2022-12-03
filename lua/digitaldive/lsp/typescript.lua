@@ -5,8 +5,8 @@ lspconfig.tsserver.setup({
   init_options = nvim_lsp_ts_utils.init_options,
   on_attach = function(client, bufnr)
     -- disable typescript formatting as we are using null-ls config
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
 
     nvim_lsp_ts_utils.setup({
       debug = false,

@@ -5,8 +5,8 @@ require("bufferline").setup{
       return opts.ordinal
     end,
      diagnostics = "nvim_lsp",
-     separator_style = "thin"
-
+     separator_style = "thin",
+  right_mouse_command = 'vert sbuffer %d',
   }
 
 }

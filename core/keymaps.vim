@@ -75,9 +75,9 @@ noremap <leader><space> i<space><esc>
 
 "Maps Ctrl v to ctrl m - to copy paste
 nnoremap <A-v> <c-v>
- 
+
  " nnoremap <c-m> <c-q>
- 
+
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -107,7 +107,7 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 "maps Ctrl-c to system register
 " vnoremap <C-c> "+y
- 
+
 " next greatest remap ever : asbjornHaland
 nnoremap Y yg$
 nnoremap <leader>y "+y
@@ -151,10 +151,10 @@ nnoremap <leader>vpi ".p
 nnoremap <silent> <leader>f :Format<CR>
 
 " map cursor history to match vimium
-nnoremap <S-h> <C-o> 
-nnoremap <S-l> <C-i> 
+nnoremap <S-h> <C-o>
+nnoremap <S-l> <C-i>
 
-"log word under cursor 
+"log word under cursor
 " console.log('cursor:', cursor);
  nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
 
@@ -165,7 +165,8 @@ tnoremap <Esc> <C-\><C-n
 " nnoremap <Leader>xa :call CloseAllBuffersButCurrent()<CR>
 
 " search and replace
-nnoremap R :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
+" nnoremap <expr> <R> ':%s/\<'.expand('<cword>').'\>/<&>/g<CR>'
+ nnoremap R :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
 " project search and replace
 nnoremap <leader>vqsr :cdo %s/<search term>/<replace term>/gc<Left><Left><Left><Left><Left><Left>
 " search and replace
@@ -183,7 +184,7 @@ nnoremap <C-l> $
 " undo current line only
 nnoremap <leader>ul :call Undoline()<CR>
 
-" nnoremap <leader>tt :call  moreFiles() 
+" nnoremap <leader>tt :call  moreFiles()
 " how to maka command in vim
 " command! Vb normal! <C-v>
 " nnoremap <C-v> Vb
@@ -210,8 +211,8 @@ nmap sw` csw`
 " onoremap ) :<c-u>normal! f)vs(<cr>
 " onoremap " i"
 " onoremap o i"
-" onoremap w iw 
- 
+" onoremap w iw
+
 " vim surround line commands
 map sl( yss(
 map sl) yss)
@@ -224,8 +225,8 @@ map sl" yss"
 map sl` yss`
 
 " WIP better visual movement
-" vmap 44 5j 
-" vmap 55 5k 
+" vmap 44 5j
+" vmap 55 5k
 
 " (asdfasdf) {asdfasf} {wscfasf}
 " source https://vim.fandom.com/wiki/Get_the_name_of_the_current_file
@@ -237,21 +238,26 @@ nnoremap <leader>voc :args **/%:t:r.css<CR>
 nnoremap <leader>vot :args **/**/%:t:r.spec.%:e<CR>
 " open all values files that match pattern
 nnoremap <leader>voa :args ./values-*.yaml<CR>
-" 
+"
 "yank to vim buffer
-" WIP sorta works with regular 
-vmap <leader>vyb :d \| ene \| e 
- 
+" WIP sorta works with regular
+vmap <leader>vyb :d \| ene \| e
+
 " **** FAILED ****:
- " vmap <leader>vyb :""d \| ene \| e 
+ " vmap <leader>vyb :""d \| ene \| e
  " vmap <leader>vyb : <C-U>exe 'norm! ""d' \| ene \| e \| exec 'norm! ""p'
  " vmap <leader>vyb :"_d \| ene \| e sdfasdf
  "Doesnt work
-" vmap <leader>vy : \|<C-U>NormLead d  \| ene \| e 
+" vmap <leader>vy : \|<C-U>NormLead d  \| ene \| e
 "
+"
+"
+
+nnoremap <leader>X :bd!<CR>
+
 nnoremap <leader>vz :Telescope zoxide list<CR>
  com! FormatJSON %!python -mjson.tool
 
 
- nnoremap <leader>tfb :Telescope file_browser<CR>
+nnoremap <leader>tfb :Telescope file_browser<CR>
 map <C-c>  <Nop>

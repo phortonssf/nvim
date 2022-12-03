@@ -8,22 +8,21 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
-},
+        ["<c-t>"] = trouble.open_with_trouble
+       },
+      n = {["<c-t>"] = trouble.open_with_trouble }
     },
   },
   extensions = {
     file_browser = {
+      hijack_netrw = true,
       hidden = true,
       respect_gitignore = true,
       theme = "ivy",
       mappings = {
         ["i"] = {
-          -- your custom insert mode mappings
-        ["<c-t>"] = trouble.open_with_trouble
         },
         ["n"] = {
-          -- your custom normal mode mappings
-          ["<c-t>"] = trouble.open_with_trouble
         },
       },
     },

@@ -83,14 +83,30 @@ require("packer").startup({
     }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { "nvim-telescope/telescope-file-browser.nvim" } -- file_browser
+  use {'cljoly/telescope-repo.nvim'}
+
+  use {'ygm2/rooter.nvim'} -- change cwd to current buffer
 
   use 'itchyny/lightline.vim' -- Fancier statusline
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline
  use({"gelguy/wilder.nvim" })
   use('tpope/vim-eunuch') -- Unix commands
   use('folke/trouble.nvim') -- quickfix list
-  use 'windwp/nvim-autopairs' -- Creates paired
   use 'karb94/neoscroll.nvim' -- smooth scroll
+    -- use {
+	-- "windwp/nvim-autopairs",
+    -- config = function() require("nvim-autopairs").setup {} end
+-- }
+use { 'ThePrimeagen/vim-be-good'}
+use {
+  "windwp/nvim-autopairs",
+  wants = "nvim-treesitter",
+  module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
+  config = function()
+    require("config.autopairs").setup()
+  end,
+}
+
   use 'tpope/vim-surround' -- add )}] around
   use 'wellle/targets.vim' -- adds more text targets (, etc
   use 'kyazdani42/nvim-web-devicons'
@@ -156,3 +172,6 @@ local result = vim.api.nvim_exec(
 --Enable mouse mode
 vim.o.mouse = 'a'
  require("trouble").setup {}
+require'telescope'.load_extension'repo'
+
+vim.g['rooter_cd_cmd'] = 'lcd'
