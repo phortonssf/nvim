@@ -11,14 +11,14 @@ if !empty($WT_SESSION)
     hi! WindowsTerminalCursorFg gui=none
     hi! WindowsTerminalCursorBg gui=none
     set guicursor+=n-v-c-sm:block-WindowsTerminalCursorBg
-    
+
     function! WindowsTerminalFixHighlight()
         " reset match to the character under cursor
         silent! call matchdelete(99991)
         call matchadd('WindowsTerminalCursorFg', '\%#.', 100, 99991)
 
         " find fg color under cursor or fall back to Normal fg then black
-        let bg = synIDattr(synIDtrans(synID(line("."), col("."), 1)), 'fg#') 
+        let bg = synIDattr(synIDtrans(synID(line("."), col("."), 1)), 'fg#')
         if bg == "" | let bg = synIDattr(synIDtrans(hlID('Normal')), 'fg#') | endif
         if bg == "" | let bg = "black" | endif
         exec 'hi WindowsTerminalCursorBg guibg=' . bg
@@ -46,3 +46,7 @@ if !empty($WT_SESSION)
         autocmd CursorMoved * call WindowsTerminalFixHighlight()
     augroup END
 endif
+augroup RestoreCursorShapeOnExit
+    autocmd!
+    autocmd VimLeave * set guicursor=a:ver20
+augroup END
