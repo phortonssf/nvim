@@ -10,7 +10,8 @@ if !empty($WT_SESSION)
     " with a second group that has gui=reverse.
     hi! WindowsTerminalCursorFg gui=none
     hi! WindowsTerminalCursorBg gui=none
-    set guicursor+=n-v-c-sm:block-WindowsTerminalCursorBg
+    set guicursor+=n-v-sm:block-WindowsTerminalCursorBg
+    set guicursor+=c:ver20
 
     function! WindowsTerminalFixHighlight()
         " reset match to the character under cursor
