@@ -1,7 +1,8 @@
 :set shell=/bin/zsh
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set sessionoptions+=globals
-
+set splitright
+set wcm=<C-Z>
 " Nice menu when typing `:find *.py`
 set wildmode=longest,full
 set wildmenu
@@ -105,7 +106,6 @@ set jumpoptions+=stack  " endif
 
 " (Optional)Remove Info(Preview) window
 set completeopt-=preview
-
 " (Optional)Hide Info(Preview) window after completions
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
