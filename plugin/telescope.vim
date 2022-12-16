@@ -4,8 +4,11 @@
 " nnoremap <leader>td :lua require('digitaldive.telescope').dev()<CR>
 " nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 " nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
-
+nnoremap <leader>tp  :lua require'telescope'.extensions.project.project{ display_type = 'full', hidden_files = true }<CR>
+nnoremap <leader>tlg  :lua require('telescope.builtin').live_grep({ prompt_title = 'find string in open buffers...', grep_open_files = true })<CR>
 nnoremap <leader>tfb :Telescope file_browser<CR>
+nnoremap <leader>tch :Telescope command_history<CR>
+nnoremap <leader>tcp :Telescope command_palette<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ prompt_title = string.format("Search For (%s)", vim.loop.cwd()), hidden = true, search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { prompt_title = string.format("Search (%s)", vim.loop.cwd()), search = vim.fn.expand("<cword>") }<CR>
 nnoremap <C-p> :lua require('telescope.builtin').git_files({ prompt_title = string.format("Find Files (%s)", vim.loop.cwd()) })<CR>
