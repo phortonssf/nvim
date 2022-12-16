@@ -10,7 +10,7 @@ endfunction
 function Log(word)
   let wordUnderCursor = expand("<cword>")
   echo wordUnderCursor
-  echom a:word 
+  echom a:word
 endfunction
 
 function Logger(word)
@@ -65,3 +65,67 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>vln :call NumberToggle()<cr>
+
+" visual select value and create ExtractVariable from input prompt
+" vnoremap <leader>re :call ExtractVariable()<cr>
+" function! ExtractVariable()
+"     let name = input("Variable name: ")
+"     if name == ''
+"         return
+"     endif
+"     normal! gv
+"     exec "normal c" . name
+"     exec "normal! O" . name . " = "
+"     normal! $p
+" endfunction
+" copy visiual selection and add filepath/name to top
+function! functions#CompleteYank()
+	redir @n | silent! :'<,'>number | redir END
+	let filename=expand("%")
+	let decoration=repeat('-', len(filename)+1)
+	let @*=decoration . "\n" . filename . ':' . "\n" . decoration . "\n" . @n
+endfunction
+
+" WIP convert list of items to SQL tuple
+function! functions#ToTupleFun() range
+	silent execute a:firstline . ',' . a:lastline . 'norm I"'
+	silent execute a:firstline . ',' . a:lastline . 'norm A",'
+	silent execute a:firstline . ',' . a:lastline . 'join'
+
+	" lines are now joined, there is only one line
+	silent execute 'norm $x'
+	silent execute 'norm I('
+	silent execute 'norm A)'
+
+	" yank final text
+	silent execute 'norm yy'
+endfunction
+
+" blink word under cursor
+function! functions#BlinkWord(blinktime)
+	let target_pat = '\c\%#'.@/
+	let ring = matchadd('IncSearch', target_pat)
+	redraw
+	exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+	call matchdelete(ring)
+	redraw
+endfunction
+function! functions#ToggleQF() abort
+	for i in range(1, winnr('$'))
+        if getbufvar(winbufnr(i), '&buftype') == 'quickfix'
+            cclose
+            return
+        endif
+    endfor
+
+	if getqflist() == []
+		echo "qf list empty"
+		return
+	endif
+	copen
+endfunction
+
+function! Gitblame()
+  GitBlameCopyCommitURL
+endfunction
+
