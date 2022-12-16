@@ -1,4 +1,5 @@
 local actions = require("telescope.actions")
+local fb_actions = require "telescope".extensions.file_browser.actions
 local trouble = require("trouble.providers.telescope")
 require("telescope").load_extension("mapper")
 -- Telescope
@@ -21,6 +22,9 @@ require('telescope').setup {
       theme = "ivy",
       mappings = {
         ["i"] = {
+          ["<C-u>"] = fb_actions.change_cwd,
+          ["<C-x>"] = function(prompt_bufnr)
+          end
         },
         ["n"] = {
         },
