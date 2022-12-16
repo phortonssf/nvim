@@ -65,14 +65,16 @@ require("packer").startup({
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
-  use 'ruanyl/vim-gh-line' -- open current line in github/
-
+  -- use 'ruanyl/vim-gh-line' -- open current line in github/
+  use 'f-person/git-blame.nvim'
+  use { "LinArcX/telescope-command-palette.nvim" }
   use 'nvim-lua/plenary.nvim'
 
  -- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter'
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'nvim-treesitter/nvim-treesitter-context'
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
 
 
