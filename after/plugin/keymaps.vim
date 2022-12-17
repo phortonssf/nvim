@@ -92,16 +92,25 @@ nnoremap J mzJ`z
 
 "Split line shift K
 nmap K m'i<CR><Esc>`'
+
 "Breaks undo sequence"
 inoremap , ,<c-g>u
+inoremap ` `<c-g>u
+inoremap { {<c-g>u
+inoremap ) )<c-g>u
+inoremap ] ]<c-g>u
 inoremap . .<c-g>u
 inoremap ! !<c-g>u
+inoremap & &<c-g>u
+inoremap + +<c-g>u
+inoremap - -<c-g>u
 inoremap ? ?<c-g>u
 inoremap } }<c-g>u
 inoremap : :<c-g>u
 inoremap ; ;<c-g>u
 inoremap = =<c-g>u
 inoremap <Bslash> <Bslash><c-g>u
+inoremap <Fslash> <Fslash><c-g>u
 inoremap <Space> <Space><c-g>u
 
 "Jump List"
