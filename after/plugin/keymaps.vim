@@ -51,8 +51,8 @@ imap jj <Esc><Right>
 imap kk <Esc>
 
 " move among buffers with CTRL
-map <C-K> :bnext<CR>
-map <C-J> :bprev<CR>
+" map <C-k> :bnext<CR>
+map <C-j> :bprev<CR>
 " enter in wild mode accepts like ctrl-y
 cnoremap <expr> <CR> wildmenumode() ? "\<C-y>" : "\<CR>"
 " make ctrlp ctrln work in wildmode
