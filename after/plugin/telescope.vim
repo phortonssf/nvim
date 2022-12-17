@@ -11,7 +11,8 @@ nnoremap <leader>tch :Telescope command_history<CR>
 nnoremap <leader>tcp :Telescope command_palette<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ prompt_title = string.format("Search For (%s)", vim.loop.cwd()), hidden = true, search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { prompt_title = string.format("Search (%s)", vim.loop.cwd()), search = vim.fn.expand("<cword>") }<CR>
-nnoremap <C-p> :lua require('telescope.builtin').git_files({ prompt_title = string.format("Find Files (%s)", vim.loop.cwd()) })<CR>
+nnoremap <C-p> :lua require('telescope.builtin').git_files({ prompt_title = string.format("Find Files (%s)", vim.loop.cwd()), hidden = true, file_ignore_patterns = { "node_modules" }})<CR>
+nnoremap <leader>th :lua require('telescope.builtin').git_files({ prompt_title = string.format("Find Files (%s)", vim.loop.cwd()), hidden = true})<CR>
 " nnoremap <Leader>pf :lua require('telescope.builtin').find_files()<CR>
 " nnoremap <Leader>pf :lua require("telescope.builtin").find_files({ prompt_title = string.format("Find Files (%s)", require("plenary.path"):new(vim.loop.cwd()):shorten()) })
 nnoremap <Leader>pf  :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
