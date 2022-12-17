@@ -158,7 +158,6 @@ nnoremap <leader>p  o<Esc>p
 
 " copy paragraph
 nnoremap <leader>vcp yap<S-}>p
-
 " past last insert
 nnoremap <leader>vpi ".p
 
@@ -201,8 +200,6 @@ nnoremap <C-h> ^
 "go to end of line
 nnoremap <C-l> $
 
-"move to first character and change line
-nnoremap S ^"_C
 " undo current line only
 nnoremap <leader>ul :call Undoline()<CR>
 
@@ -224,8 +221,9 @@ nmap sw" csw"
 nmap sw' csw'
 nmap sw` csw`
 
+" xnoremap u <esc>
 nnoremap vw viw
-"surround Word include breaks
+"surround word include breaks
 nmap sW( csW(
 nmap sW) csW)
 nmap sW{ csW{
@@ -278,16 +276,6 @@ nnoremap <leader>voa :args ./values-*.yaml<CR>
 "yank to vim buffer
 " WIP sorta works with regular
 vmap <leader>vyb :d \| ene \| e
-
-" **** FAILED ****:
- " vmap <leader>vyb :""d \| ene \| e
- " vmap <leader>vyb : <C-U>exe 'norm! ""d' \| ene \| e \| exec 'norm! ""p'
- " vmap <leader>vyb :"_d \| ene \| e sdfasdf
- "Doesnt work
-" vmap <leader>vy : \|<C-U>NormLead d  \| ene \| e
-"
-"
-"
 
 nnoremap <leader>X :bd!<CR>
 
