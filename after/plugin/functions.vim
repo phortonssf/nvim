@@ -150,14 +150,11 @@ endfunction
 command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
 
 function GitCommitInsert()
- " echo "hello"
- execute "normal! i() \<Esc>i"
+ execute "normal! i() \<Esc>"
  " execute ":call feedkeys('()')"
- " execute "normal! F)"
+ execute "normal! ggF)"
  startinsert
 endfunction
-
-
 
 " function! s:MarkCodeBlock() abort
 "     " Add Markdown code-block delimiters to begin and end of current visual group.
