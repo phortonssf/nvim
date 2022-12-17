@@ -1,10 +1,10 @@
 local actions = require("telescope.actions")
 local fb_actions = require "telescope".extensions.file_browser.actions
 local trouble = require("trouble.providers.telescope")
-require("telescope").load_extension("mapper")
 -- Telescope
 require('telescope').setup {
   defaults = {
+    path_display={"smart"},
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -29,6 +29,9 @@ require('telescope').setup {
       sync_with_nvim_tree = true, -- default false
     },
      command_palette = {
+-- description(mandatory)
+-- command(mandatory)
+-- insert_mode/normal_mode flag(optional) (indicates that whether you want to be in insert_mode after run the command or not. 1 means: insert mode. everything else is normal mode)
       {"File",
         { "entire selection (C-a)", ':call feedkeys("GVgg")' },
         { "save current file (C-s)", ':w' },
@@ -84,15 +87,20 @@ require('telescope').setup {
     },
   },
 }
+
+require'telescope'.load_extension'repo'
 require'telescope'.load_extension('project')
 require('telescope').load_extension('command_palette')
 require("telescope").load_extension "file_browser"
+
+
 vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
+
+
+-- something with getting my commits
 local previewers = require('telescope.previewers')
 local builtin = require('telescope.builtin')
 local M = {}
-
-
 local delta = previewers.new_termopen_previewer {
   get_command = function(entry)
     return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value .. '^!' }
