@@ -147,7 +147,7 @@ require("packer").startup({
         }
       end
     }
-
+    use {'ayosec/hltermpaste.vim'}
     -- Add indentation guides even on blank lines
     use 'lukas-reineke/indent-blankline.nvim'
 
@@ -187,6 +187,10 @@ vim.g.lightline = {
 }
 local result = vim.api.nvim_exec(
   [[
+
+   " settings for highlight after paste ctrl-shift-v
+  let g:hltermpaste_timeout = 3000
+  let g:hltermpaste_match_group = "DiffAdd"
 
   let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be " }
   let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
