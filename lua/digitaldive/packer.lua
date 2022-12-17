@@ -210,5 +210,6 @@ local result = vim.api.nvim_exec(
   \ 'space' : ' '}
 ]], false
 )
+vim.keymap.set('n', '<C-k>', ":bprev<CR>", {})
 --Enable mouse mode
 vim.o.mouse = 'a'
