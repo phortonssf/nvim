@@ -287,6 +287,8 @@ nnoremap <leader>vz :Telescope zoxide list<CR>
 
 nnoremap <leader>tfb :Telescope file_browser<CR>
 " map <C-c>  <Nop>
+
+"replace in visual mode
 vnoremap <leader>p "_dP
 
 " keeps visual selection after moving
