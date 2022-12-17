@@ -297,10 +297,16 @@ vnoremap > >gv
 " visual copy all code put file name at top
 vnoremap <leader>cy :call functions#CompleteYank()<cr>
 nnoremap <esc><esc> :silent! nohls<cr>
+
 nnoremap <leader>F :ZenMode<CR>
 
+function HighLightPaste ()
+  execute 'norm! `[' . getregtype()[0] . '`]'
+endfunction
+
 " highlight last paste
-noremap <expr> gV '`[' . getregtype()[0] . '`]'
+nnoremap vp :call HighLightPaste()<CR>
+
 " terminal mode
 if has('nvim')
    tnoremap <Esc> <C-\><C-n>
