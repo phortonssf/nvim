@@ -94,7 +94,7 @@ set jumpoptions+=stack  " endif
 
 " adds _ to word delmiter
  set iskeyword-=_
-
+" set hlsearch
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
