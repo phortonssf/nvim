@@ -67,3 +67,19 @@ augroup helpfiles
   au!
   au BufRead,BufEnter */doc/* wincmd L
 augroup END
+augroup vimrc-incsearch-highlight
+  autocmd!
+  autocmd CmdlineEnter /,\? :set hlsearch
+  autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
+" Return to last edit position when opening files (You want this!)"
+"
+function! GoToLastEdit()
+  if &ft =~ 'fugitive'
+    return
+  endif
+  if line("'\"") > 0 && line("'\"") <= line("$") |
+      exe "silent! normal! g`\"" |
+  endif
+endfunction
+autocmd BufReadPost * call GoToLastEdit()
