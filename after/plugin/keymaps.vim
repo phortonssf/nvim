@@ -138,11 +138,11 @@ nnoremap C "_C
 
 "delete to blackhole register
 nnoremap d "_d
-nnoremap D "_D
+nnoremap d "_d
 vnoremap d "_d
-vnoremap D "_D
+vnoremap d "_d
 xnoremap d "_d
-xnoremap D "_D
+xnoremap d "_d
 " xnoremap \ "_d
 
 nnoremap s "_s
@@ -252,6 +252,7 @@ nnoremap <s-v> :normal! v$<cr>
 nnoremap vv :silent! normal! <s-v><cr>
 
 map sl) yss)
+map sl( yss(
 map sl{ yss{
 map sl} yss}
 map sl[ yss[
@@ -311,6 +312,8 @@ nnoremap vp :call HighLightPaste()<CR>
 " terminal mode
 if has('nvim')
    tnoremap <Esc> <C-\><C-n>
-endi
+ endif
 " copy file path of buffer to clipboard
-nmap cp :let @+ = expand("%:p")<cr>
+nmap yfp :let @+ = expand("%:p")<cr>
+" quit visual mode
+xnoremap u <esc>
