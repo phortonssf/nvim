@@ -148,3 +148,12 @@ function! HighlightRepeats() range
 endfunction
 
 command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+
+
+
+" function! s:MarkCodeBlock() abort
+"     " Add Markdown code-block delimiters to begin and end of current visual group.
+"     call append(line("'<")-1, '```')
+"     call append(line("'>"), '```')
+" endfunction
+" xnoremap m_ :<c-u>call <sid>MarkCodeBlock()<CR>

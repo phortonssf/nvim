@@ -84,16 +84,16 @@ function! GoToLastEdit()
 endfunction
 autocmd BufReadPost * call GoToLastEdit()
 
-function! Cap_Status()
-  let St = systemlist('xset -q | grep "Caps Lock" | awk ''{print $4}''')[0]
-  echo St
-  return St
-endfunction
-function! Capsoff()
-    if Cap_Status() == "on"
-	call system("xdotool key Caps_Lock")
-	redraw
-	highlight Cursor guifg=white guibg=black
-    endif
-endfunction
-autocmd InsertLeave * call Capsoff()
+" function! Cap_Status()
+"   let St = systemlist('xset -q | grep "Caps Lock" | awk ''{print $4}''')[0]
+"   echo St
+"   return St
+" endfunction
+" function! Capsoff()
+"     if Cap_Status() == "on"
+" 	call system("xdotool key Caps_Lock")
+" 	redraw
+" 	highlight Cursor guifg=white guibg=black
+"     endif
+" endfunction
+" autocmd InsertLeave * call Capsoff()
