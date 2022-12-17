@@ -301,3 +301,9 @@ nnoremap <leader>F :ZenMode<CR>
 
 " highlight last paste
 noremap <expr> gV '`[' . getregtype()[0] . '`]'
+" terminal mode
+if has('nvim')
+   tnoremap <Esc> <C-\><C-n>
+endi
+" copy file path of buffer to clipboard
+nmap cp :let @+ = expand("%:p")<cr>
