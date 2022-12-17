@@ -247,8 +247,10 @@ nmap sW` csW`
 onoremap w iw
 onoremap p ip
 
-" vim surround line commands
-map sl( yss(
+" better visual mappings
+nnoremap <s-v> :normal! v$<cr>
+nnoremap vv :silent! normal! <s-v><cr>
+
 map sl) yss)
 map sl{ yss{
 map sl} yss}
