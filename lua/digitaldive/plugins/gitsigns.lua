@@ -1,4 +1,7 @@
 -- Gitsigns
+local map = require("digitaldive.utils").map
+map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+map('n', '<leader>hu', ':Gitsigns undo_stage_hunk')
 require('gitsigns').setup {
   signs = {
     add = { hl = 'GitGutterAdd', text = '+' },
@@ -16,6 +19,6 @@ require('gitsigns').setup {
 
     ['n [c'] = "<cmd>Gitsigns prev_hunk<CR>",
     ['n ]c'] = "<cmd>Gitsigns prev_hunk<CR>",
-    ['n <leader>hs'] = '<cmd>Gitsigns stage_hunk<CR>; <cmd>echo "staged hunk"'
+    ['n <leader>hs'] = '<cmd>Gitsigns stage_hunk<cr>',
     }
 }
