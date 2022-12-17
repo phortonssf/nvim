@@ -17,8 +17,8 @@ require('gitsigns').setup {
     ['n <leader>nh'] = { expr = true, "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'"},
     ['n <leader>hn'] = { expr = true, "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'"},
 
-    ['n [c'] = "<cmd>Gitsigns prev_hunk<CR>",
-    ['n ]c'] = "<cmd>Gitsigns prev_hunk<CR>",
+    ['n ]c'] = "<cmd>Gitsigns next_hunk<CR>",
+    ['n ]C'] = "<cmd>Gitsigns prev_hunk<CR>",
     ['n <leader>hs'] = '<cmd>Gitsigns stage_hunk<cr>',
     }
 }
