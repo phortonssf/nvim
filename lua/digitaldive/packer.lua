@@ -161,6 +161,10 @@ require("packer").startup({
     use { 'NTBBloodbath/doom-one.nvim' }
     use {'sainnhe/gruvbox-material'}
     use {'sainnhe/everforest'}
+    use {
+      'rose-pine/neovim',
+       as = 'rose-pine'
+    }
     use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
   end,
   config = {
