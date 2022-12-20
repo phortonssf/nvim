@@ -1,4 +1,5 @@
 -- disable unused plugins
+require'impatient'.enable_profile()
 require('digitaldive.disable-builtins')
 require("digitaldive.packer")
 
