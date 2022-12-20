@@ -71,6 +71,7 @@ require('telescope').setup {
       }
     },
     file_browser = {
+      path_display = { truncate = 3},
       hijack_netrw = true,
       hidden = true,
       respect_gitignore = true,
@@ -85,6 +86,20 @@ require('telescope').setup {
         },
       },
     },
+   ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+        width = 0.8,
+        previewer = false,
+        prompt_title = false,
+        borderchars = {
+          { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+          prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+          results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+          preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        },
+      }
+    },
   },
 }
 
@@ -92,7 +107,7 @@ require'telescope'.load_extension'repo'
 require'telescope'.load_extension('project')
 require('telescope').load_extension('command_palette')
 require("telescope").load_extension "file_browser"
-
+require("telescope").load_extension("ui-select")
 
 vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
 
