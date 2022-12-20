@@ -111,7 +111,7 @@ require("packer").startup({
         require"octo".setup()
       end
     }
-
+    use {'rhysd/committia.vim'}
 
 -- Map keys
     use {
@@ -140,12 +140,12 @@ require("packer").startup({
     use {'cljoly/telescope-repo.nvim'}
     use {'nvim-telescope/telescope-project.nvim'}
     use { "LinArcX/telescope-command-palette.nvim" }
-
+    use {"nvim-telescope/telescope-ui-select.nvim"}
     -- STATUSLINES
     -- use 'itchyny/lightline.vim' -- Fancier statusline
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline
 
-    use { "gelguy/wilder.nvim", opt = true, setup = [[vim.cmd('packadd wilder.nvim')]] }
+    use { "gelguy/wilder.nvim"}
     use('tpope/vim-eunuch') -- Unix commands
     use('folke/trouble.nvim') -- quickfix list
     use 'karb94/neoscroll.nvim' -- smooth scroll
@@ -180,7 +180,9 @@ require("packer").startup({
     -- use {'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
     -- Echoes the path to the identifier under the cursor.
     use 'mogelbrod/vim-jsonpath'
-
+    require('packer').startup(function()
+      use {'stevearc/dressing.nvim'}
+    end)
     -- THEMES
     use { 'folke/tokyonight.nvim'}
     use { 'EdenEast/nightfox.nvim'}
