@@ -16,13 +16,8 @@ require("packer").startup({
     -- ####### CORE #######
     use 'lewis6991/impatient.nvim' --faster load times
     use 'wbthomason/packer.nvim' -- Package manager
+    use {'mbbill/undotree'}
 
-    -- Map keys
-    use {
-      "lazytanuki/nvim-mapper",
-      config = function() require("nvim-mapper").setup{} end,
-      before = "telescope.nvim"
-    }
     -- language server
     use 'onsails/lspkind-nvim'
 
@@ -50,9 +45,23 @@ require("packer").startup({
         {'L3MON4D3/LuaSnip'},
         {'rafamadriz/friendly-snippets'},
       }
-    }    use('jose-elias-alvarez/nvim-lsp-ts-utils')
-    use('jose-elias-alvarez/null-ls.nvim')
+    }
+
+    -- MORE LSP SETTINGS
+    use {'jose-elias-alvarez/nvim-lsp-ts-utils'}
+    use{'jose-elias-alvarez/null-ls.nvim'}
     use 'folke/lsp-colors.nvim'
+
+    -- TREESITTER
+    use 'nvim-lua/plenary.nvim'
+    -- Highlight, edit, and navigate code using a fast incremental parsing library
+    use 'nvim-treesitter/nvim-treesitter'
+    -- Additional textobjects for treesitter
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+    use 'nvim-treesitter/nvim-treesitter-context'
+    use 'ludovicchabant/vim-gutentags' -- Automatic tags management
+    use { "nvim-zh/better-escape.vim", event = { "InsertEnter" } }
 
     -- Language Plugins
     use {
@@ -78,23 +87,38 @@ require("packer").startup({
 
     -- GIT
     -- -- Add git related info in the signs columns and popups
+    --
+    use {'christoomey/vim-conflicted'}
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use 'tpope/vim-fugitive' -- Git commands in nvim
     use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
     use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
     -- use 'ruanyl/vim-gh-line' -- open current line in github/
+    use {
+      'ldelossa/gh.nvim',
+      requires =  { 'ldelossa/litee.nvim'  }
+    }
     use 'f-person/git-blame.nvim'
-    use { "LinArcX/telescope-command-palette.nvim" }
-    use 'nvim-lua/plenary.nvim'
+    use { "nvim-telescope/telescope-github.nvim" }
+    use {
+      'pwntester/octo.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim',
+        'kyazdani42/nvim-web-devicons',
+      },
+      config = function ()
+        require"octo".setup()
+      end
+    }
 
-    -- Highlight, edit, and navigate code using a fast incremental parsing library
-    use 'nvim-treesitter/nvim-treesitter'
-    -- Additional textobjects for treesitter
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
-    use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
-    use 'nvim-treesitter/nvim-treesitter-context'
-    use 'ludovicchabant/vim-gutentags' -- Automatic tags management
 
+-- Map keys
+    use {
+      "lazytanuki/nvim-mapper",
+      config = function() require("nvim-mapper").setup{} end,
+      before = "telescope.nvim"
+    }
     -- Lua
     use {
       "folke/twilight.nvim",
@@ -106,8 +130,8 @@ require("packer").startup({
         }
       end
     }
+
     -- TELESCOPE
-    -- UI to select things (files, grep results, open buffers...)
     use { 'nvim-telescope/telescope.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
     }
@@ -115,30 +139,34 @@ require("packer").startup({
     use { "nvim-telescope/telescope-file-browser.nvim" } -- file_browser
     use {'cljoly/telescope-repo.nvim'}
     use {'nvim-telescope/telescope-project.nvim'}
-
+    use { "LinArcX/telescope-command-palette.nvim" }
 
     -- STATUSLINES
-    use 'itchyny/lightline.vim' -- Fancier statusline
+    -- use 'itchyny/lightline.vim' -- Fancier statusline
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline
 
-    use({"gelguy/wilder.nvim" })
+    use { "gelguy/wilder.nvim", opt = true, setup = [[vim.cmd('packadd wilder.nvim')]] }
     use('tpope/vim-eunuch') -- Unix commands
     use('folke/trouble.nvim') -- quickfix list
     use 'karb94/neoscroll.nvim' -- smooth scroll
     use { 'ThePrimeagen/vim-be-good'}
+    use { 'ThePrimeagen/harpoon'}
 
-    -- auto closing
     use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
     use 'tpope/vim-surround' -- add )}] around
     use 'wellle/targets.vim' -- adds more text targets (, etc
-    use 'kyazdani42/nvim-web-devicons'
+    -- better % matches
+    use {
+      'andymass/vim-matchup',
+          setup = function()
+          end
+    }
+    use 'kyazdani42/nvim-web-devicons' --icons
     -- highlight cursor on move
     use {'edluffy/specs.nvim'}
-    -- auto closing
-    use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 
     use {
-      "folke/zen-mode.nvim",
+      "folke/zen-mode.nvim",    -- fullscreen mode
       config = function()
         require("zen-mode").setup {
           -- your configuration comes here
@@ -147,17 +175,17 @@ require("packer").startup({
         }
       end
     }
-    use {'ayosec/hltermpaste.vim'}
-    -- Add indentation guides even on blank lines
-    use 'lukas-reineke/indent-blankline.nvim'
-
+    use {'ayosec/hltermpaste.vim'}      -- highlight after paste from ctrl-shift-v
+    use 'lukas-reineke/indent-blankline.nvim'    -- Add indentation guides even on blank lines
+    -- use {'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
     -- Echoes the path to the identifier under the cursor.
     use 'mogelbrod/vim-jsonpath'
+
     -- THEMES
     use { 'folke/tokyonight.nvim'}
     use { 'EdenEast/nightfox.nvim'}
     use { 'Shatur/neovim-ayu'}
-    use "savq/melange"
+    use { 'savq/melange'}
     use { 'NTBBloodbath/doom-one.nvim' }
     use {'sainnhe/gruvbox-material'}
     use {'sainnhe/everforest'}
@@ -166,20 +194,13 @@ require("packer").startup({
        as = 'rose-pine'
     }
     use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
+    use 'nvim-lualine/lualine.nvim'
+
   end,
   config = {
     compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
   },
 })
-
-
--- allows to view start up times for pkgs
--- usage
--- :LuaCacheProfile
--- Clear cache
--- :LuaCacheClear
-require'impatient'.enable_profile()
-require("trouble").setup {}
 
 -- use terminal colors
 vim.o.termguicolors = true
@@ -194,7 +215,7 @@ vim.cmd [[colorscheme gruvbox-material ]]
 
 local result = vim.api.nvim_exec(
   [[
-
+  let g:better_escape_shortcut = ['kk', 'jj']
    " settings for highlight after paste ctrl-shift-v
   let g:hltermpaste_timeout = 3000
   let g:hltermpaste_match_group = "DiffAdd"
@@ -210,3 +231,6 @@ local result = vim.api.nvim_exec(
 vim.keymap.set('n', '<C-k>', ":bprev<CR>", {})
 --Enable mouse mode
 vim.o.mouse = 'a'
+require"octo".setup()
+require('litee.lib').setup({})
+require('litee.gh').setup({})
