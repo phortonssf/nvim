@@ -155,7 +155,10 @@ function GitCommitInsert()
  execute "normal! ggF)"
  startinsert
 endfunction
-
+function GitSigns()
+   let gstatus = get(b:,'gitsigns_status','')
+   return gstatus
+endfunction
 " function! s:MarkCodeBlock() abort
 "     " Add Markdown code-block delimiters to begin and end of current visual group.
 "     call append(line("'<>"), '```')
