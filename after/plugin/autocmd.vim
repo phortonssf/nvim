@@ -39,7 +39,6 @@ augroup end
 " show relative numbers in current window, and absolute in inactive
 autocmd WinEnter,FocusGained * :setlocal number relativenumber
 autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
- augroup HelpBuffer | au! filetype help only | augroup END
 set clipboard+=unnamedplus
 let g:clipboard = {
           \   'name': 'win32yank-wsl',
@@ -98,3 +97,17 @@ autocmd FileType gitcommit call GitCommitInsert()
 "     endif
 " endfunction
 " autocmd InsertLeave * call Capsoff()
+augroup matchup_matchparen_highlight
+  autocmd!
+  autocmd ColorScheme * hi MatchParen guifg=red
+augroup END
+
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+" Open help in named buffers?
+" augroup HelpBuffer | au! filetype help only | augroup END
+augroup help_as_buffer
+  autocmd!
+  " autocmd FileType help :tabnew % | tabprevious | quit | tabnext
+  autocmd FileType help set buflisted
+augroup END
