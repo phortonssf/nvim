@@ -35,7 +35,7 @@ noremap Q @q
 
 "Q to quit"
 cnoremap <C-Q> <C-e><C-u><Esc>
-nnoremap <C-Q> <Esc>:qa!<CR>
+nnoremap <C-Q> <Esc>:quitall<CR>
 
 "Shift U to undo to last write"
 nnoremap U :ea 1f<CR> :echo 'Undo until last write'<CR>
@@ -51,7 +51,7 @@ imap jj <Esc><Right>
 imap kk <Esc>
 
 " move among buffers with CTRL
-" map <C-k> :bnext<CR>
+map <C-k> :bnext<CR>
 map <C-j> :bprev<CR>
 " enter in wild mode accepts like ctrl-y
 cnoremap <expr> <CR> wildmenumode() ? "\<C-y>" : "\<CR>"
@@ -125,7 +125,6 @@ nnoremap Y yg$
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
-
 " x doesnt overide register
 vnoremap x "_x
 nnoremap x "_x
@@ -209,28 +208,28 @@ nnoremap <leader>ul :call Undoline()<CR>
 " let g:vimIsInTmux = 1
 
 " surround word
-nmap sw( csw(
-nmap sw) csw)
-nmap sw{ csw{
-nmap sw} csw}
-nmap sw[ csw[
-nmap sw] csw]
-nmap sw" csw"
-nmap sw' csw'
-nmap sw` csw`
+"nmap sw( csw(
+"nmap sw) csw)
+"nmap sw{ csw{
+"nmap sw} csw}
+"nmap sw[ csw[
+"nmap sw] csw]
+"nmap sw" csw"
+"nmap sw' csw'
+"nmap sw` csw`
 
-" xnoremap u <esc>
-nnoremap vw viw
-"surround word include breaks
-nmap sW( csW(
-nmap sW) csW)
-nmap sW{ csW{
-nmap sW} csW}
-nmap sW[ csW[
-nmap sW] csW]
-nmap sW" csW"
-nmap sW' csW'
-nmap sW` csW`
+"" xnoremap u <esc>
+"nnoremap vw viw
+""surround word include breaks
+"nmap sW( csW(
+"nmap sW) csW)
+"nmap sW{ csW{
+"nmap sW} csW}
+"nmap sW[ csW[
+"nmap sW] csW]
+"nmap sW" csW"
+"nmap sW' csW'
+"nmap sW` csW`
 " vim surround word commands
 " make default targets inner
 " onoremap ` i`
