@@ -108,7 +108,7 @@ require'telescope'.load_extension('project')
 require('telescope').load_extension('command_palette')
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension("ui-select")
-
+ require("telescope").load_extension("yank_history")
 vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
 
 
