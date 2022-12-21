@@ -164,8 +164,6 @@ nnoremap <leader>vpi ".p
 " paste from clipboard insert mode
  " inoremap <C-v> <C-r>+
 
- "Formatter vim key
-nnoremap <silent> <leader>f :Format<CR>
 
 " map cursor history to match vimium
 nnoremap <S-h> <C-o>
@@ -184,7 +182,7 @@ nnoremap <Leader>xa :call CloseAllBuffersButCurrent()<CR>
 nnoremap <Leader>T :Telescope<CR>
 " testch and replace word under cursor
  " nnoremap <expr> <R> ':%s/\<'.expand('<cword>').'\>/<&>/g<CR>'
- " nnoremap R :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
+ nnoremap R :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
 " project search and replace
 nnoremap <leader>vqsr :cdo %s/<search term>/<replace term>/gc<Left><Left><Left><Left><Left><Left>
 " search and replace
@@ -317,3 +315,5 @@ if has('nvim')
 nmap yfp :let @+ = expand("%:p")<cr>
 " quit visual mode
 xnoremap u <esc>
+
+nnoremap <leader>db :lua require('digitaldive.utils.diff')()<CR>
