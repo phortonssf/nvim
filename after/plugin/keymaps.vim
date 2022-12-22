@@ -192,10 +192,11 @@ nnoremap <leader>vqsr :cdo %s/<search term>/<replace term>/gc<Left><Left><Left><
 nnoremap <Leader>x :bd<CR>
 
 " first character on line
-nnoremap <C-h> ^
-
+xmap <C-h> ^
+nmap <C-h> ^
 "go to end of line
-nnoremap <C-l> $
+xmap <C-l> g_
+nmap <C-l> g_
 
 " undo current line only
 nnoremap <leader>ul :call Undoline()<CR>
@@ -241,22 +242,22 @@ nnoremap <leader>ul :call Undoline()<CR>
 " onoremap ) :<c-u>normal! f)vs(<cr>
 " onoremap ' i'
 " onoremap " i"
-onoremap w iw
-onoremap p ip
+" onoremap w iw
+" onoremap p ip
 
 " better visual mappings
-nnoremap <s-v> :normal! v$<cr>
+nnoremap <s-v> :normal! vg_<cr>
 nnoremap vv :silent! normal! <s-v><cr>
 
-map sl) yss)
-map sl( yss(
-map sl{ yss{
-map sl} yss}
-map sl[ yss[
-map sl] yss]
-map sl' yss'
-map sl" yss"
-map sl` yss`
+" map sl) yss)
+" map sl( yss(
+" map sl{ yss{
+" map sl} yss}
+" map sl[ yss[
+" map sl] yss]
+" map sl' yss'
+" map sl" yss"
+" map sl` yss`
 
 " wip=better visual movement
 " vmap 44 5j
@@ -314,5 +315,13 @@ if has('nvim')
 nmap yfp :let @+ = expand("%:p")<cr>
 " quit visual mode
 xnoremap u <esc>
-
+" onoremap <Ctrl-l> :norm $
+map s <Nop>
 nnoremap <leader>db :lua require('digitaldive.utils.diff')()<CR>
+nnoremap <leader>hw :help <C-r><C-w><CR>
+
+" create new text obj, first visual then obj
+xnoremap <Ctrl-l> g_
+onoremap  L :normal vg-
+xnoremap al $o^
+onoremap al :normal val<CR>
