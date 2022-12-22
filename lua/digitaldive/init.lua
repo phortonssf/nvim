@@ -17,3 +17,5 @@ end
 for _, dir in pairs(config_dirs) do
   source_files_from_dir(lua_config_dir .. '/digitaldive/' .. dir)
 end
+vim.keymap.set("n", "s", "<Nop>")
+vim.keymap.set("n", "S", "<Nop>")

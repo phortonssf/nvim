@@ -88,10 +88,13 @@ require("packer").startup({
     use 'hashivim/vim-terraform'
     use 'vim-syntastic/syntastic'
     use 'neomake/neomake'
-    use {
-      'jedrzejboczar/possession.nvim',
-      requires = { 'nvim-lua/plenary.nvim' },
-    }
+    -- Lua
+    use({
+      "olimorris/persisted.nvim",
+      --module = "persisted", -- For lazy loading
+      config = function()
+      end,
+    })
     -- GIT
     -- -- Add git related info in the signs columns and popups
     --
@@ -179,7 +182,17 @@ require("packer").startup({
     -- STATUSLINES
     -- use 'itchyny/lightline.vim' -- Fancier statusline
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'} --bufferline
-
+    use({
+      "princejoogie/dir-telescope.nvim",
+      -- telescope.nvim is a required dependency
+      requires = {"nvim-telescope/telescope.nvim"},
+      config = function()
+        require("dir-telescope").setup({
+          hidden = true,
+          respect_gitignore = true,
+        })
+      end,
+    })
     use { "gelguy/wilder.nvim"}
     use('tpope/vim-eunuch') -- Unix commands
     use('folke/trouble.nvim') -- quickfix list
@@ -192,9 +205,7 @@ require("packer").startup({
       "kylechui/nvim-surround",
       tag = "*", -- Use for stability; omit to use `main` branch for the latest features
       config = function()
-        require("nvim-surround").setup({
-          -- Configuration here, or leave empty to use defaults
-        })
+
       end
     })
    -- use 'tpope/vim-surround' -- add )}] around
@@ -276,6 +287,7 @@ local result = vim.api.nvim_exec(
 vim.keymap.set('n', '<C-k>', ":bprev<CR>", {})
 --Enable mouse mode
 vim.o.mouse = 'a'
+
 require"octo".setup()
 require('litee.lib').setup({})
 require('litee.gh').setup({})
@@ -328,4 +340,25 @@ require('legendary').setup({
 --   },
 --  leader_opts
 -- })
+require("persisted").setup({
+  save_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
+  command = "VimLeavePre", -- the autocommand for which the session is saved
+  silent = false, -- silent nvim message when sourcing session file
+  use_git_branch = false, -- create session files based on the branch of the git enabled repository
+  autosave = true, -- automatically save session files when exiting Neovim
+  should_autosave = nil, -- function to determine if a session should be autosaved
+  autoload = true, -- automatically load the session for the cwd on Neovim startup
+  on_autoload_no_session = nil, -- function to run when `autoload = true` but there is no session to load
+  follow_cwd = true, -- change session file name to match current working directory if it changes
+  allowed_dirs = nil, -- table of dirs that the plugin will auto-save and auto-load from
+  ignored_dirs = nil, -- table of dirs that are ignored when auto-saving and auto-loading
+  before_save = nil, -- function to run before the session is saved to disk
+  after_save = nil, -- function to run after the session is saved to disk
+  after_source = nil, -- function to run after the session is sourced
+  telescope = { -- options for the telescope extension
+    before_source = nil, -- function to run before the session is sourced via telescope
+    after_source = nil, -- function to run after the session is sourced via telescope
+    reset_prompt_after_deletion = true, -- whether to reset prompt after session deleted
+  },
+})
 vim.g.matchup_surround_enabled = 1
