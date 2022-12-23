@@ -12,7 +12,7 @@ return {
     "annotations", -- Code annotation generator
     "auto_install", -- Auto install LSP providers
     "autopairs", -- Automatically close character pairs
-    "comment", -- Adds keybinds to comment in any language
+     "comment", -- Adds keybinds to comment in any language
     "linter", -- Linting and formatting for languages
     "lsp", -- Code completion
     "extra_snippets", -- Code snippets for all languages

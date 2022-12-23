@@ -9,6 +9,14 @@ lsp.settings = {
     history = true,
     updateevents = "TextChanged,TextChangedI",
   },
+  signs = {
+    default = false,
+    severity = vim.diagnostic.severity.ERROR
+  },
+    virtual_text = false,
+  -- virtual_text = {
+  --   default = false,
+  -- },
   signature = {
     bind = true,
     doc_lines = 10,
@@ -166,6 +174,7 @@ lsp.configs["nvim-lspconfig"] = function()
   end
 
   vim.diagnostic.config({
+    signs = doom.features.lsp.settings.signs,
     virtual_text = doom.features.lsp.settings.virtual_text,
     severity_sort = doom.features.lsp.settings.severity_sort,
     float = {
