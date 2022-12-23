@@ -4,8 +4,12 @@
 -- automatically).
 
 -- ADDING A PACKAGE
---
--- doom.use_package("EdenEast/nightfox.nvim", "sainnhe/sonokai")
+ doom.use_package(
+  "tpope/vim-fugitive",
+  "sainnhe/gruvbox-material",
+  "sainnhe/sonokai",
+  "terrortylor/nvim-comment"
+)
 -- doom.use_package({
 --   "ur4ltz/surround.nvim",
 --   config = function()
@@ -13,22 +17,30 @@
 --   end
 -- })
 -- ADDING A KEYBIND
-local lsp = doom.features.lsp
-lsp.settings.virtual_text = false
+vim.cmd [[ colorscheme gruvbox-material ]]
+local L = '<leader>'
+local C = '<cmd>'
 doom.use_keybind({
   { mode = 'i',
     { 'jj', '<esc>'},
     { 'kk', '<esc>'}
   },
+  { mode = 'n',
+    { '<C-j>', ":bnext<CR>"},
+    { '<C-k>',  ":bprev<CR>"},
+    {'<C-_>', ":CommentToggle<CR>"}
+  },
+  {L .. 'x', C .. "bd<CR>" },
+  {L .. 'X', C .. "bd<CR>" },
+
   { '<leader>u', name = '+user', { -- Names this group in whichkey "+user"
     { 's', '<cmd>Telescope git_status<CR>', name = 'Git status' } -- Adds `<leader>us` keybind to trigger `Telescope git_status`
   }},
-  {  name = '+buffer', { -- Names this group in whichkey "+user"
-    { '<C-j>',':bprev', name = 'Prev Buffer' }
+  {'<leader>g', name = '+git',{
+    {'s', '<cmd>Git<CR>'}
   }},
-
 })
-
+require('nvim_comment').setup()
 -- ADDING A COMMAND
 --
 -- doom.use_cmd({

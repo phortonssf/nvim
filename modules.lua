@@ -26,7 +26,7 @@ return {
     "indentlines", -- Show indent lines with special characters
     "range_highlight", -- Highlight selected range from commands
     "todo_comments", -- Highlight TODO: comments
-    -- "doom_themes",     -- Extra themes for doom
+     "doom_themes",     -- Extra themes for doom
 
     -- UI Components
     "lsp_progress", -- Check status of LSP loading
@@ -36,7 +36,7 @@ return {
     "statusline", -- A pretty status line at the bottom of the buffer
     -- "minimap",         -- Shows current position in document
     -- "terminal",        -- Integrated terminal in neovim
-    -- "symbols",         -- Navigate between code symbols using telescope
+     "symbols",         -- Navigate between code symbols using telescope
     -- "ranger",          -- File explorer in neovim (TODO: Test)
     -- "restclient",      -- Test HTTP requests from neovim (TODO: Test)
     -- "show_registers",  -- Show and navigate between registers
@@ -48,7 +48,7 @@ return {
     -- "firenvim",        -- Embed neovim in your browser
     -- "lazygit",         -- Lazy git integration
     -- "neogit",          -- A git client for neovim
-    "neorg", -- Organise your life
+    -- "neorg", -- Organise your life
     "projects", -- Quickly switch between projects
     -- "superman",        -- Read unix man pages in neovim
     -- "suda",            -- Save using sudo when necessary
@@ -58,8 +58,8 @@ return {
   langs = {
     -- Scripts
     "lua",
-    -- "python",
-    -- "bash",
+    "python",
+     "bash",
     -- "fish",
     -- "gdscript",
     -- "gdscript",
@@ -67,11 +67,11 @@ return {
     -- "ruby",
 
     -- Web
-    -- "javascript",
-    -- "typescript",
-    -- "css",
-    -- "vue",
-    -- "tailwindcss",
+     "javascript",
+     "typescript",
+     "css",
+     "vue",
+     "tailwindcss",
     -- "svelte",
 
     -- Compiled
@@ -85,12 +85,12 @@ return {
     -- "kotlin",
     -- "java",
 
-    -- "json",
-    -- "yaml",
-    -- "toml",
-    -- "markdown",
-    -- "terraform",       -- Terraform / hcl files support
-    -- "dockerfile",
+     "json",
+     "yaml",
+     "toml",
+     "markdown",
+     "terraform",       -- Terraform / hcl files support
+     "dockerfile",
     -- "nix",             -- Nix declarations
   },
 }
