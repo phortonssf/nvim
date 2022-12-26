@@ -9,16 +9,22 @@ telescope.settings = {
       "--line-number",
       "--column",
       "--smart-case",
+      "--hidden"
+        },
+
+    path_display = {
+      truncate = 2
     },
-    initial_mode = "insert",
+    hidden_files = true,
+        initial_mode = "insert",
     selection_strategy = "reset",
-    sorting_strategy = "descending",
+    sorting_strategy = "ascending",
     layout_strategy = "horizontal",
     prompt_prefix = "   ",
     layout_config = {
       width = 0.75,
       preview_cutoff = 120,
-      prompt_position = "bottom",
+      prompt_position = "top",
       vertical = { mirror = false },
       horizontal = {
         mirror = false,
