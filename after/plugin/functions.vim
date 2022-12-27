@@ -1,30 +1,36 @@
-" copy visiual selection and add filepath/name to top
-function! functions#CompleteYank()
-	redir @n | silent! :'<,'>number | redir END
-	let filename=expand("%")
-	let decoration=repeat('-', len(filename)+1)
-	let @*=decoration . "\n" . filename . ':' . "\n" . decoration . "\n" . @n
-endfunctio
-
-function! CloseAllBuffersButCurrent()
-  let curr = bufnr("%")
-  let last = bufnr("$")
-
-  if curr > 1    | silent! execute "1,".(curr-1)."bd"     | endif
-  if curr < last | silent! execute (curr+1).",".last."bd" | endif
+" CWD to buffer director
+function! ChangeToLocalDir()
+  lchdir  %:p:h |
+  ":help filename-modifiers lchdir  %:p:h
+  echo  getcwd()
+  return ''
 endfunction
-
-function! functions#ToggleQF() abort
-	for i in range(1, winnr('$'))
-        if getbufvar(winbufnr(i), '&buftype') == 'quickfix'
-            cclose
-            return
+function! CdBufWorkingDir(...)
+    if a:0 == 0
+        let l:targetdir = expand("%:p:h")
+    else
+        if a:1[0] == "~"
+            let l:targetdir = fnamemodify( bufname(str2nr(a:1[1:])), ":p:h" )
+        else
+            let l:targetdir = a:1
         endif
-    endfor
+    endif
 
-	if getqflist() == []
-		echo "qf list empty"
-		return
-	endif
-	copen
+    execute "cd ". l:targetdir
+    execute "cd .."
+    echo getcwd()
 endfunction
+command! -nargs=* Cdbuf :call CdBufWorkingDir(<q-args>)
+nnoremap <expr> _c CdBufWorkingDir()
+" nnoremap <expr> _c ChangeToLocalDir()
+function GitCommitInsert()
+ execute "normal! i() \<Esc>"
+ " execute ":call feedkeys('()')"
+ execute "normal! ggF)"
+ startinsert
+endfunction
+function GitSigns()
+   let gstatus = get(b:,'gitsigns_status','')
+   return gstatus
+endfunction
+

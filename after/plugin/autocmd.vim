@@ -83,7 +83,7 @@ function! GoToLastEdit()
 endfunction
 autocmd BufReadPost * call GoToLastEdit()
 
-" autocmd FileType gitcommit call GitCommitInsert()
+autocmd FileType gitcommit call GitCommitInsert()
 " function! Cap_Status()
 "   let St = systemlist('xset -q | grep "Caps Lock" | awk ''{print $4}''')[0]
 "   echo St
@@ -103,8 +103,8 @@ augroup matchup_matchparen_highlight
 augroup END
 
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-" Open help in named buffers?
 
+" Open help in named buffers?
 " augroup HelpBuffer | au! filetype help only | augroup END
 augroup help_as_buffer
   autocmd!
