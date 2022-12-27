@@ -1,9 +1,0 @@
--- vim.diagnostic.config({
---   signs = {
---     default = true,
---     severity = vim.diagnostic.severity.ERROR
---   },
---   virtual_text = {
---     default = false,
---   },
--- })
