@@ -343,17 +343,6 @@ require("grapple").setup({
         resession = false,
     },
 })
-vim.keymap.set("n", "<C-e>", "<Nop>")
-vim.keymap.set("n", "<C-e>", require("grapple").popup_tags)
-vim.keymap.set("n", "<leader>m", require("grapple").toggle, {})
-vim.keymap.set("n", "<leader>j", function()
-    require("grapple").select({ key = "{main}" })
-end, {})
-
-vim.keymap.set("n", "<C-j>", function () require("grapple").select({ key = 1 }) end)
-vim.keymap.set("n", "<C-k>", function () require("grapple").select({ key = 2 }) end)
-vim.keymap.set("n", "<C-l>", function () require("grapple").select({ key = 3 }) end)
-vim.keymap.set("n", "<F13>", function () require("grapple").select({ key = 4 }) end)
 
 
 
