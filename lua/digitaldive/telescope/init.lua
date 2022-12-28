@@ -14,6 +14,17 @@ function M.search_all_files()
   }
 end
 
+function M.find_project()
+  require("telescope.builtin").find_files {
+    prompt_title = "~ Project Search ~",
+    shorten_path = false,
+    layout_strategy = "horizontal",
+    layout_config = {
+      width = 0.80,
+      preview_width = 0,
+    },
+  }
+end
 
 return setmetatable({}, {
   __index = function(_, k)
@@ -30,3 +41,4 @@ return setmetatable({}, {
     end
   end,
 })
+
