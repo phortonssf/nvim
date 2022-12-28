@@ -66,6 +66,8 @@ nest.applyKeymaps({
       noremap = true,
       silent = true
     },
+    { "u", '<Nop>' },
+    { "u", '<Esc>' },
     { l .. 'p', '"_dP'},
     {'>', ">gv"},
     {'<', "<gv"}
