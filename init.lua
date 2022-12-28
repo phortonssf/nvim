@@ -9,7 +9,10 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
   vim.cmd [[packadd packer.nvim]]
 end
+
+
 require('digitaldive.globals')
+require('digitaldive.sets')
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
 --
@@ -22,9 +25,6 @@ if is_bootstrap then
   print '=================================='
   return
 end
-
-
-require('digitaldive.sets')
 
 vim.cmd [[colorscheme catppuccin]]
 require('digitaldive.packer')
@@ -240,7 +240,7 @@ mason_lspconfig.setup_handlers {
 }
 
 -- Turn on lsp status information
--- require('fidget').setup()
+require('fidget').setup()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
