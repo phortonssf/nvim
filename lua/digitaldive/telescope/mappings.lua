@@ -1,4 +1,4 @@
-
+local wk = require("which-key")
 if not pcall(require, "telescope") then
   return
 end
@@ -21,7 +21,17 @@ local map_tele = function(key, f, options, buffer)
   }
 
   if not buffer then
+    local last_key =  string.sub(key, -1)
+    local firstkeys = key:sub(1, -2)
+    print(last_key)
     vim.api.nvim_set_keymap(mode, key, rhs, map_options)
+    wk.register({
+
+      ['<leader>f'] = {
+        name = "+find",
+       [last_key] = { rhs, options}
+      }
+    })
   else
     vim.api.nvim_buf_set_keymap(0, mode, key, rhs, map_options)
   end

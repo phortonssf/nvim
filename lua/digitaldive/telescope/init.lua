@@ -1,13 +1,18 @@
 SHOULD_RELOAD_TELESCOPE = true
 local reloader = function()
   if SHOULD_RELOAD_TELESCOPE then
+    RELOAD "plenary"
+    RELOAD "telescope"
+    RELOAD "digitaldive.telescope.setup"
   end
 end
 
 local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 local themes = require "telescope.themes"
+
 local M = {}
+
 function M.search_all_files()
   require("telescope.builtin").find_files {
     find_command = { "rg", "--no-ignore", "--files" },
@@ -16,8 +21,9 @@ end
 
 function M.find_project()
   require("telescope.builtin").find_files {
-    prompt_title = "~ Project Search ~",
+    prompt_title = "~ project search ~",
     shorten_path = false,
+    path_display = { "absolute" },
     layout_strategy = "horizontal",
     layout_config = {
       width = 0.80,
@@ -30,7 +36,7 @@ return setmetatable({}, {
   __index = function(_, k)
     reloader()
 
-    local has_custom, custom = pcall(require, string.format("tj.telescope.custom.%s", k))
+    local has_custom, custom = pcall(require, string.format("digitaldive.telescope.custom.%s", k))
 
     if M[k] then
       return M[k]

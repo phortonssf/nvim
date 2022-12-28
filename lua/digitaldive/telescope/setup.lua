@@ -19,7 +19,7 @@ require('telescope').setup {
       "--line-number",
       "--column",
       "--smart-case",
-      "--hidden"
+      "--hidden",
         },
     path_display = {
        "smart"
