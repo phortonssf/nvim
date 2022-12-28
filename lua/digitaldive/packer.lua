@@ -81,6 +81,7 @@ require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'morhetz/gruvbox'
 
+  use {"folke/which-key.nvim"}
   use 'terrortylor/nvim-comment'
   use { "catppuccin/nvim", as = "catppuccin" }
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
