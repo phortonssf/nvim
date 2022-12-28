@@ -141,7 +141,7 @@ nest.applyKeymaps({
     -- { "<c-j>", ":bnext<cr>" , name = "Next Buffer"},
     -- { "<c-k>", ":bprev<cr>" , name = "Prev Buffer"},
     { l .. "x", c .. "bd<cr>" , name = "Close buffer"},
-    { l .. "x", c .. "bd<cr>" },
+    { l .. "X", c .. "bd!<cr>" },
   },
 
   { "<leader>g", name = "+git", {

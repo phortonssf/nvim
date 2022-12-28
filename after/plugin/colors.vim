@@ -13,8 +13,8 @@ autocmd InsertEnter *  highlight CursorLineNr cterm=bold ctermfg=236 ctermbg=109
 " autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=246 guifg=#32302f guibg=#a89984
 autocmd InsertLeave * hi CursorLineNr ctermfg=236 ctermbg=246 guifg=#32302f guibg=#7daea3
 "Sets Visual mode hightlight"
-" hi Visual cterm=bold ctermfg=236 ctermbg=109 gui=bold guifg=#32302f guibg=#7daea3
-autocmd Colorscheme * hi Visual  guifg=#a074c4 gui=none
+ hi Visual cterm=bold ctermfg=236 ctermbg=109 gui=bold guifg=#32302f guibg=#7daea3
+" autocmd Colorscheme * hi Visual  guifg=#a074c4 gui=none
 "highlight on yank
 autocmd Colorscheme * hi Incsearch cterm=bold ctermfg=208 guibg=#3c3836 guifg=#e78a4e
 autocmd Colorscheme * hi TelescopeSelection  ctermbg=bold gui=bold guifg=#a074c4 guibg=#45403d
