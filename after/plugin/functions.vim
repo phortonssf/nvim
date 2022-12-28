@@ -34,3 +34,8 @@ function GitSigns()
    return gstatus
 endfunction
 
+
+map <silent> <leader>Ex :Lexplore<CR>
+
+
+
