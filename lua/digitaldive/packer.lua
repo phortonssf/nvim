@@ -36,7 +36,7 @@ require('packer').startup(function(use)
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  -- use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
   --  Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
@@ -81,6 +81,7 @@ require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'morhetz/gruvbox'
 
+  use 'terrortylor/nvim-comment'
   use { "catppuccin/nvim", as = "catppuccin" }
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')

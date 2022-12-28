@@ -49,9 +49,7 @@ require('lualine').setup {
   },
 }
 
--- Enable Comment.nvim
-require('Comment').setup()
-
+require('nvim_comment').setup()
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
 require('indent_blankline').setup {
