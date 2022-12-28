@@ -38,17 +38,6 @@ vim.o.completeopt = 'menuone,noselect'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Set lualine as statusline
--- See `:help lualine.txt`
-require('lualine').setup {
-  options = {
-    icons_enabled = false,
-    theme = 'cattpuccino',
-    component_separators = '|',
-    section_separators = '',
-  },
-}
-
 require('nvim_comment').setup()
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
