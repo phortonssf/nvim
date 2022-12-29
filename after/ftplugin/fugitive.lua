@@ -13,8 +13,7 @@ local wk = require("which-key")
 -- vim.cmd('autocmd FileType fugitive, BufEnter lua ftplugin()')
   -- vim.cmd('autocmd CursorHold,CursorHoldI <buffer> lua require"which-key".show()')
 function M.Ftplugin()
-wk.register(
-{
+wk.register({
   -- -- mappings.buf(0, "n", "p", "<cmd>Git push<CR>", { noremap = true })
   ['<localleader>'] = {
     s = { "s", "Stage" },
