@@ -34,11 +34,26 @@ local map_tele = function(key, f, options, buffer)
     vim.api.nvim_buf_set_keymap(0, mode, key, rhs, map_options)
   end
 end
-
 local l = "<leader>f"
-map_tele( l .. "s", "grep_string")
+map_tele( l .. "s", "grep_the_grep")
 map_tele( l .. "T", "builtin")
 map_tele( l .. "r", "old_files")
 map_tele( l .. "g", "git_repo")
-map_tele("<space>fp", "find_project")
-map_tele("<space>fi", "search_all_files")
+-- map_tele("<space>ff", "find_project")
+map_tele("<space>ff", "search_all_files")
+map_tele( l .. "w", "my_grep")
+-- vim.keymap.set("n", l .. "h", my_grep)
+--
+-- vim.cmd [[
+--     function! Cword(A, L, P)
+--         return v:lua.Cword()
+--     endfunction
+-- ]]
+--
+-- i_input = function()
+--   vim.fn.input({
+--     prompt = 'Search term: ',
+--     completion = 'custom,Cword'
+--   })
+-- end
+-- vim.keymap.set(l .. "w", function()require('telescope.builtin.files').grep_string({search = i_input()}) end)

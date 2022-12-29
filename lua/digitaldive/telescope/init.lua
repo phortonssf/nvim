@@ -17,21 +17,19 @@ local map = vim.keymap.set
 require("dressing").setup()
 local ui = function(message, cb)
   vim.ui.input(
-    {prompt = message },
+    {prompt = message, completion = "custom, hello" },
     function(input)
-      return cb({search = input,  additional_args = {"--hidden"}})
+      return cb({
+        search = input,
+        path_display = "absolute",
+        additional_args = function(opts)
+         return {"--hidden", "-L"}
+       end})
     end
   )
 end
 -- FILE SEARCHfS
--- vim.keymap.set(
---   "n",  "<leader>rf",
---   function ()
---    builtin.oldfiles({})
---   end
---   )
 -- vim.api.nvim_set_keymap("n", "<leader>rf", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
--- -- map('n', '<leader>tff', function () builtin.find_files({}) end, {desc = ""})
 -- -- map("n",  "<leader>rf ", function () builtin.oldfiles() end, {desc = "Search Git Files"}),
 -- -- map('n', '<leader>tff', function () builtin.find_files({ hidden=true, search_dirs = { "~/projects", "~/work", "~/.dotfiles/"}}) end, {desc = ""})
 -- map('n', '<leader>pf', builtin.find_files, {desc = "Find files"})
@@ -46,18 +44,14 @@ end
 --   ui("Grep Project", builtin.grep_string)
 -- end)
 
-function M.grep_string()
-  ui("Grep Current CWD", require("telescope.builtin").grep_string)
+function M.grep_()
+  ui(" Grep Current CWD", require("telescope.builtin").grep_string)
 end
 
 function M.search_all_files()
   require("telescope.builtin").find_files {
-    find_command = { "rg", "--no-ignore", "--files" },
-  }
-end
-
-function M.find_project()
-  require("telescope.builtin").find_files {
+    -- //Rg options here for  ff search
+   find_command = { "rg", "--no-ignore", "--files" , "--hidden", "-L"},
     prompt_title = "~ project search ~",
     shorten_path = false,
     path_display = { "absolute" },
@@ -68,6 +62,19 @@ function M.find_project()
     },
   }
 end
+
+-- function M.find_project()
+--   require("telescope.builtin").find_files {
+--     prompt_title = "~ project search ~",
+--     shorten_path = false,
+--     path_display = { "absolute" },
+--     layout_strategy = "horizontal",
+--     layout_config = {
+--       width = 0.80,
+--       preview_width = 0,
+--     },
+--   }
+-- end
 
 function M.git_repo()
    require("telescope.builtin").git_repo {
@@ -82,6 +89,35 @@ prompt_title = "~ project search ~",
   }
 end
 
+function _G.Cword()
+    return vim.fn.expand("<cword>")
+end
+function M.my_grep()
+  local cword = vim.fn.expand("<cword>")
+  require("telescope.builtin").live_grep({
+    default_text = cword,
+    additional_args = function ()
+      return {"--hidden"}
+    end
+  --   on_complete = cword ~= "" and {
+  --     function(picker)
+  --       local mode = vim.fn.mode()
+  --       local keys = mode ~= "n" and "<ESC>" or ""
+  --       vim.api.nvim_feedkeys(
+  --         vim.api.nvim_replace_termcodes(keys .. [[^v$<C-g>]], true, false, true),
+  --         "n",
+  --         true
+  --       )
+  --       -- should you have more callbacks, just pop the first one
+  --       table.remove(picker._completion_callbacks, 1)
+  --       -- copy mappings s.t. eg <C-n>, <C-p> works etc
+  --       vim.tbl_map(function(mapping)
+  --         vim.api.nvim_buf_set_keymap(0, "s", mapping.lhs, mapping.rhs, {})
+  --       end, vim.api.nvim_buf_get_keymap(0, "i"))
+  --     end,
+  --   } or nil,
+  })
+end
 
 function M.builtin()
   require("telescope.builtin").builtin()

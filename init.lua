@@ -296,6 +296,6 @@ require('digitaldive.telescope.mappings')
 local NOREF_NOERR_TRUNC = { noremap = true, silent = true, nowait = true }
 -- vim.cmd'au BufEnter * NeoRoot'
 vim.keymap.set('n', '<Leader>cd', function() vim.cmd('NeoRootSwitchMode') end, NOREF_NOERR_TRUNC)
--- vim.keymap.set('n', '<Leader>pre', function() vim.cmd('NeoRootChange') end, NOREF_NOERR_TRUNC)
+vim.keymap.set('n', '<Leader>pre', function() vim.cmd('NeoRootChange') end, NOREF_NOERR_TRUNC)
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
