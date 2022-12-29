@@ -147,8 +147,8 @@ wk.register({
  --  },-- you can also pass functions! },
  -- { prefix = "<leader>" }}
   ["<leader>f"] = {
-    name = '+find',
-    f = { "<cmd>Telescope find_files<cr>", "find file" }
+    name = '+Find',
+    -- f = { "<cmd>Telescope find_files<cr>", "Find" }
   }
 })
 

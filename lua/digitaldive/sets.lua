@@ -122,7 +122,16 @@ vim.opt.updatetime = 50
 --     set grepprg=rg\ --vimgrep
 --     set grepformat=%f:%l:%c:%m
 -- endif
---
+-- vim.opt.tabline=%H/%f--
+--vim.opt.grepformat = "%f:%l:%c:%m"
+--vim.opt.grepprg = "rg\ --vimgrep"
+function Tabline()
+   local path = vim.fn.expand('%:h:t') .. '/' .. vim.fn.expand('%:t')
+  return path
+end
+vim.opt.showtabline = 2
+-- vim.opt.tabline=vim.fn.expand('%:h:t') .. '/' .. vim.fn.expand(%:t')
+vim.opt.tabline = "%H/%t"
 -- " auto cd to set CWD to current buffer
  vim.opt.autochdir = false
 -- Gives code blocks

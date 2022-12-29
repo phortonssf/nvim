@@ -22,14 +22,12 @@ local map_tele = function(key, f, options, buffer)
 
   if not buffer then
     local last_key =  string.sub(key, -1)
-    local firstkeys = key:sub(1, -2)
-    print(last_key)
     vim.api.nvim_set_keymap(mode, key, rhs, map_options)
     wk.register({
 
       ['<leader>f'] = {
         name = "+find",
-       [last_key] = { rhs, options}
+       [last_key] = { rhs, f}
       }
     })
   else
@@ -37,6 +35,10 @@ local map_tele = function(key, f, options, buffer)
   end
 end
 
-
-map_tele("<space>fa", "find_project")
+local l = "<leader>f"
+map_tele( l .. "s", "grep_string")
+map_tele( l .. "T", "builtin")
+map_tele( l .. "r", "old_files")
+map_tele( l .. "g", "git_repo")
+map_tele("<space>fp", "find_project")
 map_tele("<space>fi", "search_all_files")

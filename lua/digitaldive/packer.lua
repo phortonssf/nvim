@@ -81,6 +81,8 @@ require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'morhetz/gruvbox'
 
+  use 'nvim-telescope/telescope-ui-select.nvim'
+  use 'stevearc/dressing.nvim'
   use {"folke/which-key.nvim"}
   use 'terrortylor/nvim-comment'
   use { "catppuccin/nvim", as = "catppuccin" }

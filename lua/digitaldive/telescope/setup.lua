@@ -94,17 +94,6 @@ require('telescope').setup {
   },},
   extensions = {
     frecency = {
-      defaults = {
-        layout_strategy = "horizontal",
-        layout_config = {
-          width = 0.75,
-          prompt_position = "top",
-          vertical = { mirror = false },
-          horizontal = {
-            mirror = false,
-            preview_width = 0
-          },
-        }}
     }
   }
 }
