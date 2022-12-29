@@ -43,8 +43,7 @@ end
 -- map('n', "<leader>fv", function()
 --   ui("Grep Project", builtin.grep_string)
 -- end)
-
-function M.grep_()
+function M.grep_the_grep()
   ui(" Grep Current CWD", require("telescope.builtin").grep_string)
 end
 
@@ -76,8 +75,8 @@ end
 --   }
 -- end
 
-function M.git_repo()
-   require("telescope.builtin").git_repo {
+function M.files()
+   require("telescope.builtin").files {
 prompt_title = "~ project search ~",
     shorten_path = false,
     path_display = { "absolute" },

@@ -7,8 +7,8 @@ local c = "<CMD>"
 vim.keymap.set({ 'n', 'v' }, '<space>', '<nop>', { silent = true })
 
 -- remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 nest.applyKeymaps({
  -- COMMANd
   {mode = "t", {
@@ -33,7 +33,7 @@ nest.applyKeymaps({
 
     -- adds marsk so larg j and k movements are in jumplist
     {'k', function()
-      if (vim.v.count > 5) then return "m'" .. vim.v.count .. 'k' else return 'k' end end},
+      return (vim.v.count  == 5) and  "m'" .. vim.v.count .. 'k' or 'k' end},
     {'j', function()
       if (vim.v.count > 5) then return "m'" .. vim.v.count .. 'j' else return 'j' end end}
    -- {'k', function() if (v.count > 5) then return "m'" .. v.count .. 'k' else return "k" end }

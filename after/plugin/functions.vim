@@ -37,5 +37,39 @@ endfunction
 
 map <silent> <leader>Ex :Lexplore<CR>
 
+function! ToggleQuickFix()
+   if empty(filter(getwininfo(), 'v:val.quickfix'))
+       copen
+   else
+       cclose
+   endif
+endfunction
 
+nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
 
+" function! DeleteEmptyBuffers()
+"     let [i, n; empty] = [1, bufnr('$')]
+"     while i <= n
+"         if bufexists(i) && bufname(i) == ''
+"             call add(empty, i)
+"         endif
+"         let i += 1
+"     endwhile
+"     if len(empty) > 0
+"         exe 'bdelete' join(empty)
+"     endif
+" endfunction
+" sdfsadf"
+" asdfsdaf
+" nnoremap <silent> <leader>bb :call DeleteEmptyBuffers()<CR> | :norm! q!<CR>
+fun! ExitBuffer()
+    if len(getbufinfo({'buflisted':1})) > 1
+        execute 'update | :confirm :bd'
+    else
+        execute 'update | quit'
+    endif
+endfun
+nnoremap <silent> <leader>bb  :call ExitBuffer()<CR>
+
+" https://vi.stackexchange.com/questions/27104/efficient-way-of-cleaning-up-the-buffer-list
+" Wipe all deleted (unloaded & unlisted) or all unloaded buffers

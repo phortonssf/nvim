@@ -38,7 +38,7 @@ local l = "<leader>f"
 map_tele( l .. "s", "grep_the_grep")
 map_tele( l .. "T", "builtin")
 map_tele( l .. "r", "old_files")
-map_tele( l .. "g", "git_repo")
+map_tele( l .. "g", "git_files")
 -- map_tele("<space>ff", "find_project")
 map_tele("<space>ff", "search_all_files")
 map_tele( l .. "w", "my_grep")
