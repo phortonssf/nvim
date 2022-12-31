@@ -2,6 +2,7 @@ require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
+  -- LSP CONFIG
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -40,6 +41,9 @@ require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
+
+
+-- treesitter config
   use { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -55,7 +59,8 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+
+
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   -- use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
@@ -88,6 +93,8 @@ require('packer').startup(function(use)
       }
     end
   }
+
+  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use { 'folke/tokyonight.nvim' }
   use { 'EdenEast/nightfox.nvim' }
   use { 'Shatur/neovim-ayu' }
