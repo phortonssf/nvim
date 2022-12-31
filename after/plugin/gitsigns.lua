@@ -9,6 +9,4 @@ require('gitsigns').setup {
     changedelete = { text = '~' },
   },
 }
-
--- first
--- second
+--third
