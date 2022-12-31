@@ -78,6 +78,7 @@ end
 function M.files()
    require("telescope.builtin").files {
 prompt_title = "~ project search ~",
+    cwd = vim.loop.CWD(),
     shorten_path = false,
     path_display = { "absolute" },
     layout_strategy = "horizontal",
