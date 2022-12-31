@@ -3,27 +3,27 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-  'VonHeikemen/lsp-zero.nvim',
-  requires = {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-buffer'},
-    {'hrsh7th/cmp-path'},
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/cmp-nvim-lua'},
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
-    -- Snippets
-    {'L3MON4D3/LuaSnip'},
-    {'rafamadriz/friendly-snippets'},
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
+    }
   }
-}
-use "jose-elias-alvarez/null-ls.nvim"
+  use "jose-elias-alvarez/null-ls.nvim"
   -- use { -- LSP Configuration & Plugins
   --   'neovim/nvim-lspconfig',
   --   requires = {
@@ -68,17 +68,17 @@ use "jose-elias-alvarez/null-ls.nvim"
       -- "princejoogie/dir-telescope.nvim",
     }
   }
-  use{"princejoogie/dir-telescope.nvim"}
+  use { "princejoogie/dir-telescope.nvim" }
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
   use {
     "nvim-telescope/telescope-frecency.nvim",
-    requires = {"kkharji/sqlite.lua"}
+    requires = { "kkharji/sqlite.lua" }
   }
-  use {'nvim-telescope/telescope-ui-select.nvim' }
-  use {"nvim-telescope/telescope-smart-history.nvim"}
-  use {"nvim-telescope/telescope-smart-history.nvim"}
-  use {"cbochs/grapple.nvim"}
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
+  use { "nvim-telescope/telescope-smart-history.nvim" }
+  use { "nvim-telescope/telescope-smart-history.nvim" }
+  use { "cbochs/grapple.nvim" }
   use { 'LionC/nest.nvim' }
   use {
     'nyngwang/NeoRoot.lua',
@@ -88,13 +88,13 @@ use "jose-elias-alvarez/null-ls.nvim"
       }
     end
   }
-  use { 'folke/tokyonight.nvim'}
-  use { 'EdenEast/nightfox.nvim'}
-  use { 'Shatur/neovim-ayu'}
-  use { 'savq/melange'}
+  use { 'folke/tokyonight.nvim' }
+  use { 'EdenEast/nightfox.nvim' }
+  use { 'Shatur/neovim-ayu' }
+  use { 'savq/melange' }
   use { 'NTBBloodbath/doom-one.nvim' }
-  use {'sainnhe/gruvbox-material'}
-  use {'sainnhe/everforest'}
+  use { 'sainnhe/gruvbox-material' }
+  use { 'sainnhe/everforest' }
   use {
     'rose-pine/neovim',
     as = 'rose-pine'
@@ -105,9 +105,18 @@ use "jose-elias-alvarez/null-ls.nvim"
 
   use 'nvim-telescope/telescope-ui-select.nvim'
   use 'stevearc/dressing.nvim'
-  use {"folke/which-key.nvim"}
+  use { "folke/which-key.nvim" }
   use 'terrortylor/nvim-comment'
   use { "catppuccin/nvim", as = "catppuccin" }
+
+  use({
+    'ray-x/navigator.lua',
+    requires = {
+      { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+      { 'neovim/nvim-lspconfig' },
+    },
+  })
+  use "sindrets/diffview.nvim"
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -118,5 +127,3 @@ use "jose-elias-alvarez/null-ls.nvim"
     require('packer').sync()
   end
 end)
-
-
