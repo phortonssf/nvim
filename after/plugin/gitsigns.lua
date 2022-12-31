@@ -11,3 +11,4 @@ require('gitsigns').setup {
 }
 
 -- first
+-- second
