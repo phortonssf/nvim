@@ -116,7 +116,18 @@ require('packer').startup(function(use)
       { 'neovim/nvim-lspconfig' },
     },
   })
+
+  use 'ThePrimeagen/vim-be-good'
+  -- use "kevinhwang91/nvim-bqf"
+  use "nvim-treesitter/nvim-treesitter-context"
+  -- use 'wellle/targets.vim'
+  use "kylechui/nvim-surround"
+  -- use 'andymass/vim-matchup'
+  use "gelguy/wilder.nvim"
+  use 'mbbill/undotree'
+  use "karb94/neoscroll.nvim"
   use "sindrets/diffview.nvim"
+  use "edluffy/specs.nvim"
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
