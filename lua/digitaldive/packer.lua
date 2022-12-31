@@ -1,6 +1,6 @@
 require('packer').startup(function(use)
   -- Package manager
-  -- use 'wbthomason/packer.nvim'
+  use 'wbthomason/packer.nvim'
 
   use {
   'VonHeikemen/lsp-zero.nvim',
@@ -23,6 +23,7 @@ require('packer').startup(function(use)
     {'rafamadriz/friendly-snippets'},
   }
 }
+use "jose-elias-alvarez/null-ls.nvim"
   -- use { -- LSP Configuration & Plugins
   --   'neovim/nvim-lspconfig',
   --   requires = {
@@ -35,10 +36,10 @@ require('packer').startup(function(use)
   --     'folke/neodev.nvim',
   --   },
   -- }
-  -- use { -- Autocompletion
-  --   'hrsh7th/nvim-cmp',
-  --   requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  -- }
+  use { -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  }
   use { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -50,9 +51,9 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
   -- -- Git related plugins
-  -- use 'tpope/vim-fugitive'
-  -- use 'tpope/vim-rhubarb'
-  -- use 'lewis6991/gitsigns.nvim'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use 'lewis6991/gitsigns.nvim'
 
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
