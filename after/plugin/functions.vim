@@ -35,7 +35,6 @@ function GitSigns()
 endfunction
 
 
-map <silent> <leader>Ex :Lexplore<CR>
 
 function! ToggleQuickFix()
    if empty(filter(getwininfo(), 'v:val.quickfix'))
@@ -45,7 +44,6 @@ function! ToggleQuickFix()
    endif
 endfunction
 
-nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
 
 " function! DeleteEmptyBuffers()
 "     let [i, n; empty] = [1, bufnr('$')]

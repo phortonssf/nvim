@@ -145,6 +145,11 @@ _G.packer_plugins = {
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  fzf = {
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -175,6 +180,11 @@ _G.packer_plugins = {
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  logsitter = {
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/logsitter",
+    url = "https://github.com/gaelph/logsitter"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -199,6 +209,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/melange",
     url = "https://github.com/savq/melange"
+  },
+  ["mind.nvim"] = {
+    config = { "\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tmind\frequire\0" },
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/mind.nvim",
+    url = "https://github.com/phaazon/mind.nvim"
   },
   ["navigator.lua"] = {
     loaded = true,
@@ -230,6 +246,13 @@ _G.packer_plugins = {
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
+  ["nvim-bqf"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/opt/nvim-bqf",
+    url = "https://github.com/kevinhwang91/nvim-bqf"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -239,6 +262,27 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
+  },
+  ["nvim-dap"] = {
+    config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20digitaldive.dap\frequire\0" },
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
+  ["nvim-dap-vscode-js"] = {
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/nvim-dap-vscode-js",
+    url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -297,6 +341,16 @@ _G.packer_plugins = {
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/sqlite.lua",
     url = "https://github.com/kkharji/sqlite.lua"
   },
+  ["targets.vim"] = {
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/targets.vim",
+    url = "https://github.com/wellle/targets.vim"
+  },
+  ["telescope-dap.nvim"] = {
+    loaded = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
+    url = "https://github.com/nvim-telescope/telescope-dap.nvim"
+  },
   ["telescope-frecency.nvim"] = {
     loaded = true,
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/telescope-frecency.nvim",
@@ -350,6 +404,13 @@ _G.packer_plugins = {
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-matchup"] = {
+    after_files = { "/home/digitaldive/.local/share/nvim/site/pack/packer/opt/vim-matchup/after/plugin/matchit.vim" },
+    loaded = true,
+    needs_bufread = true,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/opt/vim-matchup",
+    url = "https://github.com/andymass/vim-matchup"
+  },
   ["vim-rhubarb"] = {
     loaded = true,
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
@@ -359,6 +420,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/digitaldive/.local/share/nvim/site/pack/packer/start/vim-sleuth",
     url = "https://github.com/tpope/vim-sleuth"
+  },
+  ["vscode-js-debug"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/digitaldive/.local/share/nvim/site/pack/packer/opt/vscode-js-debug",
+    url = "https://github.com/microsoft/vscode-js-debug"
   },
   ["which-key.nvim"] = {
     loaded = true,
@@ -373,10 +440,25 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Setup for: vim-matchup
+time([[Setup for vim-matchup]], true)
+try_loadstring("\27LJ\2\nN\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\1\vmethod\npopup!matchup_matchparen_offscreen\6g\bvim\0", "setup", "vim-matchup")
+time([[Setup for vim-matchup]], false)
+time([[packadd for vim-matchup]], true)
+vim.cmd [[packadd vim-matchup]]
+time([[packadd for vim-matchup]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+try_loadstring("\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20digitaldive.dap\frequire\0", "config", "nvim-dap")
+time([[Config for nvim-dap]], false)
 -- Config for: NeoRoot.lua
 time([[Config for NeoRoot.lua]], true)
 try_loadstring("\27LJ\2\nH\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\rCUR_MODE\3\2\nsetup\rneo-root\frequire\0", "config", "NeoRoot.lua")
 time([[Config for NeoRoot.lua]], false)
+-- Config for: mind.nvim
+time([[Config for mind.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tmind\frequire\0", "config", "mind.nvim")
+time([[Config for mind.nvim]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)
   require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)
@@ -386,6 +468,13 @@ time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
 vim.cmd [[ packadd nvim-treesitter-textobjects ]]
 time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

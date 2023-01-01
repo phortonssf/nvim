@@ -1,21 +1,36 @@
 local M = {}
 function M.setup() end
 vim.g.localleader = ' '
-local bufNo = vim.api.nvim_get_current_buf()
--- vim.cmd('autocmd FileType fugitive lua ftp(' .. bufNo .. ')')
 local wk = require("which-key")
--- vim.cmd('autocmd FileType fugitive lua Ftplugin(bufNo)')
-  vim.cmd [[
-  augroup _fugitive
-    autocmd BufEnter FileType fugitive, lua Ftplugin()
-   augroup END
-   ]]
--- vim.cmd('autocmd FileType fugitive, BufEnter lua ftplugin()')
-  -- vim.cmd('autocmd CursorHold,CursorHoldI <buffer> lua require"which-key".show()')
+M.wkopts = {
+  mode = "n", -- NORMAL mode
+  silent = true,
+  noremap = false,
+  nowait = false,
+}
+
+function M.whichkey(maps, opts)
+  if opts == nil then
+    opts = {}
+  end
+ wk.register(maps, vim.tbl_extend("keep", opts, M.wkopts))
+end
+  function M.localleader(maps, opts)
+  if opts == nil then
+    opts = {}
+  end
+
+  M.whichkey(
+    maps,
+    vim.tbl_extend("keep", opts, {
+      prefix = "<localleader>",
+      buffer = 0,
+    })
+  )
+end
 function M.Ftplugin()
-wk.register({
   -- -- mappings.buf(0, "n", "p", "<cmd>Git push<CR>", { noremap = true })
-  ['<localleader>'] = {
+  M.localleader {
     s = { "s", "Stage" },
     u = { "u", "Unstage" },
     ["-"] = { "-", "Toggle Stage" },
@@ -91,7 +106,6 @@ wk.register({
     rd = { "rd", "commit: drop" },
     ["r<Space>"] = { "r<Space>", ":Git rebase ... " },
     q = { "gq", "Close status" }}
-  })
   wk.register({
     ["[g"] = { "[c", "Prev hunk" },
     ["]g"] = { "]c", "Next hunk" },
@@ -110,4 +124,4 @@ wk.register({
   -- augroup END
   -- ]]
 end
-return M.ftplugin
+return M.Ftplugin()

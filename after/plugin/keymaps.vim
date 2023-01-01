@@ -4,12 +4,19 @@ nnoremap <leader>vqsr :cdo %s/<search term>/<replace term>/gc<Left><Left><Left><
 " map <C-k> :bnext<CR>
 " map <C-j> :bprev<CR>
 function! IsQFOpen ()
-   if empty(filter(getwininfo(), 'v:val.quickfix'))
-     echo 1
      return 1
    else
      return 0
    endif
 endfunction
+
+nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
+map <silent> <leader>Ex :Lexplore<CR>
+nnoremap <silent> <leader>d% :norm %x`'x<CR>
 nnoremap <expr> <C-j> IsQFOpen() ? ':bnext<CR>' : ':cnext<CR>'
 nnoremap <expr> <C-k> IsQFOpen() ? ':bprev<CR>' : ':cprev<CR>'
+
+nnoremap <silent> <leader>gcd :Gcd<CR> \| :pwd<CR>
+" log variable under cursor
+" nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
+

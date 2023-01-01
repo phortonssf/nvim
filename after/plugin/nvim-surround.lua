@@ -8,8 +8,8 @@
         normal_cur_line = "ySS",
         visual = "s",
         visual_line = "sal",
-        delete = "sd",
-        change = "sc",
+        delete = "ds",
+        change = "cs",
     },
     aliases = {
         ["a"] = ">",

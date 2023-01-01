@@ -152,14 +152,6 @@ wk.register({
   }
 })
 
-
-wk.register({
-  ["<leader>x"] = {
-    name = '+xx',
-    x = { "<cmd>Telescope find_files<cr>", "find file" }
-  }
-})
-
 -- TODO: Not happy with how messy the integrations are.  Refactor!
 -- whichkey.configs = {}
 -- whichkey.configs["which-key.nvim"] = function()

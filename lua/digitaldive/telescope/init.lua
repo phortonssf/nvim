@@ -123,7 +123,22 @@ function M.builtin()
   require("telescope.builtin").builtin()
 end
 function M.old_files()
-  require("telescope").extensions.frecency.frecency(themes.get_ivy {})
+  require("telescope").extensions.frecency.frecency(themes.get_ivy {
+       -- cwd = vim.loop.CWD(),
+    -- shorten_path = true,
+    path_display = { "truncate" },
+    -- truncate = 1,
+    layout_strategy = "horizontal",
+    layout_config = {
+      width = 0.80,
+      preview_width = 0,
+    },
+
+  })
+end
+
+function M.man_pages ()
+  require("telescope.builtin").man_pages()
 end
 
 return setmetatable({}, {

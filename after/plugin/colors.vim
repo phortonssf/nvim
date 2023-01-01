@@ -35,5 +35,5 @@ augroup matchup_matchparen_highlight
   autocmd ColorScheme * hi MatchParen guifg=#f38ba8
 augroup END
 "make numberline stand out more
-" autocmd ColorScheme * highlight LineNr guifg=#928374
+autocmd ColorScheme * highlight LineNr guifg=#928374
 " autocmd ColorScheme * highlight LineNr guifg=#928374

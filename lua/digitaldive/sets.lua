@@ -116,7 +116,10 @@ vim.opt.updatetime = 50
 -- let g:terraform_registry_module_completion = 0
 -- set nocompatible
 -- syntax on
--- filetype plugin indent on
+vim.api.nvim_command('filetype on')
+vim.api.nvim_command('filetype plugin on')
+-- vim.opt.filetype.
+-- filetype plugin indent on:h
 -- " External program to use for grep command
 -- if executable('rg')
 --     set grepprg=rg\ --vimgrep

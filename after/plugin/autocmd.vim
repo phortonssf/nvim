@@ -21,11 +21,11 @@ autocmd InsertLeave * execute 'normal! mM'
 " autocmd VimEnter * execute "normal \g;"
 
 "End of buffer Transparent
-" autocmd VimEnter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+ autocmd VimEnter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 "Transparent Background"
-" autocmd VimEnter * highlight NonText guibg=none
-" autocmd VimEnter * highlight Normal guibg=none
+autocmd VimEnter * highlight NonText guibg=none
+autocmd VimEnter * highlight Normal guibg=none
 
 "Strip Trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e

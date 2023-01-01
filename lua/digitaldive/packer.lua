@@ -25,6 +25,13 @@ require('packer').startup(function(use)
     }
   }
   use "jose-elias-alvarez/null-ls.nvim"
+use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+
+-- optional
+use {'junegunn/fzf', run = function()
+    vim.fn['fzf#install']()
+end
+}
   -- use { -- LSP Configuration & Plugins
   --   'neovim/nvim-lspconfig',
   --   requires = {
@@ -125,16 +132,80 @@ require('packer').startup(function(use)
   })
 
   use 'ThePrimeagen/vim-be-good'
-  -- use "kevinhwang91/nvim-bqf"
   use "nvim-treesitter/nvim-treesitter-context"
-  -- use 'wellle/targets.vim'
+  use 'wellle/targets.vim'
   use "kylechui/nvim-surround"
   -- use 'andymass/vim-matchup'
+  --  use {
+  use {'andymass/vim-matchup',
+    setup = function()
+      -- may set any options here
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end
+  }
+
+-- DEBUGGER
+  -- use 'mfussenegger/nvim-dap'
+  -- use 'Pocco81/dap-buddy.nvim'
+  -- use 'theHamsta/nvim-dap-virtual-text'
+  -- https://github.com/NHKK/devsetup/blob/main/lua/user/DAP/languages/typescript.lua
+  use {
+    'mfussenegger/nvim-dap',
+    requires = {
+      'rcarriga/nvim-dap-ui',
+      'nvim-treesitter/nvim-treesitter',
+      'theHamsta/nvim-dap-virtual-text',
+      'mxsdev/nvim-dap-vscode-js',
+      'nvim-telescope/telescope-dap.nvim',
+      {"microsoft/vscode-js-debug",
+        opt = true,
+        run = "npm install --legacy-peer-deps && npm run compile"
+      }
+    },
+      config = function() require('digitaldive.dap') end
+  }
+ -- use {
+--   "mfussenegger/nvim-dap",
+--   opt = true,
+--   -- module = { "dap" },
+--   requires = {
+--     "theHamsta/nvim-dap-virtual-text",
+--     "rcarriga/nvim-dap-ui",
+--     "mfussenegger/nvim-dap-python",
+--     "nvim-telescope/telescope-dap.nvim",
+--     { "leoluz/nvim-dap-go"   },
+--     { "jbyuki/one-small-step-for-vimkind", },
+--     { "mxsdev/nvim-dap-vscode-js" },
+--     {
+--       "microsoft/vscode-js-debug",
+--       opt = true,
+--       run = "npm install --legacy-peer-deps && npm run compile",
+--     },
+--   },
+  -- config = function()
+  --   require("digitaldive.dap").setup()
+  -- end,
+--  disable = false,
+--}
+
+
   use "gelguy/wilder.nvim"
   use 'mbbill/undotree'
   use "karb94/neoscroll.nvim"
   use "sindrets/diffview.nvim"
   use "edluffy/specs.nvim"
+
+
+use {"gaelph/logsitter", requires = {"nvim-treesitter/nvim-treesitter"}}
+-- note taking with trees for code
+  use {
+    'phaazon/mind.nvim',
+    branch = 'v2.2',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require 'mind'.setup()
+    end
+  }
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then

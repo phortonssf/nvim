@@ -54,6 +54,7 @@ nest.applyKeymaps({
     },
     -- black hole register
     { l .. "d", '"+d' },
+    { "D", '"_D'},
     { "d",'"_d' },
     { "c",'"_c' },
     { "x",'"_x' },

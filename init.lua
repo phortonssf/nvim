@@ -1,5 +1,6 @@
 -- Install packer
 vim.opt.runtimepath:append(',~/.local/share/nvim/site')
+vim.opt.runtimepath:append(',~/.local/share/nvim/site/pack/packer/opt')
 -- vim.api.nvim_command('set runtimepath^=~/.local/share/nvim/site')
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
@@ -9,7 +10,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-
+require('digitaldive.disable-builtin')
 require('digitaldive.globals')
 require('digitaldive.sets')
 -- When we are bootstrapping a configuration, it doesn't
@@ -53,8 +54,9 @@ vim.keymap.set('n', '<Leader>pre', function() vim.cmd('NeoRootChange') end, NORE
 
 -- require'navigator'.setup()
 require('neoscroll').setup()
+require'mind'.setup()
+-- require("digitaldive.dap").setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
---
---
 -- vim: ts=2 sts=2 sw=2 et
+ -- require("digitaldive.dap").setup()
