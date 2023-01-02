@@ -30,16 +30,39 @@ end
 end
 function M.Ftplugin()
   -- -- mappings.buf(0, "n", "p", "<cmd>Git push<CR>", { noremap = true })
+  --
+  --
+  --
+  --
+  --
+-- czz                     Push stash.  Pass a [count] of 1 to add
+--                         `--include-untracked` or 2 to add `--all`.
+--
+-- czw                     Push stash of worktree.  Like `czz` with
+--                         `--keep-index`.
+--
+-- czA                     Apply topmost stash, or stash@{count}.
+--
+-- cza                     Apply topmost stash, or stash@{count}, preserving the
+--                         index.
+--
+-- czP                     Pop topmost stash, or stash@{count}.
+--
+-- czp                     Pop topmost stash, or stash@{count}, preserving the
+--                         index.
+--
+-- cz<Space>               Populate command line with ":Git stash ".
+
   M.localleader {
     s = { "s", "Stage" },
     u = { "u", "Unstage" },
     ["-"] = { "-", "Toggle Stage" },
     U = { "U", "Unstage all" },
     X = { "X", "Discard" },
-    [","] = { "=", "Toggle diff" },
+    -- [","] = { "=", "Toggle diff" },
     ["="] = { "=", "Toggle diff" },
-    [">"] = { ">", "Show diff" },
-    ["<"] = { "<", "Hide diff" },
+    -- [">"] = { ">", "Show diff" },
+    -- ["<"] = { "<", "Hide diff" },
     -- I = { "I", "Add Patch" },
     d = { name = "Diffs" },
     dd = { "dd", "Gdiffsplit" },
@@ -53,12 +76,12 @@ function M.Ftplugin()
     P = { "1p", "Open preview" },
     p = { "<cmd>Git push<cr>", "Push" },
     C = { "C", "Open commit" },
-    ["("] = { "(", "Jump prev" },
-    [")"] = { ")", "Jump next" },
+    -- ["("] = { "(", "Jump prev" },
+    -- [")"] = { ")", "Jump next" },
     i = { "i", "Next file (expand)" },
-    ["*"] = { "*", "Find +/-" },
+    -- ["*"] = { "*", "Find +/-" },
     I = { "1gi", "Open .gitignore" },
-    gI = { "1gI", "Add to ignore" },
+    -- gI = { "1gI", "Add to ignore" },
     c = { name = "Commits" },
     cc = { "cvc", "Create commit" },
     ca = { "cva", "Amend" },

@@ -1,16 +1,18 @@
-local DEBUGGER_PATH = "~/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/out/src"
+-- local DEBUGGER_PATH = "~/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/out/src"
+local DEBUGGER_PATH = "~/.local/share/nvim/lazy/vscode-js-debug"
+
 -- https://github.com/NHKK/devsetup/blob/main/lua/user/DAP/languages/typescript.lua
 local M = {}
 
 function M.setup()
-  require("dap-vscode-js").setup {
+  require("dap-vscode-js").setup({
     node_path = "node",
     debugger_path = DEBUGGER_PATH,
     debugger_cmd = { "js-debug-adapter" },
     adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
-  }
+  })
 
-  for _, language in ipairs { "typescript", "javascript" } do
+  for _, language in ipairs({ "typescript", "javascript" }) do
     require("nvim-dap").configurations[language] = {
       {
         type = "pwa-node",

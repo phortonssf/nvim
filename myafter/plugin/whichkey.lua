@@ -14,16 +14,16 @@ local settings = {
     },
   },
   operators = {
-    d = "Delete",
-    c = "Change",
-    y = "Yank (copy)",
-    ["g~"] = "Toggle case",
+    -- d = "Delete",
+    -- c = "Change",
+    -- y = "Yank (copy)",
+    -- ["g~"] = "Toggle case",
     ["gu"] = "Lowercase",
     ["gU"] = "Uppercase",
-    [">"] = "Indent right",
-    ["<lt>"] = "Indent left",
+    -- [">"] = "Indent right",
+    -- ["<lt>"] = "Indent left",
     ["zf"] = "Create fold",
-    ["!"] = "Filter though external program",
+    -- ["!"] = "Filter though external program",
   },
   icons = {
     breadcrumb = "»",
@@ -37,7 +37,7 @@ local settings = {
   },
   window = {
     padding = { 0, 0, 0, 0 },
-    border = 'single',
+    border = "single",
   },
   layout = {
     height = { min = 1, max = 10 },
@@ -61,7 +61,7 @@ local settings = {
 
 local wk = require("which-key")
 wk.setup({
- plugins = {
+  plugins = {
     marks = false,
     registers = false,
     presets = {
@@ -100,7 +100,7 @@ wk.setup({
   },
   window = {
     padding = { 0, 0, 0, 0 },
-    border = 'single',
+    border = "single",
   },
   layout = {
     height = { min = 1, max = 10 },
@@ -120,7 +120,7 @@ wk.setup({
   },
   show_help = true,
   triggers = "auto",
-triggers_blacklist = {
+  triggers_blacklist = {
     -- list of mode / prefixes that should never be hooked by WhichKey
     -- this is mostly relevant for key maps that start with a native binding
     -- most people should not need to change this
@@ -133,23 +133,24 @@ triggers_blacklist = {
     buftypes = {},
     filetypes = {
       "gitcommit",
-      "TelescopePrompt" },
+      "TelescopePrompt",
+    },
   },
 })
 wk.register({
- --  f = {
- --    name = "+file", -- optional group name
- --    f = { "<cmd>telescope find_files<cr>", "find file" }, -- create a binding with label
- --    n = { "new file" }, -- just a label. don't create any mapping
- --    e = "edit file", -- same as above
- --    ["1"] = "which_key_ignore",  -- special label to hide it in the popup
- --    b = { function() print("bar") end, "foobar" }
- --  },-- you can also pass functions! },
- -- { prefix = "<leader>" }}
+  --  f = {
+  --    name = "+file", -- optional group name
+  --    f = { "<cmd>telescope find_files<cr>", "find file" }, -- create a binding with label
+  --    n = { "new file" }, -- just a label. don't create any mapping
+  --    e = "edit file", -- same as above
+  --    ["1"] = "which_key_ignore",  -- special label to hide it in the popup
+  --    b = { function() print("bar") end, "foobar" }
+  --  },-- you can also pass functions! },
+  -- { prefix = "<leader>" }}
   ["<leader>f"] = {
-    name = '+Find',
+    name = "+Find",
     -- f = { "<cmd>Telescope find_files<cr>", "Find" }
-  }
+  },
 })
 
 -- TODO: Not happy with how messy the integrations are.  Refactor!

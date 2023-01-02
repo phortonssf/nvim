@@ -3,8 +3,8 @@ local wilder = require('wilder')
 wilder.setup({
   modes                = { ':', '/', '?' },
   enable_cmdline_enter = 1,
-  next_key             = '<C-n>',
-  previous_key         = '<C-p>',
+  next_key             = '<C-j>',
+  previous_key         = '<C-k>',
   accept_key           = '<Enter>',
   reject_key           = '<C-space>'
 })
