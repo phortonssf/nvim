@@ -23,7 +23,7 @@ local M = {
 function M.config()
   require("mason")
   require("digitaldive.plugins.lsp.diagnostics").setup()
-
+  require("config.snippets")
   local lsp = require("lsp-zero")
   lsp.preset("recommended")
   lsp.ensure_installed({

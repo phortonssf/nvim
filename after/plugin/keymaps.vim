@@ -13,9 +13,11 @@ endfunction
 nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
 map <silent> <leader>Ex :Lexplore<CR>
 nnoremap <silent> <leader>d% :norm %x`'x<CR>
-nnoremap <expr> <C-j> IsQFOpen() ? ':bnext<CR>' : ':cnext<CR>'
-nnoremap <expr> <C-k> IsQFOpen() ? ':bprev<CR>' : ':cprev<CR>'
+" nnoremap <expr> <C-j> IsQFOpen() ? ':bnext<CR>' : ':cnext<CR>'
+" nnoremap <expr> <C-k> IsQFOpen() ? ':bprev<CR>' : ':cprev<CR>'
 
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 nnoremap <silent> <leader>gcd :Gcd<CR> \| :pwd<CR>
 " log variable under cursor
 " nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li

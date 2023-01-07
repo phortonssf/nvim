@@ -8,12 +8,14 @@ function M.config()
   local c = "<CMD>"
   -- keymaps for better default experience
   -- see `:help vim.keymap.set()`
-
+  -- vim.keymap.set("n", "J", "<cmd>TSJToggle<cr>")
+  -- vim.keymap.set("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+  -- vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
   -- restore the session for the current directory
   vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
 
   -- restore the last session
-  vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
+  -- vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
 
   -- stop Persistence => session won't be saved on exit
   vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
@@ -86,7 +88,9 @@ function M.config()
         -- black hole register
         { l .. "d", '"+d' },
         { "d", '"_d' },
+        { "D", '"_D' },
         { "c", '"_c' },
+        { "C", '"_C' },
         { "x", '"_x' },
         -- { "<C-_>",":CommentToggle<cr>" },
         { "<C-_>", ":CommentToggle<cr>" },
@@ -144,8 +148,19 @@ function M.config()
         silent = true,
         noremap = true,
       },
+      { "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>" },
+      { "<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>" },
+      { "<C-j>", ":lua require('harpoon.ui').nav_file(2)<CR>" },
+      { "<C-k>", ":lua require('harpoon.ui').nav_file(3)<CR>" },
+      { "<C-l>", ":lua require('harpoon.ui').nav_file(4)<CR>" },
+      { "<F13>", ":lua require('harpoon.ui').nav_file(5)<CR>" },
+      { "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>" },
+      { "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>" },
+      { "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>" },
+      { "<leader>m", ":lua require('harpoon.mark').add_file()<CR>" },
+      { "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>" },
       { "s", "<Nop>" },
-      { l .. "d%", "<cmd> norm! %x`'x<CR>" },
+      -- { l .. "d%", "<cmd> norm! %x`'x<CR>" },
       --close buffer but go back to prev
       { "<C-x>", ":bp<Bar>bd #<Cr>" },
       { "<C-s>", ":w<cr>" },

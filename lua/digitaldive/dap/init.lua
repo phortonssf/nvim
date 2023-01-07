@@ -4,12 +4,20 @@ local dap = require("dap")
 local dapui = require("dapui")
 
 -- # Sign
-vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointCondition", { text = "🟧", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapLogPoint", { text = "🟩", texthl = "", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapBreakpointCondition", { text = "🟧", texthl = "", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapLogPoint", { text = "🟩", texthl = "", linehl = "", numhl = "" })
 vim.fn.sign_define("DapStopped", { text = "🟨", texthl = "", linehl = "", numhl = "" })
 vim.fn.sign_define("DapBreakpointRejected", { text = "⬜", texthl = "", linehl = "", numhl = "" })
 
+-- catppuccin
+
+local sign = vim.fn.sign_define
+
+sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+--
 -- # DAP Virtual Text
 require("nvim-dap-virtual-text").setup({
   enabled = true,
@@ -109,5 +117,5 @@ buf_map("n", "<Leader>dw[", ":lua require('dapui').toggle(1)<CR>")
 buf_map("n", "<Leader>dw]", ":lua require('dapui').toggle(2)<CR>")
 
 -- # DAP Config
-require("digitaldive.dap.languages.typescript")
--- require('digitaldive.dap.keymaps-dap').setup()
+-- require("digitaldive.dap.languages.typescript")
+require("digitaldive.dap.keymaps-dap").setup()

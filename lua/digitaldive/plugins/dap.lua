@@ -15,13 +15,14 @@ return {
       "nvim-telescope/telescope-dap.nvim",
       {
         "microsoft/vscode-js-debug",
-        tag = "v1.72.0",
+        tag = "v1.70.0",
         lazy = true,
-        build = "npm install --legacy-peer-deps && npm run compile",
+        -- build = "npm install --legacy-peer-deps && npm run compile",
       },
     },
     config = function()
       require("digitaldive.dap")
+      require("digitaldive.dap.languages.typescript")
     end,
   },
 }

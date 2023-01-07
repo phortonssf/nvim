@@ -3,7 +3,7 @@ if not pcall(require, "telescope") then
   return
 end
 
-local sorters = require "telescope.sorters"
+local sorters = require("telescope.sorters")
 
 TelescopeMapArgs = TelescopeMapArgs or {}
 
@@ -21,41 +21,41 @@ local map_tele = function(key, f, options, buffer)
   }
 
   if not buffer then
-    local last_key =  string.sub(key, -1)
+    local last_key = string.sub(key, -1)
     vim.api.nvim_set_keymap(mode, key, rhs, map_options)
     wk.register({
 
-      ['<leader>f'] = {
+      ["<leader>f"] = {
         name = "+find",
-       [last_key] = { rhs, f}
-      }
+        [last_key] = { rhs, f },
+      },
     })
   else
     vim.api.nvim_buf_set_keymap(0, mode, key, rhs, map_options)
   end
 end
 local l = "<leader>f"
-map_tele( l .. "s", "grep_the_grep")
-map_tele( l .. "T", "builtin")
-map_tele( l .. "r", "old_files")
-map_tele( l .. "g", "git_files")
+map_tele(l .. ":", "cmd_history")
+map_tele(l .. "s", "grep_the_grep")
+map_tele(l .. "T", "builtin")
+map_tele(l .. "r", "old_files")
+map_tele(l .. "g", "git_files")
 -- map_tele("<space>ff", "find_project")
 map_tele("<space>ff", "search_all_files")
-map_tele( l .. "w", "my_grep")
-map_tele( l .. "m", "man_pages")
+map_tele(l .. "w", "my_grep")
+map_tele(l .. "m", "man_pages")
 -- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 -- vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
+vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
     winblend = 10,
     previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer]' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-
+  }))
+end, { desc = "[/] Fuzzily search in current buffer]" })
+vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
+vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 -- vim.keymap.set("n", l .. "h", my_grep)
 --

@@ -8,6 +8,7 @@ return {
   "folke/twilight.nvim",
   "folke/which-key.nvim",
   "tpope/vim-fugitive",
+  "rcarriga/nvim-notify",
   { "kevinhwang91/nvim-bqf", ft = "qf" },
   {
     "terrortylor/nvim-comment",
@@ -173,20 +174,19 @@ return {
       use_diagnostic_signs = true, -- en
     },
   },
-
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    config = { options = { "buffers", "curdir", "tabpages", "winsize", "help" } },
-  },
-
-  {
-    "Wansmer/treesj",
-    keys = {
-      { "J", "<cmd>TSJToggle<cr>" },
-    },
-    config = { use_default_keymaps = false },
-  },
+  { "ThePrimeagen/vim-be-good" },
+  -- {
+  --   "folke/persistence.nvim",
+  --   event = "BufReadPre",
+  --   config = { options = { "buffers", "curdir", "tabpages", "winsize", "help" } },
+  -- },
+  -- {
+  --   "Wansmer/treesj",
+  --   keys = {
+  --     { "J", "<cmd>TSJToggle<cr>" },
+  --   },
+  --   config = { use_default_keymaps = false },
+  -- },
   {
     "cshuaimin/ssr.nvim",
     keys = {

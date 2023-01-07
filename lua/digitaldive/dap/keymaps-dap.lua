@@ -1,7 +1,6 @@
 local M = {}
 
-local whichkey = require "which-key"
--- local legendary = require "legendary"
+local whichkey = require("which-key")
 
 -- local function keymap(lhs, rhs, desc)
 --   vim.keymap.set("n", lhs, rhs, { silent = true, desc = desc })
@@ -9,8 +8,8 @@ local whichkey = require "which-key"
 
 function M.setup()
   local keymap = {
-    d = {
-      name = "DAP",
+    D = {
+      name = "+DAP",
       R = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor" },
       E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
       C = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
@@ -22,7 +21,7 @@ function M.setup()
       g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
       h = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Hover Variables" },
       S = { "<cmd>lua require'dap.ui.widgets'.scopes()<cr>", "Scopes" },
-      i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+      n = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
       o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
       p = { "<cmd>lua require'dap'.pause.toggle()<cr>", "Pause" },
       q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
@@ -59,7 +58,6 @@ function M.setup()
     nowait = false,
   }
   whichkey.register(keymap_v, opts)
-  -- legendary.bind_whichkey(keymap_v, opts, false)
 end
 
 return M
