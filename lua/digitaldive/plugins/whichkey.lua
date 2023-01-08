@@ -42,10 +42,7 @@ function M.config()
       ["<cr>"] = "RET",
       ["<tab>"] = "TAB",
     },
-    window = {
-      padding = { 0, 0, 0, 0 },
-      border = "single",
-    },
+    window = {},
     layout = {
       height = { min = 1, max = 10 },
       spacing = 3,
@@ -71,7 +68,21 @@ function M.config()
     key_labels = { ["<leader>"] = "SPC" },
   })
   wk.register({
-    ["<leader>g"] = { name = "+git", h = { name = "+hunk" } },
+    ["<leader>g"] = {
+      name = "+git",
+      -- hb
+      b = { "Git Blame" },
+      l = { ":Gitsigns toggle_current_line_blame<CR>", "Cur Line Blame" },
+      R = { "Reset Buffer" },
+      S = { "Stage Buffer" },
+      h = {
+        name = "+hunk",
+        p = { "Preview Hunk" },
+        U = { "Undo Stage Hunk" },
+        s = { ":Gitsigns stage_hunk<CR>", "Stage Hunk" },
+        R = { ":Gitsigns reset_hunk<CR>", "Reset Hunk" },
+      },
+    },
   })
 end
 return M
