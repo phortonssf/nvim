@@ -41,11 +41,13 @@ function M.config()
       gitsigns = true,
       nvimtree = true,
       treesitter = true,
+      ts_rainbow = true,
       telescope = true,
       notify = true,
       mini = false,
       which_key = true,
       lsp_trouble = true,
+      harpoon = true,
       dap = {
         enabled = true,
         enable_ui = true, -- enable nvim-dap-ui
