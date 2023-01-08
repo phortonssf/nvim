@@ -3,13 +3,13 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
 
-  "nvim-lua/plenary.nvim",
+      "nvim-lua/plenary.nvim",
     },
     lazy = false,
     priority = 100,
     config = function()
-      require "digitaldive.telescope.setup"
-      require "digitaldive.telescope.mappings"
+      require("digitaldive.telescope.setup")
+      require("digitaldive.telescope.mappings")
     end,
   },
   "nvim-telescope/telescope-file-browser.nvim",

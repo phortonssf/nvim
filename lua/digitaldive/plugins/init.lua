@@ -209,12 +209,12 @@ return {
     end,
   },
 
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    event = "BufReadPre",
-    config = true,
-  },
-
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   event = "BufReadPre",
+  --   config = true,
+  -- },
+  --
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",

@@ -30,7 +30,7 @@ function M.config()
       [">"] = "Indent right",
       ["<lt>"] = "Indent left",
       ["zf"] = "Create fold",
-      -- ["!"] = "Filter though external program",
+      ["!"] = "Filter though external program",
     },
     icons = {
       breadcrumb = "»",

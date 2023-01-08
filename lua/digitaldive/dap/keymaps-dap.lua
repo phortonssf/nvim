@@ -58,6 +58,7 @@ function M.setup()
     nowait = false,
   }
   whichkey.register(keymap_v, opts)
+  -- legendary.bind_whichkey(keymap_v, opts, false)
 end
 
 return M
