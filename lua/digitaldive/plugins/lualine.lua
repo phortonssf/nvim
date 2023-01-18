@@ -72,14 +72,15 @@ local colors = {
           },
         },
       },
-      lualine_c = { vim.loop.cwd() },
+      lualine_c = {},
+      -- lualine_c = { vim.loop.cwd() },
       lualine_x = {},
       lualine_y = { "filetype", "progress" },
-      lualine_z = {
-        -- { '' ,
-        { "CWD" },
-        { vim.loop.cwd, separator = { right = "" }, left_padding = 2 },
-      },
+      -- lualine_z = {
+      --   -- { '' ,
+      --   { "CWD" },
+      --   { vim.loop.cwd, separator = { right = "" }, left_padding = 2 },
+      -- },
     },
     inactive_sections = {
       lualine_a = {},
