@@ -67,6 +67,7 @@ function M.config()
     --   },
     -- },
   })
+
   if cmdline then
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),

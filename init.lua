@@ -14,22 +14,30 @@ vim.g.maplocalleader = " "
 
 --vim.cmd [[colorscheme catppuccin]]
 -- require('digitaldive.packer')
+require("config.disable-builtin")
 require("config.sets")
+require("config.autocmd")
 --require("config.keymaps")
 require("config.globals")
 require("config.lazy")
+-- require("digitaldive.diff")
 --require("digitaldive.keymaps")
 
 -- Set completeopt to have a better completion experience
+--
+--
 vim.o.completeopt = "menuone,noselect"
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  callback = function()
-    --  require("util").version()
-    --  require("config.autocmds")
-    -- require("config.keymaps")
-  end,
-})
+if vim.vscode then
+else
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+      --  require("util").version()
+      --  require("config.autocmds")
+      -- require("config.keymaps")
+    end,
+  })
+end
 --require('nvim_comment').setup()
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`

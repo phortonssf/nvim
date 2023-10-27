@@ -38,14 +38,16 @@ local l = "<leader>f"
 map_tele(l .. ":", "cmd_history")
 map_tele(l .. "s", "grep_the_grep")
 map_tele(l .. "T", "builtin")
-map_tele(l .. "r", "old_files")
+map_tele(l .. "o", "old_files")
 map_tele(l .. "g", "git_files")
 -- map_tele("<space>ff", "find_project")
 map_tele("<space>ff", "search_all_files")
 map_tele(l .. "w", "my_grep")
 map_tele(l .. "m", "man_pages")
+vim.keymap.set("n", "<leader>flg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+vim.keymap.set("n", "<leader>?", "<Cmd>Telescope frecency workspace=CWD<CR>")
 -- See `:help telescope.builtin`
-vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+-- vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 -- vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.

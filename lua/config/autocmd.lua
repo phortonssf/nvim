@@ -1,39 +1,45 @@
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('yankhighlight', { clear = true })
-vim.api.nvim_create_autocmd('textyankpost', {
+local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
+local highlight_group = augroup("yankhighlight", { clear = true })
+autocmd("textyankpost", {
   callback = function()
     vim.highlight.on_yank()
   end,
   group = highlight_group,
-  pattern = '*',
+  pattern = "*",
 })
 -- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PackerCompile | vim.lsp.client.stop()',
-  group = packer_group,
-  pattern = vim.fn.expand '$MYVIMRC',
-})
+-- local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   command = "source <afile> | PackerCompile | vim.lsp.client.stop()",
+--   group = packer_group,
+--   pattern = vim.fn.expand("$MYVIMRC"),
+-- })
 
 -- create new netrw keybinds
 -- https://www.reddit.com/r/neovim/comments/ud2w4k/how_to_remap_netrw_to_n_in_keybindingsinitlua/
-vim.api.nvim_create_autocmd('filetype', {
-  pattern = 'netrw',
-  desc = 'Better mappings for netrw',
+autocmd("filetype", {
+  pattern = "netrw",
+  desc = "Better mappings for netrw",
   callback = function()
     local bind = function(lhs, rhs)
-      vim.keymap.set('n', lhs, rhs, {remap = true, buffer = true})
+      vim.keymap.set("n", lhs, rhs, { remap = true, buffer = true })
     end
 
     -- edit new file
-    bind('n', '%')
+    bind("n", "%")
 
     -- rename file
-    bind('r', 'R')
-  end
+    bind("r", "R")
+  end,
 })
-
+autocmd("VimEnter",{
+    callback = function ()
+    -- require('persistence').load({ last = true})
+    end
+})
 
 -- WIP Toggle LSP
 -- https://www.reddit.com/r/neovim/comments/lqj21o/how_to_temporarily_disable_lsp/
@@ -62,4 +68,4 @@ vim.api.nvim_create_autocmd('filetype', {
 -- end
 --
 -- vim.api.nvim_buf_set_keymap(0, 'n', '<leader>Cdd', '<cmd>lua LspSwap()<CR>', {noremap = true})
--- return M
+--

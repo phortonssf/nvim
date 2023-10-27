@@ -43,7 +43,7 @@ function M.setup(client, buffer)
         },
         h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
         s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help", mode = { "n", "i" } },
-        -- h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
+        -- K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
         D = { "<cmd> lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
         l = {
           name = "+lsp",

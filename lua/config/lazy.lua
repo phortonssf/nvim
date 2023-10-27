@@ -3,20 +3,20 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
-  "--filter=blob:none",
+    "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
   })
 end
 vim.opt.rtp:prepend("~/.local/share/nvim/lazy/lazy.nvim")
-require("lazy").setup("digitaldive.plugins", {
-  defaults = { lazy = false},
+require("lazy").setup({ { import = "digitaldive.plugins" } }, {
+  defaults = { lazy = false },
   install = { colorscheme = { "catppuccin", "habamax" } },
   checker = { enabled = true },
---  diff = {
- --   cmd = "terminal_git",
- -- },
+  --  diff = {
+  --   cmd = "terminal_git",
+  -- },
   performance = {
     cache = {
       enabled = false,
@@ -38,7 +38,7 @@ require("lazy").setup("digitaldive.plugins", {
     custom_keys = {
 
       ["<localleader>d"] = function(plugin)
-        dd(plugin)
+        -- dd(plugin)
       end,
     },
   },

@@ -1,18 +1,19 @@
-vim.opt.wildmode="longest,list:full"
+vim.opt.wildmode = "longest,list:full"
 vim.opt.wildmenu = true
 -- " Ignore files
+-- WIP not working for wildmenu
 vim.opt.wildignore = "__pycache__"
-vim.opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
-vim.opt.wildignore:append "Cargo.lock"
-vim.opt.wildignore:append "*.pyc"
-vim.opt.wildignore:append "*_build/*"
-vim.opt.wildignore:append "**/coverage/*"
-vim.opt.wildignore:append "**/node_modules/*"
-vim.opt.wildignore:append "**/android/*"
-vim.opt.wildignore:append "**/ios/*"
-vim.opt.wildignore:append "**/.git/*"
+vim.opt.wildignore:append({ "*.o", "*~", "*.pyc", "*pycache*" })
+vim.opt.wildignore:append({ "**/.git/*" })
+vim.opt.wildignore:append("Cargo.lock")
+vim.opt.wildignore:append("*.pyc")
+vim.opt.wildignore:append("*_build/*")
+vim.opt.wildignore:append("**/coverage/*")
+vim.opt.wildignore:append("**/node_modules/*")
+vim.opt.wildignore:append("**/android/*")
 --
 -- "Search Settings
+vim.opt.wildignore:append("**/ios/*")
 vim.opt.incsearch = true
 --vim.opt.nohlsearch
 --vim.opt.hidden = true
@@ -35,7 +36,8 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true
 --
 -- " Space setting
-vim.opt.list = true vim.opt.shiftround = true
+vim.opt.list = true
+vim.opt.shiftround = true
 vim.opt.autoindent = true
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
@@ -116,8 +118,8 @@ vim.opt.updatetime = 50
 -- let g:terraform_registry_module_completion = 0
 -- set nocompatible
 -- syntax on
-vim.api.nvim_command('filetype on')
-vim.api.nvim_command('filetype plugin on')
+vim.api.nvim_command("filetype on")
+vim.api.nvim_command("filetype plugin on")
 -- vim.opt.filetype.
 -- filetype plugin indent on:h
 -- " External program to use for grep command
@@ -129,17 +131,18 @@ vim.api.nvim_command('filetype plugin on')
 --vim.opt.grepformat = "%f:%l:%c:%m"
 --vim.opt.grepprg = "rg\ --vimgrep"
 function Tabline()
-   local path = vim.fn.expand('%:h:t') .. '/' .. vim.fn.expand('%:t')
+  local path = vim.fn.expand("%:h:t") .. "/" .. vim.fn.expand("%:t")
   return path
 end
+
 vim.opt.showtabline = 2
 -- vim.opt.tabline=vim.fn.expand('%:h:t') .. '/' .. vim.fn.expand(%:t')
 vim.opt.tabline = "%H/%t"
 -- " auto cd to set CWD to current buffer
- vim.opt.autochdir = false
+vim.opt.autochdir = false
 -- Gives code blocks
 vim.opt.shell = "/bin/bash"
-vim.g.markdown_fenced_languages = {"html", "javascript", "typescript", "css", "scss", "lua", "vim"}
+vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim" }
 vim.opt.nu = true
 vim.opt.relativenumber = true
 -- set shell=/bin/bash
@@ -171,4 +174,3 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
-

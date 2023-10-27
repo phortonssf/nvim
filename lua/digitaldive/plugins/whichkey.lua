@@ -38,7 +38,7 @@ function M.config()
       group = "+",
     },
     key_labels = {
-      ["<space>"] = "SPC",
+      -- ["<space>"] = "SPC",
       ["<cr>"] = "RET",
       ["<tab>"] = "TAB",
     },
@@ -59,13 +59,11 @@ function M.config()
       "^:",
       "^ ",
     },
-    show_help = true,
-    triggers = "auto",
 
     show_help = false,
     triggers = "auto",
     plugins = { spelling = true },
-    key_labels = { ["<leader>"] = "SPC" },
+    -- key_labels = { ["<leader>"] = "SPC" },
   })
   wk.register({
     ["<leader>g"] = {

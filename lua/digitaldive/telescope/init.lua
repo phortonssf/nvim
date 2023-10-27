@@ -19,7 +19,7 @@ local ui = function(message, cb)
   vim.ui.input({ prompt = message, completion = "custom, hello" }, function(input)
     return cb({
       search = input,
-      path_display = "absolute",
+      path_display = { "smart" },
       additional_args = function(opts)
         return { "--hidden", "-L" }
       end,
@@ -127,7 +127,7 @@ function M.old_files()
   require("telescope").extensions.frecency.frecency(themes.get_ivy({
     -- cwd = vim.loop.CWD(),
     -- shorten_path = true,
-    path_display = { "truncate" },
+    path_display = { "smart" },
     -- truncate = 1,
     layout_strategy = "horizontal",
     layout_config = {

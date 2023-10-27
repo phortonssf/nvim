@@ -16,15 +16,15 @@ return {
       require("nvim_comment").setup()
     end,
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("indent_blankline").setup({
-        char = "┊",
-        show_trailing_blankline_indent = false,
-      })
-    end,
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   config = function()
+  --     require("indent_blankline").setup({
+  --       char = "┊",
+  --       show_trailing_blankline_indent = false,
+  --     })
+  --   end,
+  -- },
   {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
@@ -191,7 +191,7 @@ return {
     "cshuaimin/ssr.nvim",
     keys = {
       {
-        "<leader>cR",
+        "<leader>sR",
         function()
           require("ssr").open()
         end,

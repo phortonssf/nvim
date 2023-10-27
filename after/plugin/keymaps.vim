@@ -1,5 +1,6 @@
 map <silent> <leader>Ex :Lexplore<CR>
-nnoremap <space><space> :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
+" search and replace word under cursor
+" nnoremap <space><space> :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
 nnoremap <leader>vqsr :cdo %s/<search term>/<replace term>/gc<Left><Left><Left><Left><Left><Left>
 " map <C-k> :bnext<CR>
 " map <C-j> :bprev<CR>
@@ -16,6 +17,7 @@ nnoremap <silent> <leader>d% :norm %x`'x<CR>
 " nnoremap <expr> <C-j> IsQFOpen() ? ':bnext<CR>' : ':cnext<CR>'
 " nnoremap <expr> <C-k> IsQFOpen() ? ':bprev<CR>' : ':cprev<CR>'
 
+" nnoremap s <Nop>
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 nnoremap <silent> <leader>gcd :Gcd<CR> \| :pwd<CR>

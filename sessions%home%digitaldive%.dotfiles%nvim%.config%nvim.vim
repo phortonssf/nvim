@@ -13,19 +13,21 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +4 myafter/plugin/lualine.lua
-badd +58 ~/.dotfiles/nvim/.config/nvim/lua/digitaldive/plugins/lualine.lua
+badd +172 lua/digitaldive/plugins/lsp/init.lua
+badd +1 ~/.dotfiles/nvim/.config/nvim/lua/digitaldive/plugins/lsp/formatting.lua
+badd +1 lua/digitaldive/plugins/lsp/format.lua
+badd +36 lua/digitaldive/plugins/formatting.lua
 argglobal
 %argdel
-edit ~/.dotfiles/nvim/.config/nvim/lua/digitaldive/plugins/lualine.lua
+edit lua/digitaldive/plugins/formatting.lua
 argglobal
-balt myafter/plugin/lualine.lua
-let s:l = 58 - ((24 * winheight(0) + 19) / 38)
+balt ~/.dotfiles/nvim/.config/nvim/lua/digitaldive/plugins/lsp/formatting.lua
+let s:l = 36 - ((29 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 58
-normal! 026|
+keepjumps 36
+normal! 024|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -38,6 +40,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

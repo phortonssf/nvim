@@ -1,15 +1,14 @@
 local M = { "gelguy/wilder.nvim" }
 
 function M.config()
-  -- vim.o.wildcharm = '<C-n>'
+  -- vim.o.wildcharm = "<C-n>"
   local wilder = require("wilder")
   wilder.setup({
     modes = { ":", "/", "?" },
     enable_cmdline_enter = 1,
     next_key = "<C-j>",
     previous_key = "<C-k>",
-    accept_key = "<Enter>",
-    reject_key = "<C-space>",
+    accept_key = "<Right>",
   })
   wilder.set_option("pipeline", {
     wilder.branch(
@@ -29,7 +28,7 @@ function M.config()
         -- 0 turns off fuzzy matching
         -- 1 turns on fuzzy matching
         -- 2 partial fuzzy matching (match does not have to begin with the same first letter)
-        fuzzy = 2,
+        fuzzy = 1,
       }),
       wilder.substitute_pipeline({
         pipeline = wilder.python_search_pipeline({
@@ -93,4 +92,5 @@ function M.config()
     })
   )
 end
+
 return M

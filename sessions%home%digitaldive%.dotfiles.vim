@@ -13,18 +13,19 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +136 tmux/.tmux.conf
+badd +19 nvim/.config/nvim/init.lua
+badd +38 nvim/.config/nvim/lua/config/autocmd.lua
 argglobal
 %argdel
-edit tmux/.tmux.conf
+edit nvim/.config/nvim/lua/config/autocmd.lua
 argglobal
-balt tmux/.tmux.conf
-let s:l = 136 - ((8 * winheight(0) + 19) / 38)
+balt nvim/.config/nvim/init.lua
+let s:l = 38 - ((28 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 136
-normal! 0
+keepjumps 38
+normal! 02|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

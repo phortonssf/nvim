@@ -12,10 +12,10 @@ function M.config()
   -- vim.keymap.set("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
   -- vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
   -- restore the session for the current directory
-  vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
-
+  vim.api.nvim_set_keymap("n", "[k", [[<cmd> lua require("treesitter-context").go_to_context()<cr> ]], {})
+  vim.api.nvim_set_keymap("v", "[k", [[<cmd> lua require("treesitter-context").go_to_context()<cr> ]], {})
   -- restore the last session
-  -- vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
+  vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
 
   -- stop Persistence => session won't be saved on exit
   vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
@@ -25,10 +25,15 @@ function M.config()
   -- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
   -- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
   nest.applyKeymaps({
-    -- COMMANd
-    { mode = "t", {
-      { "<esc>", "<c-\\><c-n" },
-    } },
+    -- COMMANdkey
+    --
+    -- o
+    {
+      mode = "t",
+      {
+        { "<esc>", "<c-\\><c-n" },
+      },
+    },
     {
       mode = "c",
       options = {
@@ -138,7 +143,7 @@ function M.config()
       { " =", " =<c-g>u" },
       { " <bslash>", "<bslash><c-g>u" },
       { " <fslash>", "<fslash><c-g>u" },
-      { " <space>", " <space><c-g>u" },
+      -- { " <space>", " <space><c-g>u" },
       { " <c-v>", "<c-r>+" },
     },
     -- NORMAL MODE
@@ -148,9 +153,11 @@ function M.config()
         silent = true,
         noremap = true,
       },
+      { "H", "^" },
+      { "L", "$" },
       { "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>" },
       { "<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>" },
-      { "<C-j>", ":lua require('harpoon.ui').nav_file(2)<CR>" },
+      -- { "<C-j>", ":lua require('harpoon.ui').nav_file(2)<CR>" },
       { "<C-k>", ":lua require('harpoon.ui').nav_file(3)<CR>" },
       { "<C-l>", ":lua require('harpoon.ui').nav_file(4)<CR>" },
       { "<F13>", ":lua require('harpoon.ui').nav_file(5)<CR>" },
@@ -163,7 +170,8 @@ function M.config()
       -- { l .. "d%", "<cmd> norm! %x`'x<CR>" },
       --close buffer but go back to prev
       { "<C-x>", ":bp<Bar>bd #<Cr>" },
-      { "<C-s>", ":w<cr>" },
+      -- { "<C-s>", ":w<cr>" },
+      { "<C-j>", ":bnext<cr>" },
       -- Leader + o to add space normal mode
       { "<leader>o", "<S-i><CR><esc>k" },
       -- Prime binds center on scroll"
@@ -186,14 +194,21 @@ function M.config()
       { "Q", "@q", name = "Play q macro" },
       { l .. "<CR>", "$o<esc>" },
       { "<leader>p", "o<Esc>p", name = "Paste over visual" },
-      { "vv", "V" },
-      { "V", "vg_" },
+      { "vv", "V", name = "Visual Line Mode" },
+      { "V", "vg_", name = "Visual to end of line" },
       -- { "<C-p>", c .. "Telescope git_files<cr>", name = "find git files" },
       -- { "<c-j>", ":bnext<cr>" , name = "Next Buffer"},
       -- { "<c-k>", ":bprev<cr>" , name = "Prev Buffer"},
       { l .. "x", c .. "bd<cr>", name = "Close buffer" },
       { l .. "X", c .. "bd!<cr>" },
     },
+    -- {
+    -- "[c",
+    --   function()
+    --   return  require("treesitter-context").go_to_context()
+    --   end,
+    --         name = "Go Context"
+    -- },
 
     {
       "<leader>g",
@@ -203,9 +218,14 @@ function M.config()
         { "c", "<cmd>G commit<cr>" },
       },
     },
-    { l .. "h", name = "+help", {
-      { "w", "<cmd>help <C-r><C-w><CR>" },
-    } },
+    {
+      "<leader>h",
+      name = "+help",
+      {
+        { "w", "<cmd>help <C-r><C-w><CR>" },
+      },
+    },
   })
 end
+
 return M
