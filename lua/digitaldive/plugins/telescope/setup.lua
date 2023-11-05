@@ -162,6 +162,7 @@ local extensions = {
   "live_grep_args",
   -- "dir-telescope",
   "frecency",
+  -- "git_worktree",
 }
 
 for _, ext in ipairs(extensions) do

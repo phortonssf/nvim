@@ -8,6 +8,9 @@ function M.setup(client, buffer)
   local keymap = {
     buffer = buffer,
     ["<leader>"] = {
+      g = {
+        d = { "<cmd>Telescope lsp_definitions<cr>", "Goto Definition" },
+      },
       c = {
         name = "+code",
         {

@@ -29,19 +29,30 @@ function M.config()
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
     lsp_zero.default_keymaps({ buffer = bufnr })
-    vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+    -- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
     -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
     -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
     vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
-    require("digitaldive.plugins.lsp.keys").setup(client, bufnr)
-    require("digitaldive.plugins.lsp.diagnostics").setup()
+    -- require("digitaldive.plugins.lsp.keys").setup(client, bufnr)
+    -- require("digitaldive.plugins.lsp.diagnostics").setup()
   end)
 
+  -- local options = {
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   flags = {
+  --     debounce_text_changes = 150,
+  --   },
+  -- }
   ---
+
   -- Replace these language servers
   -- with the ones you have installed in your system
   require("lspconfig").tsserver.setup({})
   require("lspconfig").lua_ls.setup({
+    flags = {
+      debounce_text_changes = 150,
+    },
     settings = {
       Lua = {
         diagnostics = {

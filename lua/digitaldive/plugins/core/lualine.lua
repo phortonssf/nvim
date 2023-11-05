@@ -1,4 +1,9 @@
-local M = { "nvim-lualine/lualine.nvim" }
+local M = {
+  "nvim-lualine/lualine.nvim",
+  dependencies = {
+    -- "kdheepak/tabline.nvim",
+  },
+}
 
 function M.config()
   --
@@ -82,6 +87,40 @@ local colors = {
       --   { vim.loop.cwd, separator = { right = "" }, left_padding = 2 },
       -- },
     },
+    winbar = {
+      -- lualine_a = {},
+      lualine_a = {
+        {
+          "diff",
+          colored = true, -- Displays a colored diff status if set to true
+          diff_color = {
+            -- Same color values as the general color option can be used here.
+            added = "LuaLineDiffAdd", -- Changes the diff's added color
+            modified = "LuaLineDiffChange", -- Changes the diff's modified color
+            removed = "LuaLineDiffDelete", -- Changes the diff's removed color you
+          },
+          symbols = { added = "+", modified = "~", removed = "-" }, -- Changes the symbols used by the diff.
+          source = nil, -- A function that works as a data source for diff.
+          -- It must return a table as such:
+          --   { added = add_count, modified = modified_count, removed = removed_count }
+          -- or nil on failure. count <= 0 won't be displayed.
+        },
+      },
+      lualine_b = {},
+      lualine_c = { parent_dir },
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
+    },
+
+    inactive_winbar = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = { "filename" },
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
+    },
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
@@ -90,52 +129,55 @@ local colors = {
       lualine_y = {},
       lualine_z = { "location" },
     },
-    tabline = {
-      -- lualine_a = {{path = 3,  'filename'}},
-      -- lualine_a = {{ parent_dir, "filename", file_status = true,  symbols = {
-      --       modified = '[+]',      -- Text to show when the file is modified.
-      --       readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
-      --       unnamed = '[No Name]', -- Text to show for unnamed buffers.
-      --       newfile = '[New]',     -- Text to show for new created file before first writting
-      --     }}},
-      lualine_b = {
-        {
-          "buffers",
-          show_filename_only = true, -- Shows shortened relative path when set to false.
-          hide_filename_extension = false, -- Hide filename extension when set to true.
-          show_modified_status = true, -- Shows indicator when the buffer is modified.
-          mode = 0, -- 0: Shows buffer name
-          -- 1: Shows buffer index
-          -- 2: Shows buffer name + buffer index
-          -- 3: Shows buffer number
-          -- 4: Shows buffer name + buffer number
-
-          max_length = vim.o.columns * 2 / 3, -- Maximum width of buffers component,
-          -- it can also be a function that returns
-          filetype_names = {
-            TelescopePrompt = "Telescope",
-            dashboard = "Dashboard",
-            packer = "Packer",
-            fzf = "FZF",
-            alpha = "Alpha",
-          }, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
-          -- buffers_color = {
-          --   -- Same values as the general color option can be used here.
-          --   active = 'lualine_{section}_normal',     -- Color for active buffer.
-          --   inactive = 'lualine_{section}_inactive', -- Color for inactive buffer.
-          -- },
-          symbols = {
-            modified = " ●", -- Text to show when the buffer is modified
-            alternate_file = "#", -- Text to show to identify the alternate file
-            directory = "", -- Text to show when the buffer is a directory
-          },
-        },
-      },
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {},
-    },
+    -- tabline = {
+    -- lualine_a = {{path = 3,  'filename'}},
+    -- lualine_a = {{ parent_dir, "filename", file_status = true,  symbols = {
+    --       modified = '[+]',      -- Text to show when the file is modified.
+    --       readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
+    --       unnamed = '[No Name]', -- Text to show for unnamed buffers.
+    --       newfile = '[New]',     -- Text to show for new created file before first writting
+    --     }}},
+    -- lualine_c = { require("tabline").tabline_buffers },
+    -- lualine_x = { require("tabline").tabline_tabs },
+    -- lualine_b = {
+    --   {
+    --     "buffers",
+    --     use_mode_colors = true,
+    --     show_filename_only = true, -- Shows shortened relative path when set to false.
+    --     hide_filename_extension = false, -- Hide filename extension when set to true.
+    --     show_modified_status = true, -- Shows indicator when the buffer is modified.
+    --     mode = 2, -- 0: Shows buffer name
+    --     -- 1: Shows buffer index
+    --     -- 2: Shows buffer name + buffer index
+    --     -- 3: Shows buffer number
+    --     -- 4: Shows buffer name + buffer number
+    --
+    --     max_length = vim.o.columns * 2 / 3, -- Maximum width of buffers component,
+    --     -- it can also be a function that returns
+    --     filetype_names = {
+    --       TelescopePrompt = "Telescope",
+    --       dashboard = "Dashboard",
+    --       packer = "Packer",
+    --       fzf = "FZF",
+    --       alpha = "Alpha",
+    --     }, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
+    --     -- buffers_color = {
+    --     --   -- Same values as the general color option can be used here.
+    --     --   active = 'lualine_{section}_normal',     -- Color for active buffer.
+    --     --   inactive = 'lualine_{section}_inactive', -- Color for inactive buffer.
+    --     -- },
+    --     symbols = {
+    --       modified = " ●", -- Text to show when the buffer is modified
+    --       alternate_file = "#", -- Text to show to identify the alternate file
+    --       directory = "", -- Text to show when the buffer is a directory
+    --     },
+    --   },
+    -- },
+    -- lualine_c = {},
+    -- lualine_x = {},
+    -- lualine_y = {},
+    -- lualine_z = {},
+    -- },
     extensions = { "nvim-dap-ui", "fugitive", "quickfix" },
   }
   local conditions = {

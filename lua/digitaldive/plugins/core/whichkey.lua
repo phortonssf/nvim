@@ -8,15 +8,15 @@ function M.config()
   wk.setup({
     leader = " ",
     plugins = {
-      marks = false,
-      registers = false,
+      marks = true,
+      registers = true,
       presets = {
         operators = false,
         -- motions = true,
         text_objects = true,
         windows = true,
         -- nav = true,
-        -- z = true,
+        z = true,
         g = true,
       },
     },
@@ -60,12 +60,22 @@ function M.config()
       "^ ",
     },
 
+    triggers_blacklist = {
+      i = { "j", "k" },
+    },
+    disable = {
+      -- filetypes = { "fugitive" },
+    },
     show_help = false,
     triggers = "auto",
-    plugins = { spelling = true },
     -- key_labels = { ["<leader>"] = "SPC" },
   })
   wk.register({
+    ["`"] = {
+      name = "+marks",
+      ["<"] = { "jump to beginning/end of last visual selection" },
+      [">"] = { "end of last visual selection" },
+    },
     ["<leader>g"] = {
       name = "+git",
       -- hb

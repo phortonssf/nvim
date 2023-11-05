@@ -3,18 +3,15 @@ local reloader = function()
   if SHOULD_RELOAD_TELESCOPE then
     RELOAD("plenary")
     RELOAD("telescope")
-    RELOAD("digitaldive.telescope.setup")
+    RELOAD("digitaldive.plugins.telescope.setup")
   end
 end
 
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
-local themes = require("telescope.themes")
+-- local actions = require("telescope.actions")
+-- local action_state = require("telescope.actions.state")
+-- local themes = require("telescope.themes")
 
 local M = {}
-local map = vim.keymap.set
--- grep_open_files = true,
-require("dressing").setup()
 local ui = function(message, cb)
   vim.ui.input({ prompt = message, completion = "custom, hello" }, function(input)
     return cb({
@@ -123,8 +120,9 @@ end
 function M.builtin()
   require("telescope.builtin").builtin()
 end
+
 function M.old_files()
-  require("telescope").extensions.frecency.frecency(themes.get_ivy({
+  require("telescope.builtin").oldfiles({
     -- cwd = vim.loop.CWD(),
     -- shorten_path = true,
     path_display = { "smart" },
@@ -134,8 +132,21 @@ function M.old_files()
       width = 0.80,
       preview_width = 0,
     },
-  }))
+  })
 end
+-- function M.old_files()
+--   require("telescope").extensions.frecency.frecency(themes.get_ivy({
+--     -- cwd = vim.loop.CWD(),
+--     -- shorten_path = true,
+--     path_display = { "smart" },
+--     -- truncate = 1,
+--     layout_strategy = "horizontal",
+--     layout_config = {
+--       width = 0.80,
+--       preview_width = 0,
+--     },
+--   }))
+-- end
 
 function M.man_pages()
   require("telescope.builtin").man_pages()

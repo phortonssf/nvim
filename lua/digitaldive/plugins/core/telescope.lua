@@ -13,8 +13,8 @@ return {
     lazy = false,
     priority = 100,
     config = function()
-      require("digitaldive.telescope.setup")
-      require("digitaldive.telescope.mappings")
+      require("digitaldive.plugins.telescope.setup")
+      require("digitaldive.plugins.telescope.mappings")
     end,
   },
   -- "nvim-telescope/telescope-file-browser.nvim",

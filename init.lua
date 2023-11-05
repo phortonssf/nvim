@@ -13,19 +13,21 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 --vim.cmd [[colorscheme catppuccin]]
--- require('digitaldive.packer')
 require("config.disable-builtin")
 require("config.sets")
 require("config.autocmd")
 --require("config.keymaps")
 require("config.globals")
 require("config.lazy")
--- require("digitaldive.diff")
+require("config.snippets")
+
+-- require("dnvim-dap-vscode-jsigitaldive.diff")
 --require("digitaldive.keymaps")
 
 -- Set completeopt to have a better completion experience
 --
 --
+--asdfasdf
 vim.o.completeopt = "menuone,noselect"
 if vim.vscode then
 else

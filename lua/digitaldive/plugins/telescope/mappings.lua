@@ -13,7 +13,7 @@ local map_tele = function(key, f, options, buffer)
   TelescopeMapArgs[map_key] = options or {}
 
   local mode = "n"
-  local rhs = string.format("<cmd>lua R('digitaldive.telescope')['%s'](TelescopeMapArgs['%s'])<CR>", f, map_key)
+  local rhs = string.format("<cmd>lua R('digitaldive.plugins.telescope')['%s'](TelescopeMapArgs['%s'])<CR>", f, map_key)
 
   local map_options = {
     noremap = true,
@@ -47,7 +47,7 @@ map_tele(l .. "m", "man_pages")
 vim.keymap.set("n", "<leader>flg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>?", "<Cmd>Telescope frecency workspace=CWD<CR>")
 -- See `:help telescope.builtin`
--- vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+-- vim.keymap.set("n", "<leader>fo", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 -- vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.

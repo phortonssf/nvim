@@ -1,6 +1,6 @@
 map <silent> <leader>Ex :Lexplore<CR>
 " search and replace word under cursor
-" nnoremap <space><space> :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
+" nnoremap <space>sw :%sm/\<<C-r><C-w>\>//gc<Left><Left><Left>
 nnoremap <leader>vqsr :cdo %s/<search term>/<replace term>/gc<Left><Left><Left><Left><Left><Left>
 " map <C-k> :bnext<CR>
 " map <C-j> :bprev<CR>
@@ -24,3 +24,5 @@ nnoremap <silent> <leader>gcd :Gcd<CR> \| :pwd<CR>
 " log variable under cursor
 " nnoremap <Leader>L "ayiwoconsole.log('','<C-R>a:', <C-R>a);<Esc>T(li
 
+" vim paste last insert
+nnoremap <leader>vpi ".p

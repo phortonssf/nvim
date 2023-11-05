@@ -2,6 +2,7 @@ local M = {
   "LionC/nest.nvim",
   lazy = false,
 }
+
 function M.config()
   local nest = require("nest")
   local l = "<leader>"
@@ -121,30 +122,30 @@ function M.config()
         noremap = true,
         silent = true,
       },
-
       { "<C-t>", "<Ctrl-x><Ctrl-]" },
       --more undo markers
       { "jk", "<esc>" },
+      { "jj", "<esc>" },
       { "kj", "<esc>" },
-      { " ,", " <c-g>u" },
-      { " `", " `<c-g>u" },
-      { " {", " {<c-g>u" },
-      { " )", " )<c-g>u" },
-      { " ]", " ]<c-g>u" },
-      { " .", " .<c-g>u" },
-      { " !", " !<c-g>u" },
-      { " &", " &<c-g>u" },
-      { " +", " +<c-g>u" },
-      { " -", " -<c-g>u" },
-      { " ?", " ?<c-g>u" },
-      { " }", " }<c-g>u" },
-      { " :", " :<c-g>u" },
-      { " ;", " ;<c-g>u" },
-      { " =", " =<c-g>u" },
-      { " <bslash>", "<bslash><c-g>u" },
-      { " <fslash>", "<fslash><c-g>u" },
-      -- { " <space>", " <space><c-g>u" },
-      { " <c-v>", "<c-r>+" },
+      -- { ",", "<c-g>u" },
+      { "`", "`<c-g>u" },
+      { "{", "{<c-g>u" },
+      { ")", ")<c-g>u" },
+      { "]", "]<c-g>u" },
+      { ".", ".<c-g>u" },
+      { "!", "!<c-g>u" },
+      { "&", "&<c-g>u" },
+      { "+", "+<c-g>u" },
+      { "-", "-<c-g>u" },
+      { "?", "?<c-g>u" },
+      { "}", "}<c-g>u" },
+      { ":", ":<c-g>u" },
+      { ";", ";<c-g>u" },
+      { "=", "=<c-g>u" },
+      { "<bslash>", "<bslash><c-g>u" },
+      { "<fslash>", "<fslash><c-g>u" },
+      -- { "<space>", "<space><c-g>u" },
+      -- { " <c-v>", "<c-r>+" },
     },
     -- NORMAL MODE
     {
@@ -155,12 +156,12 @@ function M.config()
       },
       { "H", "^" },
       { "L", "$" },
-      { "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>" },
       { "<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>" },
-      -- { "<C-j>", ":lua require('harpoon.ui').nav_file(2)<CR>" },
+      -- { "<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>" },
+      { "<C-j>", ":lua require('harpoon.ui').nav_file(2)<CR>" },
       { "<C-k>", ":lua require('harpoon.ui').nav_file(3)<CR>" },
       { "<C-l>", ":lua require('harpoon.ui').nav_file(4)<CR>" },
-      { "<F13>", ":lua require('harpoon.ui').nav_file(5)<CR>" },
+      { "<F13>", ":lua require('harpoon.ui').nav_file(5)<CR>" }, --f13 is <Ctrl-;>
       { "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>" },
       { "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>" },
       { "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>" },
@@ -171,9 +172,10 @@ function M.config()
       --close buffer but go back to prev
       { "<C-x>", ":bp<Bar>bd #<Cr>" },
       -- { "<C-s>", ":w<cr>" },
-      { "<C-j>", ":bnext<cr>" },
+      -- { "<C-j>", ":bnext<cr>" },
       -- Leader + o to add space normal mode
       { "<leader>o", "<S-i><CR><esc>k" },
+
       -- Prime binds center on scroll"
       { "n", "nzzzv", name = "Better center" },
       { "N", "Nzzzv", name = "Better center" },
@@ -194,6 +196,7 @@ function M.config()
       { "Q", "@q", name = "Play q macro" },
       { l .. "<CR>", "$o<esc>" },
       { "<leader>p", "o<Esc>p", name = "Paste over visual" },
+      { "<leader>P", "ko<Esc>p", name = "Paste over visual" },
       { "vv", "V", name = "Visual Line Mode" },
       { "V", "vg_", name = "Visual to end of line" },
       -- { "<C-p>", c .. "Telescope git_files<cr>", name = "find git files" },
@@ -202,14 +205,6 @@ function M.config()
       { l .. "x", c .. "bd<cr>", name = "Close buffer" },
       { l .. "X", c .. "bd!<cr>" },
     },
-    -- {
-    -- "[c",
-    --   function()
-    --   return  require("treesitter-context").go_to_context()
-    --   end,
-    --         name = "Go Context"
-    -- },
-
     {
       "<leader>g",
       name = "+git",

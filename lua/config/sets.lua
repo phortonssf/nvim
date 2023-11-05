@@ -53,7 +53,7 @@ vim.opt.undofile = true
 -- "scroll before hitting bottom
 vim.opt.scrolloff = 8
 vim.opt.ttimeoutlen = 600
-vim.opt.timeoutlen = 350
+vim.opt.timeoutlen = 300
 -- " first, enable status line always
 vim.opt.laststatus = 2
 vim.opt.background = dark

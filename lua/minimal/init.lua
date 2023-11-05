@@ -10,13 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend("~/.local/share/nvim/lazy/lazy.nvim")
-require("lazy").setup({
-  { import = "digitaldive.plugins.git" },
-  { import = "digitaldive.plugins" },
-  { import = "digitaldive.plugins.core" },
-}, {
-
-  --require("lazy").setup({ { import = "digitaldive.plugins" } }, {
+require("lazy").setup({ { import = "minimal/plugins" } }, {
   defaults = { lazy = false },
   install = { colorscheme = { "catppuccin", "habamax" } },
   checker = { enabled = true },

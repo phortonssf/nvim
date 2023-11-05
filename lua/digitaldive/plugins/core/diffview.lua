@@ -1,6 +1,6 @@
 local M = {
   "sindrets/diffview.nvim",
-  j, -- event = "BufReadPre",
+  event = "BufReadPre",
 }
 
 function M.config()

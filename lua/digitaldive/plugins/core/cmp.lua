@@ -1,13 +1,13 @@
 local cmdline = false
 local M = {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-emoji",
-    { "hrsh7th/cmp-cmdline", enabled = cmdline },
-    { "dmitmel/cmp-cmdline-history", enabled = cmdline },
+    -- { "hrsh7th/cmp-cmdline", enabled = cmdline },
+    -- { "dmitmel/cmp-cmdline-history", enabled = cmdline },
     "hrsh7th/cmp-path",
     "saadparwaiz1/cmp_luasnip",
   },

@@ -1,11 +1,24 @@
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
-local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
+local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
+
+-- delete no name buffers
+autocmd("BufHidden", {
+  desc = "Delete [No Name] buffers",
+  callback = function(event)
+    if event.file == "" and vim.bo[event.buf].buftype == "" and not vim.bo[event.buf].modified then
+      vim.schedule(function()
+        pcall(vim.api.nvim_buf_delete, event.buf, {})
+      end)
+    end
+  end,
+})
 local highlight_group = augroup("yankhighlight", { clear = true })
 autocmd("textyankpost", {
   callback = function()
     vim.highlight.on_yank()
+    vim.api.nvim_command("norm my") -- create mark after yank
   end,
   group = highlight_group,
   pattern = "*",
@@ -35,10 +48,10 @@ autocmd("filetype", {
     bind("r", "R")
   end,
 })
-autocmd("VimEnter",{
-    callback = function ()
+autocmd("VimEnter", {
+  callback = function()
     -- require('persistence').load({ last = true})
-    end
+  end,
 })
 
 -- WIP Toggle LSP
