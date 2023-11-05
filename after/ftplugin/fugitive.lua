@@ -71,7 +71,7 @@ function M.Ftplugin()
     ds = { "ds", "Ghdiffsplit" },
     dq = { "dq", "Close Diffs" },
     ["<CR>"] = { "<CR>", "Open" },
-    o = { "gO", "Open vsplit" },
+    o = { "O", "Open vsplit" },
     gO = { "o", "Open split" },
     O = { "O", "Open tab" },
     P = { "1p", "Open preview" },
@@ -142,11 +142,11 @@ function M.Ftplugin()
     buffer = 0,
   })
 
-  --   vim.cmd [[
+  -- vim.cmd([[
   -- augroup _fugitive
-  --   -- autocmd! * <buffer>
-  --   -- autocmd CursorHold,CursorHoldI <buffer> lua require'which-key'.show()
+  --   autocmd! * <buffer>
+  --   autocmd CursorHold,CursorHoldI <buffer> lua require'which-key'.show()
   -- augroup END
-  -- ]]
+  -- ]])
 end
 return M.Ftplugin()

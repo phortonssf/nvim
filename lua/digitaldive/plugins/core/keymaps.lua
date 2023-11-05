@@ -209,7 +209,7 @@ function M.config()
       "<leader>g",
       name = "+git",
       {
-        { "s", "<cmd>G<cr>" },
+        { "s", "<cmd>to vert G<cr>" },
         { "c", "<cmd>G commit<cr>" },
       },
     },

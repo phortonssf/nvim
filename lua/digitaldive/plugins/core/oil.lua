@@ -9,7 +9,7 @@ M.config = function()
     -- See :help oil-columns
     columns = {
       "icon",
-      -- "permissions",
+      "permissions",
       -- "size",
       -- "mtime",
     },
@@ -22,7 +22,7 @@ M.config = function()
     win_options = {
       wrap = false,
       signcolumn = "no",
-      cursorcolumn = false,
+      cursorcolumn = true,
       foldcolumn = "0",
       spell = false,
       list = false,
@@ -88,7 +88,7 @@ M.config = function()
     float = {
       -- Padding around the floating window
       padding = 2,
-      max_width = 0,
+      max_width = 100,
       max_height = 0,
       border = "rounded",
       win_options = {
