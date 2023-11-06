@@ -160,7 +160,7 @@ function M.config()
       },
       { "H", "^" },
       { "L", "$" },
-      { "<C-h>j", ":lua require('harpoon.ui').nav_file(1)<CR>" },
+      { "<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>" },
       -- { "<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>" },
       { "<C-j>", ":lua require('harpoon.ui').nav_file(2)<CR>" },
       { "<C-k>", ":lua require('harpoon.ui').nav_file(3)<CR>" },
