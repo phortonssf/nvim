@@ -13,14 +13,18 @@ function M.config()
   -- vim.keymap.set("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
   -- vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
   -- restore the session for the current directory
-  vim.api.nvim_set_keymap("n", "[k", [[<cmd> lua require("treesitter-context").go_to_context()<cr> ]], {})
-  vim.api.nvim_set_keymap("v", "[k", [[<cmd> lua require("treesitter-context").go_to_context()<cr> ]], {})
+  --vim.api.nvim_set_keymap({ "n", "v" }, "[k", [[<cmd> lua require("treesitter-context").go_to_context()<cr> ]], {})
+  -- vim.api.nvim_set_keymap("v", "[k", [[<cmd> lua require("treesitter-context").go_to_context()<cr> ]], {})
   -- restore the last session
-  vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
+  vim.api.nvim_set_keymap("n", "<leader>qh", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
 
+  vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load()<cr>]], {})
   -- stop Persistence => session won't be saved on exit
   vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
-
+  vim.keymap.set("n", "[y", "<Plug>(YankyCycleForward)")
+  vim.keymap.set("n", "]y", "<Plug>(YankyCycleBackward)")
+  vim.api.nvim_set_keymap("v", "[k", [[<cmd> lua require("treesitter-context").go_to_context()<cr> ]], {})
+  vim.keymap.set({ "n" }, "<c-y>", "<CMD>YankyRingHistory<CR>", { desc = "Yanky History" })
   vim.keymap.set({ "n", "v" }, "<space>", "<nop>", { silent = true })
   -- remap for dealing with word wrap
   -- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -124,9 +128,9 @@ function M.config()
       },
       { "<C-t>", "<Ctrl-x><Ctrl-]" },
       --more undo markers
-      { "jk", "<esc>" },
-      { "jj", "<esc>" },
-      { "kj", "<esc>" },
+      -- { "jk", "<esc>" },
+      -- { "jj", "<esc>" },
+      -- { "kj", "<esc>" },
       -- { ",", "<c-g>u" },
       { "`", "`<c-g>u" },
       { "{", "{<c-g>u" },
@@ -156,7 +160,7 @@ function M.config()
       },
       { "H", "^" },
       { "L", "$" },
-      { "<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>" },
+      { "<C-h>j", ":lua require('harpoon.ui').nav_file(1)<CR>" },
       -- { "<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>" },
       { "<C-j>", ":lua require('harpoon.ui').nav_file(2)<CR>" },
       { "<C-k>", ":lua require('harpoon.ui').nav_file(3)<CR>" },
@@ -165,10 +169,11 @@ function M.config()
       { "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>" },
       { "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>" },
       { "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>" },
-      { "<leader>m", ":lua require('harpoon.mark').add_file()<CR>" },
+      -- { "<leader>m", ":lua require('harpoon.mark').add_file()<CR>" },
       { "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>" },
+      { "<C-m>", ":lua require('harpoon.mark').toggle_file()<CR>" },
       { "s", "<Nop>" },
-      -- { l .. "d%", "<cmd> norm! %x`'x<CR>" },
+      -- { l .. "d%", "<cmd> norm! %x`'x<CR>" }
       --close buffer but go back to prev
       { "<C-x>", ":bp<Bar>bd #<Cr>" },
       -- { "<C-s>", ":w<cr>" },
