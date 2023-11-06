@@ -151,6 +151,7 @@ require("telescope").setup({
       workspaces = {
         ["nvim"] = "/home/digitaldive/.dotfiles/nvim/.config/nvim",
         ["dot"] = "/home/digitaldive/.dotfiles",
+        ["fish"] = "/home/digitaldive/.dotfiles/fish/.config/fish",
         ["tmux"] = "home/digitaldive/.dotfiles/tmux",
         ["projects"] = "/home/digitaldive/projects/",
       },
