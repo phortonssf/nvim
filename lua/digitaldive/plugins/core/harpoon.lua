@@ -3,7 +3,7 @@ local M = {
   opts = {
     global_settings = {
       tabline = true,
-      tabline_prefix = "   ",
+      tabline_prefix = " ┤",
       tabline_suffix = "   ",
     },
   },
