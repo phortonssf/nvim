@@ -49,9 +49,7 @@ autocmd("filetype", {
   end,
 })
 autocmd("VimEnter", {
-  callback = function()
-    -- require('persistence').load({ last = true})
-  end,
+  callback = function() end,
 })
 
 -- WIP Toggle LSP
