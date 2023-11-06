@@ -4,7 +4,17 @@ local M = {}
 
 function M.setup(client, buffer)
   local cap = client.server_capabilities
-
+  local bufopts = { noremap = true, silent = true, buffer = buffer }
+  vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+  vim.keymap.set("n", "<space>wl", function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+  -- wk.regiter({
+  --         g = {
+  --             d = {"vim.lsp.buf.definition", bufopts}
+  --         }
+  --     })
   local keymap = {
     buffer = buffer,
     ["<leader>"] = {
