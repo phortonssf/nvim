@@ -17,7 +17,7 @@ keymap("n", "<BS>", "<space>", { noremap = false })
 
 --REMOVE BINDS
 vim.keymap.del("n", "<c-_>")
-
+keymap("n", "<C-w>r", "<CMD>vs#<CR>", {})
 keymap("i", "jk", "<esc>", {})
 
 keymap("i", "jj", "<esc>", {})
@@ -81,12 +81,12 @@ keymap(
   { desc = "undo to write", noremap = true, silent = true }
 )
 keymap("n", "Q", "@q", { desc = "Macro" })
+--keymap"n", "<A-g>", "<cmd> !$EDITOR | "
 -- move visual selectio 4444444n left/right
-keymap("v", ">", ">gv", opt)
-keymap("i", "<k4>", "<cmd>echo 'k4' <cr>", opt)
-keymap("i", "1", "<cmd>echo '4' <cr>", opt)
-keymap("n", "<", "<cmd>echo '4' <cr>", opt)
+keymap("n", "<", "<gv", opt)
 keymap("v", "<", "<gv", opt)
+keymap("n", ">", ">gv", opt)
+keymap("v", ">", ">gv", opt)
 -- NEEDS WORK!!
 -- vim paste last insert
 -- asdfadsfadsf6666666664sdfsdf
