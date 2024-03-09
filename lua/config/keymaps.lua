@@ -6,6 +6,8 @@ wk.register({
   ["<leader>p"] = "which_key_ignore",
   ["<leader>P"] = "which_key_ignore",
   ["<leader>d"] = "which_key_ignore",
+  ["j"] = "which_key_ignore",
+  ["<leader>`"] = "which_key_ignore",
 })
 local keymap = vim.api.nvim_set_keymap
 local opt = {
@@ -14,7 +16,7 @@ local opt = {
 }
 --backspace as another leader
 keymap("n", "<bs>", "<space>", { noremap = false })
--- vim.keymap.set("n", "<localleader>", '<cmd>lua require("which-key").show("\\\\")<cr>')
+vim.keymap.set("n", "<localleader>", '<cmd>lua require("which-key").show("\\\\")<cr>')
 --remove binds
 vim.keymap.del("n", "<c-_>")
 keymap("n", "<c-w>r", "<cmd>vs#<cr>", {})
@@ -41,7 +43,7 @@ keymap("n", "H", "^", opt)
 keymap("n", "L", "$", opt) --yank end of line
 keymap("n", "Y", "y$", opt)
 keymap("n", "<leader>p", "o<esc>p", { desc = "paste below line" })
-keymap("n", "<leader>P", "ko<esc>p", { desc = "paste above line" })
+keymap("n", "<leader>p", "ko<esc>p", { desc = "paste above line" })
 --cut
 keymap("v", "<leader>d", '"+d', opt)
 keymap("n", "<leader>dd", "yydd", opt)
@@ -69,7 +71,7 @@ keymap("n", "<c-l>", ":lua require('harpoon.ui').nav_file(3)<cr>", opt)
 -- ctrl-; is f13 kinesis bind
 keymap("n", "<F13>", ":lua require('harpoon.ui').nav_file(4)<CR>", opt)
 keymap("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opt)
-keymap("n", "<leader>m", ":lua require('harpoon.mark').toggle_file()<CR>", opt)
+keymap("n", "<leader>m", ":lua require('harpoon.mark').toggle_file()<CR>", { desc = "Harpoon Mark" })
 ---GIT
 -- keymap("n", "<leader>gd", "<cmd> DiffviewFileHistory % <cr>", { desc = "Diff File" })
 -- keymap("n", "<leader>gD", "<cmd> DiffviewFileHistory <cr>", { desc = "Diff Branch" })
