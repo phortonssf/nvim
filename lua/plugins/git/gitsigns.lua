@@ -10,33 +10,36 @@ function M.config()
     end
   end
   require("gitsigns").setup({
+    diff_opts = {
+      -- vertical = false,
+    },
     signs = {
-      add = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+      add = { hl = "gitsignsadd", text = "▍", numhl = "gitsignsaddnr", linehl = "gitsignsaddln" },
       change = {
-        hl = "GitSignsChange",
+        hl = "gitsignschange",
         text = "▍",
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
+        numhl = "gitsignschangenr",
+        linehl = "gitsignschangeln",
       },
       delete = {
-        hl = "GitSignsDelete",
+        hl = "gitsignsdelete",
         text = "▸",
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
+        numhl = "gitsignsdeletenr",
+        linehl = "gitsignsdeleteln",
       },
       topdelete = {
-        hl = "GitSignsDelete",
+        hl = "gitsignsdelete",
         text = "▾",
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
+        numhl = "gitsignsdeletenr",
+        linehl = "gitsignsdeleteln",
       },
       changedelete = {
-        hl = "GitSignsChange",
+        hl = "gitsignschange",
         text = "▍",
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
+        numhl = "gitsignschangenr",
+        linehl = "gitsignschangeln",
       },
-      untracked = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+      untracked = { hl = "gitsignsadd", text = "▍", numhl = "gitsignsaddnr", linehl = "gitsignsaddln" },
     },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
@@ -50,7 +53,7 @@ function M.config()
         vim.keymap.set(mode, l, r, opts)
       end
 
-      -- Navigation
+      -- navigation
       map("n", "]h", function()
         if vim.wo.diff then
           return "]h"
@@ -58,8 +61,8 @@ function M.config()
         vim.schedule(function()
           gs.next_hunk()
         end)
-        return "<Ignore>"
-      end, { expr = true, desc = "Next Hunk" })
+        return "<ignore>"
+      end, { expr = true, desc = "next hunk" })
 
       map("n", "[h", function()
         if vim.wo.diff then
@@ -68,28 +71,28 @@ function M.config()
         vim.schedule(function()
           gs.prev_hunk()
         end)
-        return "<Ignore>"
-      end, { expr = true, desc = "Prev Hunk" })
+        return "<ignore>"
+      end, { expr = true, desc = "prev hunk" })
 
-      -- Actions
-      map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-      map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+      -- actions
+      map({ "n", "v" }, "<leader>ghs", ":gitsigns stage_hunk<cr>", "stage hunk")
+      map({ "n", "v" }, "<leader>ghr", ":gitsigns reset_hunk<cr>", "reset hunk")
 
-      map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
-      map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+      map("n", "<leader>ghu", gs.undo_stage_hunk, "undo stage hunk")
+      map("n", "<leader>ghp", gs.preview_hunk, "preview hunk")
       map("n", "<leader>gb", function()
         gs.blame_line({ full = true })
-      end, "Blame Line")
+      end, "blame line")
 
-      map("n", "<leader>ghd", gs.diffthis, "Diff This")
-      map("n", "<leader>ghD", function()
-        gs.diffthis("~")
-      end, "Diff This ~")
+      -- map("n", "<leader>gd", gs.diffthis, "diff this")
+      -- map("n", "<leader>gd", function()
+      --   gs.diffthis("~")
+      -- end, "diff this ~")
 
-      map("n", "<leader>gR", gs.reset_buffer, "Reset Buffer")
-      map("n", "<leader>gS", gs.stage_buffer, "Stage Buffer")
-      -- Text object
-      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+      -- map("n", "<leader>gr", gs.reset_buffer, "reset buffer")
+      -- map("n", "<leader>gs", gs.stage_buffer, "stage buffer")
+      -- text object
+      map({ "o", "x" }, "ih", ":<c-u>gitsigns select_hunk<cr>", "gitsigns select hunk")
     end,
   })
   package.loaded.trouble = nil

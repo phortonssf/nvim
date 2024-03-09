@@ -1,6 +1,9 @@
 local M = {}
 function M.setup() end
-vim.g.localleader = " "
+vim.g.maplocalleader = "\\"
+vim.keymap.set("n", "<localleader>", function()
+  require("which-key").show("\\")
+end, { buffer = true })
 local wk = require("which-key")
 M.wkopts = {
   mode = "n", -- NORMAL mode

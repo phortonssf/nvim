@@ -1,11 +1,12 @@
 return {
+  { "theprimeagen/vim-be-good" },
   { "akinsho/bufferline.nvim", enabled = false },
   { "rcarriga/nvim-notify", opts = {
     background_colour = "#000000",
   } },
   { "tpope/vim-fugitive" },
   {
-    "LazyVim/LazyVim",
+    "lazyvim/lazyvim",
     opts = {
       colorscheme = "catppuccin",
     },
@@ -23,7 +24,7 @@ return {
         percentage = 0.80, -- percentage of the shade to apply to the inactive window
         -- transparent_background = true,
       },
-      transparent_background = true,
+      -- transparent_background = true,
       flavour = "frappe",
       integrations = {
         aerial = true,

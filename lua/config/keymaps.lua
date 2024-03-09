@@ -12,36 +12,36 @@ local opt = {
   noremap = true,
   silent = true,
 }
---blackspace as another leader
-keymap("n", "<BS>", "<space>", { noremap = false })
-
---REMOVE BINDS
+--backspace as another leader
+keymap("n", "<bs>", "<space>", { noremap = false })
+-- vim.keymap.set("n", "<localleader>", '<cmd>lua require("which-key").show("\\\\")<cr>')
+--remove binds
 vim.keymap.del("n", "<c-_>")
-keymap("n", "<C-w>r", "<CMD>vs#<CR>", {})
+keymap("n", "<c-w>r", "<cmd>vs#<cr>", {})
+
+--esc
 keymap("i", "jk", "<esc>", {})
 
 keymap("i", "jj", "<esc>", {})
 -- vim.keymap.del("n", "<c-/")
-keymap("i", "<F8>", "<cmd> echo 'INSERT HELP '<cr>", {})
-keymap("n", "<F8>", "<cmd> echo 'NORMAL HELP'<cr>", {})
+keymap("i", "<f8>", "<cmd> echo 'insert help '<cr>", {})
+keymap("n", "<f8>", "<cmd> echo 'normal help'<cr>", {})
 -- delete to black hole
-
 keymap("v", "<c-_>", "gcc", {})
 keymap("n", "<c-_>", "gcc", {})
 keymap("n", "d", '"_d', opt)
 keymap("v", "d", '"_d', opt)
-keymap("n", "D", '"_D', opt)
+keymap("n", "d", '"_d', opt)
 keymap("n", "c", '"_c', opt)
 keymap("v", "c", '"_c', opt)
-keymap("n", "C", '"_C', opt)
+keymap("n", "c", '"_c', opt)
 keymap("n", "x", '"_x', opt)
 
 keymap("n", "H", "^", opt)
-keymap("n", "L", "$", opt)
---yank end of line
+keymap("n", "L", "$", opt) --yank end of line
 keymap("n", "Y", "y$", opt)
-keymap("n", "<leader>p", "o<Esc>p", { desc = "Paste below line" })
-keymap("n", "<leader>P", "ko<Esc>p", { desc = "Paste above line" })
+keymap("n", "<leader>p", "o<esc>p", { desc = "paste below line" })
+keymap("n", "<leader>P", "ko<esc>p", { desc = "paste above line" })
 --cut
 keymap("v", "<leader>d", '"+d', opt)
 keymap("n", "<leader>dd", "yydd", opt)
@@ -53,8 +53,8 @@ keymap("n", "vv", "V", opt)
 -- Prime binds center on scroll"
 keymap("n", "n", "nzzzv", opt)
 keymap("n", "N", "Nzzzv", opt)
--- keymap("n", "gg", "ggzz", opt)
--- keymap("n", "G", "Gzz", opt)
+keymap("n", "gg", "ggzz", opt)
+keymap("n", "G", "Gzz", opt)
 --newline
 keymap("n", "<leader>O", "O<esc>", opt)
 -- keymap("n", "<C-x>", ":bp<Bar>bd #<Cr>", opt)
@@ -71,12 +71,14 @@ keymap("n", "<F13>", ":lua require('harpoon.ui').nav_file(4)<CR>", opt)
 keymap("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opt)
 keymap("n", "<leader>m", ":lua require('harpoon.mark').toggle_file()<CR>", opt)
 ---GIT
+-- keymap("n", "<leader>gd", "<cmd> DiffviewFileHistory % <cr>", { desc = "Diff File" })
+-- keymap("n", "<leader>gD", "<cmd> DiffviewFileHistory <cr>", { desc = "Diff Branch" })
 keymap("n", "<leader>gs", "<cmd>to vert G<cr>", { silent = true, desc = "Fugitive", noremap = true })
 keymap("n", "<leader>gc", "<cmd>G commit<cr>", opt)
 --Undo to Last Write
 keymap(
   "n",
-  "U",
+  "<leader>U",
   ":ea 1f<CR>  | :echo 'Undo until last write'<CR>",
   { desc = "undo to write", noremap = true, silent = true }
 )
@@ -87,7 +89,3 @@ keymap("n", "<", "<gv", opt)
 keymap("v", "<", "<gv", opt)
 keymap("n", ">", ">gv", opt)
 keymap("v", ">", ">gv", opt)
--- NEEDS WORK!!
--- vim paste last insert
--- asdfadsfadsf6666666664sdfsdf
-keymap("n", "<leader>vpi", ".p", opt)
