@@ -1,8 +1,7 @@
-local M = { "kylechui/nvim-surround" }
-
-function M.config()
-  vim.keymap.set("n", "s", "<nop>")
-  require("nvim-surround").setup({
+return {
+  "kylechui/nvim-surround",
+  -- vim.keymap.set("n", "s", "<nop>")
+  opts = {
     keymaps = {
       insert = "<c-g>s",
       insert_line = "<c-g>sl",
@@ -24,7 +23,5 @@ function M.config()
       ["s"] = { "}", "]", ")", ">", '"', "'", "`" },
     },
     move_cursor = false,
-  })
-end
-
-return M
+  },
+}

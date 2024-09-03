@@ -6,6 +6,26 @@ local M = {
 }
 
 function M.config()
+  local harpoon = require("harpoon")
+  function Harpoon_files()
+    local contents = {}
+    local marks_length = harpoon:list():length()
+    local current_file_path = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+    for index = 1, marks_length do
+      local harpoon_file_path = harpoon:list():get(index).value
+      local file_name = harpoon_file_path == "" and "(empty)" or vim.fn.fnamemodify(harpoon_file_path, ":t")
+
+      if current_file_path == harpoon_file_path then
+        contents[index] = string.format("%%#HarpoonNumberActive# %s. %%#HarpoonActive#%s ", index, file_name)
+      else
+        contents[index] = string.format("%%#HarpoonNumberInactive# %s. %%#HarpoonInactive#%s ", index, file_name)
+      end
+    end
+
+    return table.concat(contents)
+  end
+  --
+  --
   --
   -- Set lualine as statusline
   -- See `:help lualine.txt`
@@ -86,6 +106,7 @@ local colors = {
       --   { "CWD" },
       --   { vim.loop.cwd, separator = { right = "" }, left_padding = 2 },
       -- },
+      -- },
     },
     winbar = {
       -- lualine_a = {},
@@ -128,6 +149,21 @@ local colors = {
       lualine_x = {},
       lualine_y = {},
       lualine_z = { "location" },
+    },
+    tabline = {
+      lualine_a = {
+        --
+        {
+          --     use_mode_colors = true,
+          --     -- buffers_color = {
+          --     --   -- Same values as the general color option can be used here.
+          --     --   active = "lualine_a_active", -- Color for active tab.
+          --     --   inactive = "lualine_a_inactive", -- Color for inactive tab.
+          --     -- },
+          --     -- -- use_mode_colors = true,
+          Harpoon_files,
+        },
+      },
     },
     -- tabline = {
     -- lualine_a = {{path = 3,  'filename'}},
@@ -180,6 +216,8 @@ local colors = {
     -- },
     extensions = { "nvim-dap-ui", "fugitive", "quickfix" },
   }
+
+  -- diagnostics
   local conditions = {
     buffer_not_empty = function()
       return vim.fn.empty(vim.fn.expand("%:t")) ~= 1

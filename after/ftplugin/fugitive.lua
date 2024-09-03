@@ -1,7 +1,8 @@
 local M = {}
 function M.setup() end
 -- vim.g.maplocalleader = "\\"
--- vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
+vim.keymap.set("n", "<C-v>", "<cmd>norm! gO <cr>", {})
 vim.keymap.set("n", "<localleader>", function()
   require("which-key").show("\\")
 end, { buffer = true })

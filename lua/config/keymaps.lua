@@ -8,31 +8,41 @@ wk.register({
   ["<leader>d"] = "which_key_ignore",
   ["j"] = "which_key_ignore",
   ["<leader>`"] = "which_key_ignore",
+  ["<leader>,"] = "which_key_ignore",
+  ["<leader>O"] = "which_key_ignore",
+  ["<leader>h"] = "which_key_ignore",
+  ["<leader>L"] = "which_key_ignore",
 })
 local keymap = vim.api.nvim_set_keymap
 local opt = {
   noremap = true,
   silent = true,
 }
---backspace as another leader
+vim.keymap.set("n", "<leader>rw", ":%s/<c-r><c-w>//gc <Left><Left><Left><Left>", {})
 keymap("n", "<bs>", "<space>", { noremap = false })
+--backspace as another leader
 vim.keymap.set("n", "<localleader>", '<cmd>lua require("which-key").show("\\\\")<cr>')
 --remove binds
 vim.keymap.del("n", "<c-_>")
-keymap("n", "<c-w>r", "<cmd>vs#<cr>", {})
-
+--restore window
+keymap("n", "<c-w>r", "<cmd>vs#<cr>", { desc = "restore window" })
+-- keymap("n", "<leader>uB", "<cmd> hi Normal guibg=NONE ctermbg=NONE <cr>", { desc = "Clear Background" })
 --esc
 keymap("i", "jk", "<esc>", {})
-
 keymap("i", "jj", "<esc>", {})
+-- exit visual mode
+keymap("x", "jk", "<esc>", {})
 -- vim.keymap.del("n", "<c-/")
 keymap("i", "<f8>", "<cmd> echo 'insert help '<cr>", {})
 keymap("n", "<f8>", "<cmd> echo 'normal help'<cr>", {})
--- delete to black hole
-keymap("v", "<c-_>", "gcc", {})
+
+-- comment
+vim.keymap.set("v", "<c-_>", "gc", { remap = true })
 keymap("n", "<c-_>", "gcc", {})
-keymap("n", "d", '"_d', opt)
-keymap("v", "d", '"_d', opt)
+
+-- delete to black hole
+-- keymap("n", "d", '"_d', opt)
+-- keymap("v", "d", '"_d', opt)
 keymap("n", "d", '"_d', opt)
 keymap("n", "c", '"_c', opt)
 keymap("v", "c", '"_c', opt)
@@ -43,7 +53,7 @@ keymap("n", "H", "^", opt)
 keymap("n", "L", "$", opt) --yank end of line
 keymap("n", "Y", "y$", opt)
 keymap("n", "<leader>p", "o<esc>p", { desc = "paste below line" })
-keymap("n", "<leader>p", "ko<esc>p", { desc = "paste above line" })
+keymap("n", "<leader>P", "ko<esc>p", { desc = "paste above line" })
 --cut
 keymap("v", "<leader>d", '"+d', opt)
 keymap("n", "<leader>dd", "yydd", opt)
@@ -59,19 +69,20 @@ keymap("n", "gg", "ggzz", opt)
 keymap("n", "G", "Gzz", opt)
 --newline
 keymap("n", "<leader>O", "O<esc>", opt)
+
 -- keymap("n", "<C-x>", ":bp<Bar>bd #<Cr>", opt)
 -- keymap("J", "mzJ`z", opt)
 --delete matching paren, curly
 keymap("n", "<leader>d%", ":norm %x`'x<cr>", opt)
 --harpoon
-keymap("n", "<c-j>", ":lua require('harpoon.ui').nav_file(1)<cr>", opt)
-keymap("n", "<c-k>", ":lua require('harpoon.ui').nav_file(2)<cr>", opt)
-keymap("n", "<c-l>", ":lua require('harpoon.ui').nav_file(3)<cr>", opt)
+-- keymap("n", "<c-j>", ":lua require('harpoon.ui').nav_file(1)<cr>", opt)
+-- keymap("n", "<c-k>", ":lua require('harpoon.ui').nav_file(2)<cr>", opt)
+-- keymap("n", "<c-l>", ":lua require('harpoon.ui').nav_file(3)<cr>", opt)
 -- keymap("n", "F13", ":lua require('harpoon.ui').nav_file(4)<CR>", opt)
 -- ctrl-; is f13 kinesis bind
-keymap("n", "<F13>", ":lua require('harpoon.ui').nav_file(4)<CR>", opt)
-keymap("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opt)
-keymap("n", "<leader>m", ":lua require('harpoon.mark').toggle_file()<CR>", { desc = "Harpoon Mark" })
+-- keymap("n", "<F13>", ":lua require('harpoon.ui').nav_file(4)<CR>", opt)
+-- keymap("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opt)
+-- keymap("n", "<leader>m", ":lua require('harpoon.mark').toggle_file()<CR>", { desc = "Harpoon Mark" })
 ---GIT
 -- keymap("n", "<leader>gd", "<cmd> DiffviewFileHistory % <cr>", { desc = "Diff File" })
 -- keymap("n", "<leader>gD", "<cmd> DiffviewFileHistory <cr>", { desc = "Diff Branch" })
