@@ -61,7 +61,7 @@ vim.opt.laststatus = 2
 vim.opt.background = dark
 --
 -- " Format on paste
-vim.opt.pastetoggle = "<F2>"
+-- vim.opt.pastetoggle = "<F2>"
 vim.opt.showmode = false
 -- " Give more space for displaying messages.
 vim.opt.cmdheight = 2
@@ -191,4 +191,6 @@ vim.opt.guicursor = {
   "i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
   -- 'r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100'
 }
+
+vim.opt.cmdheight = 1
 -- vim.g.maplocalleader = "\\"
